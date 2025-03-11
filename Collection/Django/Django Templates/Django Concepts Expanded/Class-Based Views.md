@@ -1,0 +1,5 @@
+- Mixins [[Mixin Samples]] [[Mixins]]
+- Customizing CBVs
+- API Views with Django REST Framework (DRF)
+- Views (Function-Based Views & Class-Based Views) [[FBV & CBV]]
+- Decorators [[FBV & CBV#Decorators]]

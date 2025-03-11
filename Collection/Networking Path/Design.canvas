@@ -1,0 +1,13 @@
+{
+	"nodes":[
+		{"id":"6786d6c3fd200f1e","x":-1760,"y":-1100,"width":820,"height":1460,"color":"5","type":"file","file":"Networking Path/My Roadmap/Deepseek Solution.md"},
+		{"id":"60835f8d61115e0a","x":-780,"y":-1060,"width":560,"height":600,"color":"2","type":"file","file":"Networking Path/My Roadmap/Advanced Project Ideas (AI, Network, Cloud, Sec).md"},
+		{"id":"b1195381c13ca024","x":-780,"y":-360,"width":940,"height":720,"color":"3","type":"file","file":"Networking Path/My Roadmap/Linux Distros.md"},
+		{"id":"090fe0fb403a7c8b","x":240,"y":-1060,"width":1020,"height":1440,"color":"6","type":"file","file":"Networking Path/My Roadmap/My Path.md"}
+	],
+	"edges":[
+		{"id":"109226c1fa5adf1a","fromNode":"b1195381c13ca024","fromSide":"bottom","toNode":"6786d6c3fd200f1e","toSide":"bottom"},
+		{"id":"1fe3531e8b814013","fromNode":"60835f8d61115e0a","fromSide":"top","toNode":"6786d6c3fd200f1e","toSide":"top"},
+		{"id":"58965d791ce397b8","fromNode":"090fe0fb403a7c8b","fromSide":"top","toNode":"6786d6c3fd200f1e","toSide":"top","color":"1"}
+	]
+}
