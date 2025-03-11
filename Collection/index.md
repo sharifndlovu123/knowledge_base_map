@@ -2,7 +2,7 @@
 
 Welcome to this dynamic site, filled with a **wealth of knowledge** across various nodes. This site is constantly updated with fresh, relevant content, and I’m happy to share it with you. 
 
-[OWNER - Sharif Sule Ndlovu(https://devbridge.co.za)]
+[OWNER - Sharif Sule Ndlovu(https://portfolio.devbridge.co.za)]
 
 ## What's Inside?
 
