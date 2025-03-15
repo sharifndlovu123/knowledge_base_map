@@ -6,7 +6,7 @@ docs_dir: 'Collection'
 site_url: https://www.devbridge.co.za
 copyright: Sharif Ndlovu | 'Build Test Deploy'
 theme:
-  name: material
+  name: simple-blog
   favicon: assets/globe-green.png
   logo: assets/globe-green.png
 
