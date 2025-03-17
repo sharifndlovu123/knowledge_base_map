@@ -181,5 +181,3 @@ ssh -p 2222 your_username@your_server_ip
     sudo journalctl -u ssh --no-pager | tail -20
     ```
     
-
-Let me know if you run into any issues! 🚀

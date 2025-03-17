@@ -135,5 +135,3 @@ It should display the generated HTML page with the **current time**.
 ✅ Uses **standard Java features** (no external libraries).  
 ✅ **CGI-compliant**—works like compiled C binaries.  
 ✅ Can be tested in **VS Code first**, then deployed to **Apache**.
-
-Let me know if you need adjustments! 🚀

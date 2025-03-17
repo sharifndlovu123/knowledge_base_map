@@ -133,6 +133,7 @@ Scheme is a minimalist, functional programming language with a simple and consis
      - Use `cons`.
        ```scheme
        (cons 1 2) ; => (1 . 2)
+		(cons 1 lst); => adds item to from of list
        ```
 
 ---
@@ -167,7 +168,7 @@ Scheme is a minimalist, functional programming language with a simple and consis
 
 ---
 
-### 10. **Input/Output**
+	### 10. **Input/Output**
    - **`display`:** Prints a value to the output.
      ```scheme
      (display "Hello, Scheme!") ; => Hello, Scheme!

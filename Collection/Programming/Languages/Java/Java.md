@@ -260,6 +260,28 @@ ages.put("Bob", 30);
 System.out.println(ages.get("Alice"));  // 25
 ```
 
+
+## Enums
+
+``` java
+public enum Methods {
+	GET,POST,PUT,DELETE,PATCH
+}
+```
+
+```java
+public enum Arithmetics {
+        ADD("+"), SUBTRACT("-"), DIVIDE("/"), MULTIPLY("*");
+        private final String symbol;
+        Arithmetics(String symbol) {
+            this.symbol = symbol;
+        }
+        public String getSymbol() {
+            return symbol;
+        }
+    }
+```
+---
 # Java Collections: HashMaps and More
 
 ## HashMap

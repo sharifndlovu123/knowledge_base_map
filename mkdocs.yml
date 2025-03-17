@@ -107,7 +107,8 @@ plugins:
         - Django/*
         - "*.tmp"
         - "*.gz"
-  # - mermaid2
+  - mermaid2
+  - git-latest-changes
 
   # Images
   - glightbox:
@@ -159,37 +160,39 @@ nav:
       
 
 #  Mermaid
-# markdown_extensions:
-#   - pymdownx.superfences:
-#         # make exceptions to highlighting of code:
-#       custom_fences:
-#         - name: mermaid
-#           class: mermaid
-#           format: !!python/name:mermaid2.fence_mermaid_custom
 
 markdown_extensions:
   - pymdownx.highlight
   - pymdownx.magiclink
   - pymdownx.superfences
   # - obsidian_callouts
+  - pymdownx.superfences:
+        # make exceptions to highlighting of code:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:mermaid2.fence_mermaid_custom
+
+mermaid:
+  version: 10.4.0  # or whatever version you want to use
 
 use_directory_urls: false
 
 extra_css:
   - assets/css/custom.css
 
-extra_javascript:
-  - "https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js"
+# extra_javascript:
+#   - "https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js"
 
 extra:
-  # analytics:
-  #   provider: google
-  #   property: !ENV GOOGLE_ANALYTICS_KEY
-  # social:
-  #   - icon: fontawesome/brands/github
-  #     link: https://github.com/YOUR_GITHUB
-  #   - icon: fontawesome/brands/linkedin
-  #     link: https://linkedin.com/in/YOUR_LINKEDIN
+  analytics:
+    provider: google
+    property: !ENV GOOGLE_ANALYTICS_KEY
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/sharifndlovu123
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/sharif-ndlovu-3b54a2275/
   #   - icon: fontawesome/brands/github
   #     link: https://github.com/squidfunk
   #   - icon: fontawesome/brands/docker
@@ -203,5 +206,5 @@ extra:
   #   - icon: fontawesome/brands/x-twitter
   #     link: https://x.com/squidfunk
 
-  copyright: "© 2025 Sharif Ndlovu (DevBridge). Built with MkDocs & Simple-blog."
+  copyright: "© 2025 Sharif Ndlovu (DevBridge)."
 

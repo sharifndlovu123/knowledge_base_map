@@ -259,4 +259,3 @@ If your Telnet server requires a username and password for authentication, you w
 
 Once you're connected to the Telnet server, you should be able to interact with your application as designed.
 
-Let me know if you need further assistance!
