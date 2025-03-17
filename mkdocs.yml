@@ -7,7 +7,7 @@ repo_url: https://github.com/sharifndlovu123/knowledge_base_map
 site_url: https://www.devbridge.co.za
 copyright: Sharif Ndlovu | 'Build Test Deploy'
 theme:
-  name: simple-blog
+  name: material
   favicon: assets/globe-green.png
   logo: assets/globe-green.png
 
