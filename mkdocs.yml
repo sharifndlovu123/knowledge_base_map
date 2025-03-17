@@ -96,6 +96,7 @@ theme:
     - toc.follow
 
 plugins:
+  - macros  
   - search:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
   - awesome-nav
