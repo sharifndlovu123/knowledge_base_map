@@ -62,5 +62,3 @@ If you want to **self-host** your Obsidian notes, here are some solid approaches
 - **Public Notes** → Static site (MkDocs, Hugo, or Docusaurus).
 - **Private Syncing** → Nextcloud or Obsidian Git.
 - **Self-Hosted Wiki** → Wiki.js or BookStack.
-
-Let me know your exact needs, and I can help you set it up! 🚀
