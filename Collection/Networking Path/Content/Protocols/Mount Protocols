@@ -1,0 +1,121 @@
+## **SMB (Server Message Block) Protocol**  
+
+📌 **What is SMB?**  
+SMB (Server Message Block) is a **network file sharing protocol** that allows computers to share files, printers, and other resources over a network. It is mainly used in **Windows environments**, but it is also supported on Linux and macOS through Samba.  
+
+---
+
+### **Key Features of SMB:**  
+
+✅ **File & Printer Sharing**  
+- Enables users to **access, read, write, and manage files** on a remote system as if they were local.  
+- Supports **shared printer access** across a network.  
+
+✅ **Authentication & Permissions**  
+- Uses **user-based authentication** (NTLM, Kerberos).  
+- Supports **file and folder permissions** for security.  
+
+✅ **Supports Multiple Versions**  
+- **SMB 1.0** (Legacy, insecure, vulnerable to exploits like WannaCry).  
+- **SMB 2.0** (Introduced in Windows Vista; faster, more efficient).  
+- **SMB 3.0** (Added encryption, better security, and performance enhancements).  
+
+✅ **Network Drive Mapping**  
+- Allows users to **map remote shared folders as local drives** (e.g., `Z:\SharedFiles`).  
+
+✅ **Opportunistic Locking (OpLocks)**  
+- Improves performance by caching file operations.  
+
+---
+
+### **SMB in File Directories:**  
+When using SMB, shared directories follow this structure:  
+
+```
+\\ServerName\SharedFolder\
+  ├── Documents\
+  ├── Projects\
+  ├── Reports\
+  ├── Printers\
+```
+Example: Accessing a shared folder  
+- `\\192.168.1.10\Public\` (IP-based)  
+- `\\MyServer\Documents\` (Hostname-based)  
+
+---
+
+### **Comparison: SMB vs. Other File Sharing Protocols**  
+
+| Feature | **SMB** | **NFS (Linux/Unix)** | **FTP** |
+|---------|--------|----------------|------|
+| **OS Compatibility** | Windows, Linux, macOS | Mostly Linux/Unix | Cross-platform |
+| **Authentication** | Yes (User-based) | No (By default) | Yes (Username & Password) |
+| **Encryption** | Yes (SMB 3.0+) | No (Without extra setup) | No (Without FTPS) |
+| **Use Case** | File & printer sharing | Linux/Unix file sharing | Remote file transfers |
+
+**SMB is ideal for secure, seamless file sharing within a local or enterprise network.**
+
+---
+## **NFS (Network File System) Protocol**  
+
+📌 **What is NFS?**  
+NFS (Network File System) is a **distributed file system protocol** that allows systems to share files and directories over a network as if they were local. It is primarily used in **Linux and Unix environments**, but it can also be used on Windows with additional configurations.  
+
+---
+
+### **Key Features of NFS:**  
+
+✅ **File Sharing Across Networks**  
+- Allows multiple users to access the same files from different machines.  
+- Shared directories can be **mounted** on client machines.  
+
+✅ **Stateless Protocol**  
+- The server does not store client session information, making it **resilient to crashes**.  
+
+✅ **Permission-Based Access**  
+- Uses **UID/GID (User ID/Group ID)** for access control.  
+- Can restrict which clients can access shared directories.  
+
+✅ **Versions & Improvements**  
+- **NFSv2** (1989) – Simple, but lacks security features.  
+- **NFSv3** (1995) – Added better error handling and large file support.  
+- **NFSv4** (2000) – Introduced **authentication, encryption, and better performance**.  
+
+✅ **Uses RPC (Remote Procedure Call)**  
+- Clients communicate with the NFS server using **RPC-based requests**.  
+
+---
+
+### **NFS in File Directories**  
+
+📌 **Shared Directory on NFS Server:**  
+```
+/export/shared/
+  ├── user1/
+  ├── user2/
+  ├── projects/
+  ├── backups/
+```
+📌 **Mounted Directory on Client Machine:**  
+```
+/mnt/nfs/shared/
+  ├── user1/
+  ├── user2/
+  ├── projects/
+  ├── backups/
+```
+Clients can **read/write files** in `/mnt/nfs/shared/` as if they were on their local machine.  
+
+---
+
+### **Comparison: NFS vs. SMB vs. FTP**  
+
+| Feature  | **NFS** | **SMB** | **FTP** |
+|----------|--------|--------|--------|
+| **OS Compatibility** | Linux, Unix, Windows (limited) | Windows, Linux, macOS | Cross-platform |
+| **Authentication** | UID/GID-based | User-based (NTLM, Kerberos) | Username & Password |
+| **Encryption** | Yes (NFSv4) | Yes (SMB 3.0+) | No (Unless using FTPS) |
+| **Performance** | High for Unix/Linux | Good for mixed OS networks | Lower (due to transfer overhead) |
+| **Use Case** | Linux file sharing | Windows file sharing | Remote file transfers |
+
+**NFS is best for Linux/Unix environments that need fast, seamless file sharing.**

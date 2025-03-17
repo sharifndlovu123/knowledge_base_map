@@ -90,3 +90,22 @@
   background-color: #d0d0d0be;
 }
 
+
+.submenu  {
+  background-color: #0a2042;
+  position: absolute !important;
+  /* top: -50px !important; */
+  transform: translate(-120%, 50px);
+
+}
+
+
+
+/* 
+.nav-item .submenu {
+  display: none;
+  position: absolute;
+  left: 100%;
+  top: -7px;
+}
+} */

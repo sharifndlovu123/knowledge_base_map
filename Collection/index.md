@@ -13,4 +13,7 @@ Feel free to explore, learn, and engage with the ever-evolving content. Whether 
 fix later
 https://github.com/GooRoo/mkdocs-obsidian-bridge
 ---
+
+## [[Whats New]]?
+
 _This site is a work in progress, and new nodes will be added regularly._
