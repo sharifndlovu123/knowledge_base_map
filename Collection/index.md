@@ -16,4 +16,4 @@ https://github.com/GooRoo/mkdocs-obsidian-bridge
 
 ## [[Whats New]]?
 
-_This site is a work in progress, and new nodes will be added regularly._
+_This site is a work in progress, and new nodes will be added regularly.__
