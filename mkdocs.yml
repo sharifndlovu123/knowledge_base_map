@@ -146,6 +146,7 @@ plugins:
 
 nav:
   - Home: 'index.md'
+  - Whats New: 'Whats New.md'
   # - Django:
   #     - 'Collection/Django/*.md'
   # - DevBridge:
