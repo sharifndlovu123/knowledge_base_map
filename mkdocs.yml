@@ -168,6 +168,7 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.magiclink
   - pymdownx.superfences
+  - md_in_html
   # - obsidian_callouts
   - pymdownx.superfences:
         # make exceptions to highlighting of code:
