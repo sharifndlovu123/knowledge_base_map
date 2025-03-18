@@ -3,8 +3,8 @@
 site_name: My Knowledge Base
 docs_dir: 'Collection' 
 
-repo_url: https://github.com/sharifndlovu123/knowledge_base_map
-site_url: https://www.devbridge.co.za
+# repo_url: https://github.com/sharifndlovu123/knowledge_base_map
+site_url: https://www.knowledgemap.devbridge.co.za
 copyright: Sharif Ndlovu | 'Build Test Deploy'
 theme:
   name: material
