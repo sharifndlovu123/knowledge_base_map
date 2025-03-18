@@ -7,7 +7,7 @@ Bash syntax is vast and flexible, so let's break it down into fundamental compon
 A script starts with a **shebang** to specify the interpreter:
 
 ```bash
-#!/bin/bash
+# !/bin/bash
 ```
 
 - `#!` tells the system which interpreter to use.
@@ -96,7 +96,7 @@ Bash supports indexed arrays and associative arrays.
 fruits=("apple" "banana" "cherry")
 echo "${fruits[0]}"  # apple
 echo "${fruits[@]}"  # all elements
-echo "${#fruits[@]}" # length
+echo "${fruits[@]}" # length
 ```
 
 - `[@]` expands all elements

@@ -1,0 +1,113 @@
+### **Breakdown of Subnetting**  
+
+Subnetting is the process of dividing a larger network into smaller, more manageable sub-networks (subnets). It improves network organization, security, and efficiency by optimizing IP address allocation and reducing broadcast traffic.  
+
+---
+
+## **1. Why Subnetting is Used**  
+- **Efficient IP Address Allocation**: Prevents waste of large address blocks.  
+- **Reduced Network Congestion**: Limits the number of devices in a broadcast domain.  
+- **Improved Security**: Isolates different parts of the network.  
+- **Simplified Management**: Organizes networks for better control and troubleshooting.  
+
+---
+
+## **2. IP Address Basics**  
+
+An **IPv4 address** is a 32-bit number, written in **dotted decimal** format:  
+
+```
+192.168.1.1  
+```
+Each address has:  
+- **Network Portion**: Identifies the network.  
+- **Host Portion**: Identifies devices within that network.  
+- **Subnet Mask**: Defines how much of the address is for the network vs. hosts.  
+
+Example:  
+```
+IP: 192.168.1.10  
+Subnet Mask: 255.255.255.0  
+```
+This means:  
+- **192.168.1** is the network.  
+- **.10** is the host.  
+
+---
+
+## **3. Subnet Masks**  
+
+A subnet mask defines which portion of an IP address is for the **network** and which is for **hosts**.  
+
+| **CIDR Notation** | **Subnet Mask**        | **Hosts per Subnet** |
+|------------------|----------------------|-----------------|
+| /8  | 255.0.0.0    | 16,777,214  |
+| /16 | 255.255.0.0  | 65,534  |
+| /24 | 255.255.255.0 | 254  |
+| /30 | 255.255.255.252 | 2  |
+
+A **smaller subnet mask (higher /X value)** creates **more subnets** but allows **fewer hosts** in each.  
+
+---
+
+## **4. Calculating Subnets**  
+
+To create subnets, borrow bits from the **host portion** and use them for subnetting.  
+
+### **Example: Subnetting a /24 Network**
+- Original Network: `192.168.1.0/24` (255.255.255.0)  
+- Need: **4 subnets**  
+- Convert **/24 to /26** (borrow 2 bits)  
+- New Subnet Mask: `255.255.255.192`  
+
+
+Subnets created:  
+
+| **Subnet** | **First IP** | **Last IP** | **Broadcast** |
+|-----------|-------------|------------|-------------|
+| 192.168.1.0/26 | 192.168.1.1 | 192.168.1.62 | 192.168.1.63 |
+| 192.168.1.64/26 | 192.168.1.65 | 192.168.1.126 | 192.168.1.127 |
+| 192.168.1.128/26 | 192.168.1.129 | 192.168.1.190 | 192.168.1.191 |
+| 192.168.1.192/26 | 192.168.1.193 | 192.168.1.254 | 192.168.1.255 |
+
+Each subnet now has **62 usable hosts** instead of **254** in the original /24.  
+
+---
+
+## **5. CIDR (Classless Inter-Domain Routing)**  
+
+CIDR allows flexible subnetting by removing strict **Class A, B, C** boundaries.  
+
+- **Before CIDR:** Only fixed-size networks (`Class A /8, Class B /16, etc.`).  
+- **With CIDR:** Can use any subnet mask (`/18, /22, etc.`) for efficient IP allocation.  
+
+Example:  
+- `10.0.0.0/16` (65,534 hosts)  
+- `10.0.1.0/24` (256 hosts)  
+
+---
+
+## **6. VLSM (Variable Length Subnet Masking)**  
+
+VLSM allows **different subnet sizes within the same network**, reducing wasted IPs.  
+
+Example:  
+- `/30` for router links (2 hosts).  
+- `/24` for office networks (254 hosts).  
+- `/28` for small departments (14 hosts).  
+
+This prevents assigning large subnets to small networks, saving IPs.  
+
+---
+
+## **7. Subnetting in IPv6**  
+
+IPv6 simplifies subnetting with fixed **/64** subnets, eliminating manual calculations.  
+
+Example:  
+- `2001:db8::/64` is the default IPv6 subnet size.  
+- Subnetting IPv6 uses **hextets**, not bits like IPv4.  
+
+---
+
+Subnetting helps optimize network design, enhance security, and manage IP addressing efficiently.

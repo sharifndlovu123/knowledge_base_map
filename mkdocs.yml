@@ -96,7 +96,6 @@ theme:
     - toc.follow
 
 plugins:
-  - macros  
   - search:
       separator: '[\s\u200b\-_,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
   - awesome-nav
@@ -104,13 +103,12 @@ plugins:
   - exclude:
       glob:
         - DevBridge/*
-        - Networking Path/My Roadmap/*
-        - Networking Path/Network path.md
+        - Networking/My Roadmap/*
+        - Networking/Network path.md
         - Django/*
         - "*.tmp"
         - "*.gz"
   - mermaid2
-  - git-latest-changes
 
   # Images
   - glightbox:
