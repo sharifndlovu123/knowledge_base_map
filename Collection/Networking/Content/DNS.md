@@ -144,3 +144,127 @@ For `www.sub.example.co.uk.`:
 | **Fifth-Level** | `www.sub.example.co.uk` | Another subdivision, often for the web service. |
 
 DNS domains follow this hierarchy to maintain a scalable and organized structure for global internet addressing.
+
+---
+## Different nameservers
+
+A **name server** is a crucial part of the Domain Name System (DNS) that translates human-readable domain names into IP addresses. Here’s a breakdown of the different types of name servers and their roles:
+
+### **1. Root Name Servers**
+- The top of the DNS hierarchy.
+- There are 13 sets of root name servers globally.
+- Direct queries to the appropriate **TLD (Top-Level Domain) name servers**.
+
+### **2. TLD Name Servers**
+- Responsible for handling requests for specific top-level domains (e.g., `.com`, `.org`, `.net`).
+- Direct queries to the **authoritative name servers** for a domain.
+
+### **3. Authoritative Name Servers**
+- Hold the actual DNS records for a domain.
+- Provide the IP address of the requested domain name.
+- Can be managed by domain registrars, web hosting providers, or custom DNS providers.
+
+### **4. Recursive Name Servers (Resolvers)**
+- Used by ISPs or public DNS services (e.g., Google’s `8.8.8.8` or Cloudflare’s `1.1.1.1`).
+- Cache responses to speed up subsequent requests.
+- Query root, TLD, and authoritative name servers to resolve domain names.
+
+### **5. Caching Name Servers**
+- Store previously resolved DNS records for faster lookup.
+- Reduce the number of external DNS queries.
+
+### **6. Forwarding Name Servers**
+- Don’t perform direct resolution but forward requests to other resolvers.
+- Common in enterprise networks to apply filtering or logging.
+
+
+---
+
+## Performing DNS Lookups (Samples)
+
+Here are a few ways to perform a DNS lookup using different tools:
+
+---
+
+### **1. Using `nslookup` (Windows, Linux, macOS)**
+```sh
+nslookup example.com
+```
+**Example Output:**
+```
+Server:  8.8.8.8
+Address: 8.8.8.8#53
+
+Non-authoritative answer:
+Name: example.com
+Address: 93.184.216.34
+```
+- The **server** is the DNS resolver used.
+- The **non-authoritative answer** is from a caching DNS resolver.
+
+To query a specific type of record:
+```sh
+nslookup -type=MX example.com   # Lookup mail server (MX) records
+nslookup -type=NS example.com   # Lookup name servers
+```
+
+---
+
+### **2. Using `dig` (Linux, macOS)**
+```sh
+dig example.com
+```
+**Example Output:**
+```
+;; ANSWER SECTION:
+example.com.   3600   IN   A   93.184.216.34
+```
+- The **ANSWER SECTION** provides the resolved IP address.
+
+To query different DNS records:
+```sh
+dig example.com MX  # Get mail server (MX) records
+dig example.com NS  # Get name servers
+dig example.com TXT # Get text records (e.g., SPF, DKIM)
+```
+To use a specific DNS server (e.g., Google DNS `8.8.8.8`):
+```sh
+dig @8.8.8.8 example.com
+```
+
+---
+
+### **3. Using `host` (Linux, macOS)**
+```sh
+host example.com
+```
+**Example Output:**
+```
+example.com has address 93.184.216.34
+example.com mail is handled by 0 example.mail.server
+```
+
+For name servers:
+```sh
+host -t ns example.com
+```
+
+---
+
+### **4. Using Python (`socket` and `dns.resolver`)**
+#### **Basic Lookup with `socket`**
+```python
+import socket
+ip = socket.gethostbyname("example.com")
+print(ip)
+```
+
+#### **Advanced Lookup with `dnspython`**
+```python
+import dns.resolver
+result = dns.resolver.resolve("example.com", "A")
+for ip in result:
+    print(ip)
+```
+
+---
