@@ -47,7 +47,7 @@ jar cfm app.jar manifest.txt -C out .
 If it's an executable JAR:
 
 ```sh
-java -jar app.jar
+	java -jar app.jar
 ```
 
 ---

@@ -117,3 +117,19 @@ man -P cat command   # Display the man page as plain text
 
 Man pages are an essential tool for understanding Linux commands and system functionality, making them crucial for troubleshooting and learning.
 
+
+### **Accessing Web-Based Man Pages**  
+Many distributions and organizations provide **online versions of man pages** for easier searching and sharing.  
+
+> man pages can be used online but the best option is locally because the man files are stored directly in your directories. 
+
+#### **Popular Web Man Page Repositories**  
+| Website | Description |  
+|---------|-------------|  
+| [man7.org](https://man7.org/linux/man-pages/) | Extensive Linux man page collection, frequently updated. |  
+| [die.net](https://linux.die.net/man/) | Classic Linux man pages with a clean interface. |  
+| [Ubuntu Manpages](https://manpages.ubuntu.com/) | Ubuntu-specific man pages. |  
+| [FreeBSD Man Pages](https://www.freebsd.org/cgi/man.cgi) | BSD-based system documentation. |  
+| [man.cx](http://man.cx/) | Quick lookup for various Unix-based man pages. |  
+
+---
