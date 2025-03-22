@@ -1,0 +1,59 @@
+Cloud computing is typically categorized into three main service models: **IaaS (Infrastructure as a Service), PaaS (Platform as a Service), and SaaS (Software as a Service).** Some also include **FaaS (Function as a Service)** as a separate model. Here's the breakdown:
+
+---
+
+### 1. **IaaS (Infrastructure as a Service)**
+
+- **What it is:** Provides raw computing resources like virtual machines, storage, and networking.
+- **Who manages what:**
+    - **User manages:** OS, runtime, applications, security configurations.
+    - **Provider manages:** Physical hardware, networking, data centers.
+- **Examples:** AWS EC2, Azure Virtual Machines, Google Compute Engine.
+- **Use Cases:** Hosting applications, databases, virtualized workloads, scaling infrastructure.
+
+---
+
+### 2. **PaaS (Platform as a Service)**
+
+- **What it is:** Provides a development and deployment environment, handling infrastructure, OS, runtime, and middleware.
+- **Who manages what:**
+    - **User manages:** Application code and configurations.
+    - **Provider manages:** Infrastructure, OS, runtime, scaling, security, and updates.
+- **Examples:** AWS Elastic Beanstalk, Google App Engine, Azure App Service.
+- **Use Cases:** Application development, web and mobile app hosting, reducing DevOps workload.
+
+---
+
+### 3. **SaaS (Software as a Service)**
+
+- **What it is:** Fully managed software applications accessible over the internet.
+- **Who manages what:**
+    - **User manages:** Nothing except using the software.
+    - **Provider manages:** Everything (infrastructure, application, updates, security).
+- **Examples:** Google Workspace (Docs, Gmail), Microsoft 365, Dropbox, Salesforce.
+- **Use Cases:** Email, collaboration tools, CRM, file storage, business applications.
+
+---
+
+### 4. **FaaS (Function as a Service) / Serverless**
+
+- **What it is:** A subset of PaaS, but focuses on running event-driven functions without managing infrastructure.
+- **Who manages what:**
+    - **User manages:** Function code and triggers.
+    - **Provider manages:** Everything else (servers, runtime, scaling, execution).
+- **Examples:** AWS Lambda, Azure Functions, Google Cloud Functions.
+- **Use Cases:** Event-driven workloads, microservices, API backends, automation.
+
+---
+
+### **Comparison Table:**
+
+|Feature|IaaS|PaaS|SaaS|FaaS|
+|---|---|---|---|---|
+|**Control**|High|Medium|Low|Low|
+|**Managed by Provider**|Hardware, Networking|Hardware, OS, Runtime|Everything|Hardware, OS, Scaling|
+|**User Focus**|Infrastructure & VMs|Application Development|End-User Software|Event-Driven Code|
+|**Scalability**|Manual/Auto Scaling|Auto Scaling|Fully Managed|Automatic|
+|**Examples**|AWS EC2, Azure VM|AWS Elastic Beanstalk, GAE|Google Workspace, Salesforce|AWS Lambda, Azure Functions|
+
+Each model serves different needs: **IaaS** for full control, **PaaS** for easy development, **SaaS** for end users, and **FaaS** for event-driven automation.
