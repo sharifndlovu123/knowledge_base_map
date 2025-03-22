@@ -1,0 +1,178 @@
+### **HTTP Breakdown (HyperText Transfer Protocol)**  
+HTTP (HyperText Transfer Protocol) is a communication protocol used for transmitting hypermedia documents, like web pages, over the internet. It follows a **request-response** model between clients (browsers) and servers.
+
+> TIP: Understanding the base content of what HTTP holds makes other protocols easier to understand. Especially in the context of headers when it comes to packets, segments and frames. 
+
+---
+
+## **1. HTTP Request Structure**
+An HTTP request consists of:  
+- **Request Line**: Specifies the HTTP method, resource path, and protocol version.  
+- **Headers**: Provide metadata (e.g., user agent, content type, authentication).  
+- **Body** (Optional): Contains data (e.g., form submissions, JSON payloads).
+
+### **Example HTTP Request (GET)**
+```
+GET /index.html HTTP/1.1
+Host: www.example.com
+User-Agent: Mozilla/5.0
+Accept: text/html
+```
+
+### **Example HTTP Request (POST)**
+```
+POST /login HTTP/1.1
+Host: www.example.com
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 27
+
+username=admin&password=123
+```
+
+---
+
+## **2. HTTP Response Structure**
+An HTTP response consists of:  
+- **Status Line**: Includes the HTTP version, status code, and status message.  
+- **Headers**: Contain metadata like content type and cache control.  
+- **Body** (Optional): Contains the requested resource (HTML, JSON, etc.).
+
+### **Example HTTP Response (200 OK)**
+```
+HTTP/1.1 200 OK
+Date: Sat, 22 Mar 2025 10:30:00 GMT
+Content-Type: text/html
+Content-Length: 125
+
+<html>
+<head><title>Example</title></head>
+<body><h1>Welcome to Example</h1></body>
+</html>
+```
+
+---
+
+## **3. Common HTTP Methods**
+| Method  | Description |
+|---------|------------|
+| **GET** | Retrieve a resource (e.g., web page, API data). |
+| **POST** | Submit data to the server (e.g., form submission). |
+| **PUT** | Update a resource or create if it doesn’t exist. |
+| **DELETE** | Remove a resource. |
+| **HEAD** | Retrieve headers only (no body). |
+| **OPTIONS** | Check supported HTTP methods for a resource. |
+| **PATCH** | Partially update a resource. |
+
+---
+
+## **4. Common HTTP Status Codes**
+| Code | Meaning |
+|------|---------|
+| **1xx** | Informational (e.g., `100 Continue`) |
+| **2xx** | Success (e.g., `200 OK`, `201 Created`) |
+| **3xx** | Redirection (e.g., `301 Moved Permanently`, `302 Found`) |
+| **4xx** | Client Error (e.g., `400 Bad Request`, `404 Not Found`) |
+| **5xx** | Server Error (e.g., `500 Internal Server Error`, `502 Bad Gateway`) |
+
+---
+
+## **5. HTTP Content Types**
+HTTP responses include a **Content-Type** header to indicate the type of data being returned.
+
+### **Common Content Types**
+| Content Type | Description |
+|-------------|------------|
+| `text/html` | HTML documents |
+| `text/plain` | Plain text |
+| `application/json` | JSON data |
+| `application/xml` | XML data |
+| `multipart/form-data` | File uploads |
+| `application/x-www-form-urlencoded` | Form data (key-value pairs) |
+
+> There are too many mime types, its better to understand what content you are sending and match that to a Content-Type. id video/mp4, audio,mp3
+
+---
+
+
+## **Breakdown of HTTP Headers**  
+HTTP headers are key-value pairs that provide metadata about the request or response. They are categorized into different types based on their function.
+
+---
+
+## **1. General Headers**  
+These apply to both requests and responses but do not relate to the content itself.  
+
+| Header | Description | Example |
+|--------|------------|---------|
+| **Cache-Control** | Controls caching behavior. | `Cache-Control: no-cache, must-revalidate` |
+| **Connection** | Controls connection persistence. | `Connection: keep-alive` |
+| **Date** | Timestamp of the request/response. | `Date: Sat, 22 Mar 2025 10:30:00 GMT` |
+| **Pragma** | Similar to `Cache-Control`, used in HTTP/1.0. | `Pragma: no-cache` |
+| **Trailer** | Lists headers that will be sent in the trailer of a chunked response. | `Trailer: Content-MD5` |
+| **Transfer-Encoding** | Specifies encoding for message body transfer. | `Transfer-Encoding: chunked` |
+| **Upgrade** | Requests an upgrade to another protocol. | `Upgrade: websocket` |
+| **Via** | Shows intermediary proxies in the request path. | `Via: 1.1 proxy-server` |
+
+---
+
+## **2. Request Headers**  
+These provide additional information from the client to the server.  
+
+| Header | Description | Example |
+|--------|------------|---------|
+| **Host** | Specifies the domain name of the server. | `Host: www.example.com` |
+| **User-Agent** | Identifies the client (browser, bot, etc.). | `User-Agent: Mozilla/5.0` |
+| **Accept** | Specifies content types the client can process. | `Accept: text/html, application/json` |
+| **Accept-Encoding** | Specifies encoding the client supports. | `Accept-Encoding: gzip, deflate` |
+| **Accept-Language** | Preferred language for content. | `Accept-Language: en-US,en;q=0.9` |
+| **Authorization** | Sends authentication credentials. | `Authorization: Bearer <token>` |
+| **Referer** | Indicates the previous page the user came from. | `Referer: https://google.com` |
+| **Origin** | Specifies the origin of the request (important for CORS). | `Origin: https://example.com` |
+| **Content-Type** | Specifies the type of request body data. | `Content-Type: application/json` |
+| **Content-Length** | Length of the request body in bytes. | `Content-Length: 1234` |
+| **Cookie** | Sends cookies stored by the client. | `Cookie: sessionid=abc123` |
+
+---
+
+## **3. Response Headers**  
+These provide additional information about the response. 
+
+| Header | Description | Example |
+|--------|------------|---------|
+| **Server** | Specifies the server software. | `Server: nginx/1.18.0` |
+| **Set-Cookie** | Sends cookies to the client. | `Set-Cookie: sessionid=xyz789; HttpOnly; Secure` |
+| **Content-Type** | Specifies the MIME type of the response body. | `Content-Type: text/html` |
+| **Content-Length** | Size of the response body in bytes. | `Content-Length: 3456` |
+| **Location** | Redirects the client to another URL. | `Location: https://newsite.com` |
+| **ETag** | Unique identifier for cached content validation. | `ETag: "abc123xyz"` |
+| **Last-Modified** | Indicates the last modification date of the resource. | `Last-Modified: Wed, 20 Mar 2025 15:00:00 GMT` |
+| **WWW-Authenticate** | Specifies the authentication method required. | `WWW-Authenticate: Basic realm="Secure Area"` |
+
+---
+
+## **4. Security Headers**  
+These help enforce security policies.  
+
+| Header | Description | Example |
+|--------|------------|---------|
+| **Strict-Transport-Security (HSTS)** | Enforces HTTPS connections. | `Strict-Transport-Security: max-age=31536000; includeSubDomains` |
+| **Content-Security-Policy (CSP)** | Restricts sources for scripts, images, and other content. | `Content-Security-Policy: default-src 'self'` |
+| **X-Frame-Options** | Prevents clickjacking attacks. | `X-Frame-Options: DENY` |
+| **X-Content-Type-Options** | Blocks MIME-type sniffing. | `X-Content-Type-Options: nosniff` |
+| **X-XSS-Protection** | Enables cross-site scripting (XSS) protection. | `X-XSS-Protection: 1; mode=block` |
+| **Referrer-Policy** | Controls how much referrer info is sent. | `Referrer-Policy: no-referrer` |
+
+---
+
+## **5. CORS Headers (Cross-Origin Resource Sharing)**
+Used when making cross-origin requests in web applications.  
+
+| Header | Description | Example |
+|--------|------------|---------|
+| **Access-Control-Allow-Origin** | Specifies allowed origins. | `Access-Control-Allow-Origin: *` |
+| **Access-Control-Allow-Methods** | Specifies allowed HTTP methods. | `Access-Control-Allow-Methods: GET, POST` |
+| **Access-Control-Allow-Headers** | Specifies allowed request headers. | `Access-Control-Allow-Headers: Content-Type, Authorization` |
+
+---
+
+
