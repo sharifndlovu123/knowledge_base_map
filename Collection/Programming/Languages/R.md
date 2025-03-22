@@ -318,5 +318,3 @@ dbDisconnect(conn)
 ```
 
 ---
-
-Would you like help with a specific file format or issue? 🚀

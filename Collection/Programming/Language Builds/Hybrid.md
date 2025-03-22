@@ -89,5 +89,3 @@ A **hybrid system** uses **both a compiler and an interpreter** to execute code.
 🔹 Hybrid approaches **combine the best of both worlds**—portability & efficiency.  
 🔹 **JIT compilation is key** to modern performance optimizations.  
 🔹 **Future trends**: AOT + JIT for even faster execution.
-
-Would you like an in-depth look at JIT compilation or a specific hybrid runtime? 🚀

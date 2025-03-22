@@ -4,6 +4,9 @@ Great for
 - Flask
 # Python Syntax Breakdown
 
+> Still under heavy construction, this is my favorite language so it will have more information than the others. 
+> For a universal approach for static programmers Java is used often for examples.
+
 ## Basic Structure
 
 ```python
@@ -599,7 +602,7 @@ def process_users(users: List[Dict[str, str]]) -> Optional[str]:
 ---
 Since you already know the basics, let’s break down **advanced Python syntax** into key concepts with examples:
 
-# Advanced 
+## Advanced Python
 ## Unpacking & Extended Unpacking (`*`, `**`)**
 
 - Extract elements from iterables or dictionaries dynamically.
@@ -1155,6 +1158,7 @@ add = lambda x, y: x + y
 # Using the lambda function
 result = add(3, 5)
 print(result)  # Output: 8
+
 ```
 
 ### **Explanation:**
@@ -1195,7 +1199,7 @@ print(squared_numbers)  # Output: [1, 4, 9, 16]
 numbers = [1, 2, 3, 4, 5, 6]
 even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
 print(even_numbers)  # Output: [2, 4, 6]
-```
+
 ---
 
 ## Function attributes
@@ -1205,6 +1209,7 @@ Every function is a fully fledged object and, as such, it has several attributes
 The following script is an example that shows a few of them and how to display their value for an example function:
 
 ```python
+
 # func.attributes.py
 def multiplication(a, b=1):
     """Return a multiplied by b."""
@@ -1837,6 +1842,7 @@ except StopLoopException as e:
     print(f"Loop stopped at: {e.args[0]}")  # Print the value where the loop stopped
 
 ```
+
 ---
 
 ## Context Managers Deep

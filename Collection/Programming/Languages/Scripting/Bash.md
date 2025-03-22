@@ -466,4 +466,3 @@ ls file[1-3].txt
 - Use `man bash` or `help` for built-in documentation.
 - Debug scripts with `bash -x script.sh`.
 
-Want to dive deeper into a specific section?

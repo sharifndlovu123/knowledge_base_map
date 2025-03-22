@@ -284,4 +284,3 @@ Get-ChildItem C:\*.txt
 - Debug scripts with `Set-PSDebug -Trace 1`.
 - PowerShell outputs **objects**, not plain text.
 
-Want to explore a specific section further?

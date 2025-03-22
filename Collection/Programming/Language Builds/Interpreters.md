@@ -173,4 +173,3 @@ print(f"Hello, {name}!")
 ✅ **Compilers are better for performance and distributing software efficiently.**  
 ✅ **JIT Compilers combine the best of both worlds!**
 
-Want to go deeper on a specific interpreter like Python, JavaScript, or Bash? 🚀
