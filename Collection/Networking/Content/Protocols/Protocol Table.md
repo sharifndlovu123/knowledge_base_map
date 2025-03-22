@@ -1,4 +1,6 @@
 
+> Many network protocols do not strictly belong to a single OSI layer. Some protocols span multiple layers because they handle different aspects of communication, such as addressing, security, or data transport.
+
 | **OSI Layer**                 | **Protocols**                                                                                                                                                                                                 |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **[[1. Physical Layer]]**     | Ethernet, Wi-Fi, Bluetooth, USB, Fiber Optic, DSL, LTE, 5G, NFC, Infrared                                                                                                                                     |
