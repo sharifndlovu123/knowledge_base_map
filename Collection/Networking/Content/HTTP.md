@@ -3,6 +3,9 @@ HTTP (HyperText Transfer Protocol) is a communication protocol used for transmit
 
 > TIP: Understanding the base content of what HTTP holds makes other protocols easier to understand. Especially in the context of headers when it comes to packets, segments and frames. 
 
+
+
+
 ---
 
 ## **1. HTTP Request Structure**

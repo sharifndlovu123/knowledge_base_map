@@ -180,8 +180,8 @@ mermaid:
 
 use_directory_urls: false
 
-extra_css:
-  - assets/css/custom.css
+# extra_css:
+#   - assets/css/custom.css
 
 # extra_javascript:
 #   - "https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js"

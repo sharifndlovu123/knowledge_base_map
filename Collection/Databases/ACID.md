@@ -1,0 +1,63 @@
+### **ACID Properties in Databases**  
+
+ACID properties ensure the reliability and integrity of database transactions. These properties are crucial for maintaining data consistency, especially in relational databases.  
+
+---
+
+## **1. Atomicity (All or Nothing)**  
+### **Definition:**  
+- A transaction must be **fully completed or fully rolled back** if any part of it fails.  
+- Ensures that partial transactions do not corrupt the database.  
+
+### **Example:**  
+- A **bank transfer** from Account A to Account B:  
+  1. Debit $100 from Account A.  
+  2. Credit $100 to Account B.  
+  - If the system crashes after Step 1, the transaction is **rolled back**, ensuring Account A does not lose money.  
+
+---
+
+## **2. Consistency (Valid State Transitions)**  
+### **Definition:**  
+- The database must always remain in a **valid state** before and after a transaction.  
+- Transactions should follow **data integrity constraints** (e.g., foreign keys, unique constraints).  
+
+### **Example:**  
+- A **library system** should not allow borrowing a book if no copies are available.  
+- Before transaction: Available copies = **5**  
+- After transaction: Available copies = **4** (if successful)  
+- If something goes wrong, the system **reverts to the previous valid state**.  
+
+---
+
+## **3. Isolation (Concurrency Control)**  
+### **Definition:**  
+- Transactions should **not interfere** with each other, ensuring **correct results in concurrent execution**.  
+- The level of isolation depends on the **isolation level settings** (e.g., Read Committed, Serializable).  
+
+### **Example:**  
+- Two users trying to **buy the last ticket**:  
+  - **Without isolation:** Both users see availability and buy at the same time → **overbooking issue**.  
+  - **With isolation:** The second user **waits** for the first transaction to complete before proceeding.  
+
+---
+
+## **4. Durability (Permanent Changes)**  
+### **Definition:**  
+- Once a transaction is committed, changes are **permanently stored**, even if the system crashes.  
+- Achieved through **logs, checkpoints, and write-ahead logging (WAL)**.  
+
+### **Example:**  
+- After **confirming a bank transaction**, even if the server crashes, the transaction will still be stored and recoverable from logs.  
+
+---
+
+### **Summary Table**  
+| **ACID Property**  | **Ensures** | **Example** |
+|-------------------|------------|------------|
+| **Atomicity** | No partial transactions | Bank transfer (debit & credit both occur or none) |
+| **Consistency** | Data integrity is maintained | Library system prevents borrowing unavailable books |
+| **Isolation** | Prevents concurrent transaction conflicts | Two users trying to buy the last ticket |
+| **Durability** | Data remains even after failures | Bank transaction is still recorded after a crash |
+
+Relational databases like **MySQL, PostgreSQL, SQL Server, and Oracle** implement ACID to ensure data reliability.
