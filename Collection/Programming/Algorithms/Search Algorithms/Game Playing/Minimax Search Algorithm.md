@@ -1,4 +1,6 @@
 
+https://www.youtube.com/watch?v=l-hh51ncgDI
+
 - An important search algorithm is the **Minimax Algorithm**.
 - It is a **depth-first search** algorithm.
 - It evaluates the **complete tree** using the Minimax Algorithm to select the best moves.

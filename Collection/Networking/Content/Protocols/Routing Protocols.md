@@ -1,4 +1,36 @@
 
+
+Routing Protocols Explained
+Routing protocols determine the best paths for data packets to travel across a network. 
+
+```mermaid
+
+graph LR;
+    A[Dynamic Routing Protocols]
+    A --> B[Interior Gateway Protocols]
+    A --> C[Exterior Gateway Protcols]
+
+    B --> B1[Distance Vector]
+    B --> B2[Link-State]
+
+    C --> C1[Path Vector]
+
+
+    B1 --> B11[RIP]
+    B1 --> B12[EIGRP]
+
+    B2 --> B21[OSPF]
+    B2 --> B22[IS-IS]
+    
+    C1 --> C11[BGP] 
+
+    style A fill:#19b,stroke:#333,stroke-width:2px
+    style B fill:#17a,stroke:#333,stroke-width:1px
+    style C fill:#b10,stroke:#333,stroke-width:1px
+```
+
+---
+
 |Protocol Name|Description|Common Usage|
 |---|---|---|
 |**RIP** (Routing Information Protocol)|A distance-vector protocol that uses hop count as a metric to determine the best path for data.|Common in smaller networks, often used for simpler configurations or legacy systems.|

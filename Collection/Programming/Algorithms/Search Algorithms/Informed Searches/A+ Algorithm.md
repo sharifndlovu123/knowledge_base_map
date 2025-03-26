@@ -15,6 +15,8 @@ The use of the evaluation function `f(n)` applied to the 8-Puzzle problem is ill
 
 ## A* Algorithm
 
+https://www.youtube.com/watch?v=6TsL96NAZCo&t=33s
+
 Algorithms that are **guaranteed to determine the shortest path** are called `admissible algorithms`.
 
 **Breadth-first search** is an example of an admissible algorithm. The evaluation function we have considered with the best-first algorithm is:
