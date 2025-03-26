@@ -20,66 +20,12 @@ DNS (Domain Name System) is a hierarchical and distributed system that translate
 - **Caching for Faster Responses**  
   - Resolving servers cache responses to reduce lookup times.  
 
-- **Supports Different Record Types**  
-  - **A Record** → Maps a domain to an IPv4 address.  
-  - **AAAA Record** → Maps a domain to an IPv6 address.  
-  - **CNAME Record** → Aliases a domain to another domain.  
-  - **MX Record** → Specifies mail servers for a domain.  
-  - **TXT Record** → Stores arbitrary text data (e.g., SPF records for email security).  
-
 - **Works Over UDP & TCP**  
   - Uses **UDP port 53** for most queries.  
   - Uses **TCP port 53** for large responses or zone transfers.  
 
 ---
 
-### **How DNS Works (Query Process)**  
-
-1. **User enters a domain name** (e.g., `www.example.com`).  
-2. **DNS Resolver** (ISP or local) checks cache; if not found, it queries a root DNS server.  
-3. **Root DNS Server** refers the request to the appropriate TLD server (e.g., `.com`).  
-4. **TLD Server** directs the request to the authoritative name server for `example.com`.  
-5. **Authoritative DNS Server** provides the IP address of `www.example.com`.  
-6. **DNS Resolver caches the result** and returns it to the user’s device.  
-7. **User’s browser connects to the website** using the resolved IP address.  
-
----
-
-### **DNS File Directories**  
-
-On a typical DNS server, configuration and zone files are stored in directories such as:  
-
-```
-/etc/bind/
-/var/named/
-/etc/resolv.conf
-```
-Example zone file for `example.com`:  
-
-```
-$TTL 86400
-@   IN  SOA  ns1.example.com. admin.example.com. (
-        2024031701  ; Serial number
-        3600        ; Refresh
-        1800        ; Retry
-        604800      ; Expire
-        86400 )     ; Minimum TTL
-@   IN  NS  ns1.example.com.
-@   IN  A   192.168.1.10
-www IN  A   192.168.1.10
-```
-
----
-
-### **Comparison: DNS vs. Hosts File**  
-
-| Feature  | **DNS** | **Hosts File** |
-|----------|--------|--------------|
-| **Scalability** | Global, distributed | Local, manual entries |
-| **Performance** | Cached, efficient | No caching, static entries |
-| **Flexibility** | Supports multiple record types | Limited to simple mappings |
-
-DNS is the backbone of internet navigation, ensuring domain names resolve quickly and efficiently across networks.  
 
 ## **Breakdown of Domain Levels in DNS**  
 
@@ -144,6 +90,87 @@ For `www.sub.example.co.uk.`:
 | **Fifth-Level** | `www.sub.example.co.uk` | Another subdivision, often for the web service. |
 
 DNS domains follow this hierarchy to maintain a scalable and organized structure for global internet addressing.
+
+---
+
+### **DNS Record Types**
+
+A **DNS (Domain Name System) table** maps domain names to various records, such as IP addresses, mail servers, and other resources.  
+
+#### **Key DNS Table Attributes & Record Types**  
+
+| **Attribute**  | **Description**  | **Example**  |  
+|--------------|----------------|-------------|  
+| **Host/Name** | The domain or subdomain name | `example.com`, `www.example.com` |  
+| **TTL (Time-To-Live)** | How long a record is cached before refreshing | `3600` (1 hour) |  
+| **Record Type** | Specifies the type of DNS entry | `A`, `CNAME`, `MX`, etc. |  
+| **Value/Data** | The actual data associated with the record | IP address, alias, mail server, etc. |  
+| **Priority** | Used in some records like MX to rank importance | `10`, `20` (lower = higher priority) |  
+
+#### **Common DNS Record Types**  
+
+| **Record Type** | **Purpose** | **Example Value** |  
+|--------------|------------------|----------------|  
+| **A (Address)** | Maps a domain to an IPv4 address | `192.168.1.1` |  
+| **AAAA (IPv6 Address)** | Maps a domain to an IPv6 address | `2606:4700:4700::1111` |  
+| **CNAME (Canonical Name)** | Alias for another domain | `example.net` → `example.com` |  
+| **MX (Mail Exchange)** | Directs emails to a mail server | `10 mail.example.com` |  
+| **TXT (Text Record)** | Stores arbitrary text (SPF, DKIM, etc.) | `"v=spf1 include:_spf.google.com ~all"` |  
+| **NS (Name Server)** | Specifies authoritative name servers | `ns1.example.com` |  
+| **PTR (Pointer Record)** | Reverse DNS lookup (IP → domain) | `1.1.168.192.in-addr.arpa → example.com` |  
+
+Each DNS record type serves a specific function, enabling domain resolution, email routing, security verification, and load balancing.
+
+---
+
+### **How DNS Works (Query Process)**  
+
+1. **User enters a domain name** (e.g., `www.example.com`).  
+2. **DNS Resolver** (ISP or local) checks cache; if not found, it queries a root DNS server.  
+3. **Root DNS Server** refers the request to the appropriate TLD server (e.g., `.com`).  
+4. **TLD Server** directs the request to the authoritative name server for `example.com`.  
+5. **Authoritative DNS Server** provides the IP address of `www.example.com`.  
+6. **DNS Resolver caches the result** and returns it to the user’s device.  
+7. **User’s browser connects to the website** using the resolved IP address.  
+
+---
+
+### **DNS File Directories**  
+
+On a typical DNS server, configuration and zone files are stored in directories such as:  
+
+```
+/etc/bind/
+/var/named/
+/etc/resolv.conf
+```
+Example zone file for `example.com`:  
+
+```
+$TTL 86400
+@   IN  SOA  ns1.example.com. admin.example.com. (
+        2024031701  ; Serial number
+        3600        ; Refresh
+        1800        ; Retry
+        604800      ; Expire
+        86400 )     ; Minimum TTL
+@   IN  NS  ns1.example.com.
+@   IN  A   192.168.1.10
+www IN  A   192.168.1.10
+```
+
+---
+
+### **Comparison: DNS vs. Hosts File**  
+
+| Feature  | **DNS** | **Hosts File** |
+|----------|--------|--------------|
+| **Scalability** | Global, distributed | Local, manual entries |
+| **Performance** | Cached, efficient | No caching, static entries |
+| **Flexibility** | Supports multiple record types | Limited to simple mappings |
+
+DNS is the backbone of internet navigation, ensuring domain names resolve quickly and efficiently across networks.  
+
 
 ---
 ## Different nameservers
