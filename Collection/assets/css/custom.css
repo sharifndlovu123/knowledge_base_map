@@ -10,102 +10,20 @@
 }
 
 
- :root > * {
-  /* --md-primary-fg-color--light: #ecd7b7; */
-  --primary-color: #3070cf;    
- 
-  
-  --bg-owner-color: #3070cf;
-  /* --title-color: white; */
-  
+/* Make the entire layout full-width */
+/* .md-grid {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+} */
+
+/* Make the main content span full width */
+.md-main__inner {
+  max-width:90%;
 }
 
-
-
-
-.material-card {
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.material-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px color-mix(in srgb, var(--text-color) 15%, transparent);
-}
-
-
-.ripple {
-  position: relative;
-  overflow: hidden;
-}
-
-.ripple::after {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(255,255,255,0.7) 0%, rgba(255, 0, 0, 0) 100%);
-  transform: scale(0);
-  transition: transform 0.3s, opacity 0.3s;
-  opacity: 0;
-}
-
-.ripple:hover::after {
-  transform: scale(2);
-  opacity: 0;
-}
-
-.skill-chip {
-  transition: all 0.3s ease;
-}
-
-.skill-chip:hover {
-  background-color: var(--primary-color);
-  color: var(--text-color);
-}
-
-@keyframes slideUp {
-  from { transform: translateY(30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-.slide-up {
-  animation: slideUp 0.5s ease forwards;
-}
-
-#theme-toggle {
-  position: fixed;
-
-  z-index: 50;
-  width: 60px; /* Set a fixed width */
-  height: 30px; /* Set a fixed height */
-  border-radius: 15px; /* Make it pill-shaped */
-  background-color: #e0e0e0bb; /* Light gray background */
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-
-}
-
-#theme-toggle:hover {
-  background-color: #d0d0d0be;
-}
-
-
-.submenu  {
-  background-color: #0a2042;
-  position: absolute !important;
-  /* top: -50px !important; */
-  transform: translate(-120%, 50px);
-
-}
-
-
-
-/* 
-.nav-item .submenu {
-  display: none;
-  position: absolute;
-  left: 100%;
-  top: -7px;
-}
+/* Make sure tables, images, and other content do not overflow */
+/* .md-content {
+  max-width: 100%;
+  padding: 0 16px; 
 } */
