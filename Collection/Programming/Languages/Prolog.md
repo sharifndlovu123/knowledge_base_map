@@ -1,4 +1,4 @@
-# **Prolog Syntax Breakdown**
+
 
 Prolog is a **logic programming language** primarily used for **declarative problem solving** and artificial intelligence applications. It is quite different from procedural or object-oriented programming languages like C, Python, or Java. In Prolog, you express **relationships** and **facts**, and the system uses **logical inference** to answer queries.
 
@@ -99,7 +99,14 @@ Prolog has several built-in operators, such as:
 - **;** (Or, disjunction)
 - **not** (Negation)
 
-### **Examples:**
+### **Examples**: `:-`
+
+#### **Implies (IF)**: `,`
+
+```prolog
+grandparent(X, Y) :- parent(X, Z), parent(Z, Y).
+```
+X is a grandparent of Y if X is a parent of Z, and Z is a parent of Y.
 
 #### **Conjunction (AND)**: `,`
 
@@ -156,6 +163,64 @@ Head = 1,
 Tail = [2, 3].
 ```
 
+Here are examples in Prolog for `member`, `append`, and `reverse`:
+
+#### **Member**
+The `member` predicate checks if an element is a member of a list.
+
+```prolog
+% member(Element, List)
+member(X, [X|_]).  % If X is the head of the list, it's a member.
+member(X, [_|T]) :- member(X, T).  % Recursively check the tail of the list.
+```
+
+##### Example Usage:
+```prolog
+?- member(3, [1, 2, 3, 4]).
+true.
+
+?- member(5, [1, 2, 3, 4]).
+false.
+```
+
+#### **Append**
+The `append` predicate concatenates two lists.
+
+```prolog
+% append(List1, List2, Result)
+append([], L, L).  % If the first list is empty, the result is the second list.
+append([H|T], L, [H|R]) :- append(T, L, R).  % Add the head to the result and recursively append the tail.
+```
+
+##### Example Usage:
+```prolog
+?- append([1, 2], [3, 4], Result).
+Result = [1, 2, 3, 4].
+
+?- append([], [3, 4], Result).
+Result = [3, 4].
+```
+
+#### **Reverse**
+The `reverse` predicate reverses a list.
+
+```prolog
+% reverse(List, ReversedList)
+reverse([], []).  % The reverse of an empty list is an empty list.
+reverse([H|T], R) :- reverse(T, RevT), append(RevT, [H], R).  % Reverse the tail and append the head at the end.
+```
+
+##### Example Usage:
+```prolog
+?- reverse([1, 2, 3], R).
+R = [3, 2, 1].
+
+?- reverse([], R).
+R = [].
+```
+
+These are basic implementations. Each of these predicates demonstrates typical recursive patterns commonly used in Prolog.
+
 ---
 
 ## **5. Arithmetic in Prolog**
@@ -174,8 +239,14 @@ This will return `X = 7`.
 
 You can also use comparison operators:
 
-- `=:=` (equal to)
-- `=..` (unifies an expression)
+- `X =:= Y` → Equal (numbers only)
+- `X \= Y` → Not Equal (non-numeric)
+- `X =\= Y` → Not equal (numbers only)
+- `X > Y` → Greater than
+- `X < Y` → Less than
+- `X >= Y` → Greater than or equal
+- `X =< Y` → Less than or equal
+- `X =.. Y` → Convert Structure to List (vice versa)
 
 ### **Example:**
 
@@ -210,11 +281,53 @@ Prolog provides many **built-in predicates** to perform common tasks:
     ```
     
 
+
+### ** Builting Custom Predicates**
+
+#### ** Custom Member **
+
+```prolog
+% Base case: If X is the head of the list, it is a member.
+cmember(X, [X|_]).
+
+% Recursive case: If X is not the head, check the tail of the list.
+cmember(X, [_|Tail]) :-
+    cmember(X, Tail).
+```
+
+Send a query after compilation
+```prolog
+cmember(3,[1,2,3])
+```
+
+#### ** Custom Append **
+
+
+```prolog
+cappend([], L, L).           % Concatenating an empty list with L gives L.
+cappend([H|T], L, [H|L1]) :- % If the first list is not empty, add the head to the result.
+    cappend(T, L, L1).       % Recursively append the tail.
+```
+
+- First Clause: If the first list is empty ([]), the result is just the second list L. This handles the case when you've finished going through the first list and only need to return the second list.
+- Second Clause: If the first list is not empty ([H|T]), the head H is added to the result list. Then, you recursively append the tail of the first list (T) with the second list (L) to get the rest of the result (L1).
+
 ---
 
 ## **7. Recursion**
 
 - Prolog heavily uses **recursion** to process lists or perform tasks that require repeated reasoning.
+
+### **Example (List Count)**:
+
+```prolog
+clength([], 0).               % Base case: An empty list has length 0.
+
+clength([_|T], N) :-          % Recursive case: A non-empty list.
+    clength(T, N1),          % Recursively get the length of the tail.
+    N is N1 + 1.             % Add 1 for the head element.
+```
+
 
 ### **Example (Factorial)**:
 
@@ -272,7 +385,38 @@ Prolog will answer `X = susan`, because John is a parent of Mary, and Mary is a 
 - **Focus on Relationships**: Prolog is ideal for expressing **relationships** (e.g., family trees, knowledge graphs).
 
 ---
+## **11. Debug And Trace**
 
+To remove the trace (i.e., stop tracing) in SWI-Prolog, you can use the following command:
+
+### **To turn off tracing:**
+```prolog
+?- notrace.
+```
+
+This will disable tracing, so Prolog will no longer show the details of the execution steps.
+
+### **To stop the trace and disable all debugging features:**
+If you are done debugging and want to make sure everything is clean, you can also use:
+
+```prolog
+?- nodebug.
+```
+
+### **To turn tracing on again (if needed):**
+If you want to re-enable tracing, you can use:
+
+```prolog
+?- trace.
+```
+
+### **Summary of Commands:**
+- `notrace.` – Turns off tracing.
+- `nodebug.` – Disables all debugging features.
+- `trace.` – Enables tracing again.
+
+
+---
 ### **Conclusion**
 
 Prolog’s syntax is deeply rooted in **logic and relationships**. It leverages **facts** and **rules** to infer new information and **answers queries** based on its knowledge base. It’s very different from traditional programming languages, with a focus on **what to solve** instead of **how to solve it**.
