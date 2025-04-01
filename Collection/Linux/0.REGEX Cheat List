@@ -1,0 +1,128 @@
+## **What is Regex?**  
+Regular Expressions (regex) are sequences of characters that define search patterns. They are used for pattern matching and text processing.
+
+---
+
+### **Where Can Regex Be Used?**
+#### **1. Programming & Scripting**  
+- **Python** (`re` module)  
+- **JavaScript** (`RegExp` object)  
+- **Java** (`Pattern` and `Matcher` classes)  
+- **C++** (`<regex>` library)  
+- **Go** (`regexp` package)  
+- **Perl, PHP, Ruby, Rust, etc.**
+
+#### **2. Command Line Tools**  
+- **Grep** → `grep -E "pattern" file.txt`  
+- **Sed** → `sed -E 's/old/new/g' file.txt`  
+- **Awk** → `awk '/pattern/ {print $0}' file.txt`  
+
+#### **3. Text Editors & IDEs**  
+- **VS Code, Sublime Text, Notepad++, Atom** (Find & Replace with regex)  
+- **Vim/Neovim** (`:%s/pattern/replacement/g`)  
+
+#### **4. Databases**  
+- **SQL (PostgreSQL, MySQL, MongoDB)** → `SELECT * FROM users WHERE email REGEXP '^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$'`  
+
+#### **5. Web Development**  
+- **Form Validation** (e.g., validating emails, phone numbers)  
+- **Search Engines** (e.g., Google advanced search with regex)  
+
+#### **6. Data Processing & Analytics**  
+- **Log Parsing** (Extracting specific patterns from logs)  
+- **Data Cleaning** (Removing unwanted characters from text)  
+
+#### **7. Cybersecurity & Ethical Hacking**  
+- **Regex-based filtering** (firewall rules, IDS/IPS systems)  
+- **Password strength validation**  
+
+#### **8. NLP (Natural Language Processing)**  
+- **Tokenization** (Splitting text into words/sentences)  
+- **Named Entity Recognition (NER)**  
+
+Regex is powerful but can be complex. Let me know if you need practical examples for any specific use case.
+
+---
+
+
+## 1. **Basic Syntax**
+### **Literals**
+- `abc` → Matches exact string "abc"
+
+### **Escape Characters**
+- `\.` → Matches a literal `.`
+- `\*` → Matches a literal `*`
+- `\\` → Matches a literal `\`
+- `\(` and `\)` → Matches literal `(` and `)`
+
+## 2. **Character Classes**
+### **Common Character Classes**
+- `.` → Any character (except newline)
+- `\d` → Any digit (`0-9`)
+- `\D` → Any non-digit
+- `\w` → Any word character (`a-z`, `A-Z`, `0-9`, `_`)
+- `\W` → Any non-word character
+- `\s` → Any whitespace (space, tab, newline)
+- `\S` → Any non-whitespace
+
+### **Custom Character Classes**
+- `[abc]` → Matches `a`, `b`, or `c`
+- `[^abc]` → Matches anything **except** `a`, `b`, or `c`
+- `[a-z]` → Matches any lowercase letter
+- `[A-Z]` → Matches any uppercase letter
+- `[0-9]` → Matches any digit
+- `[a-zA-Z0-9]` → Matches any alphanumeric character
+
+## 3. **Quantifiers**
+- `*` → 0 or more times (greedy)
+- `+` → 1 or more times (greedy)
+- `?` → 0 or 1 time (optional)
+- `{n}` → Exactly `n` times
+- `{n,}` → At least `n` times
+- `{n,m}` → Between `n` and `m` times
+- `*?`, `+?`, `??`, `{n,m}?` → Lazy versions (match as little as possible)
+
+## 4. **Position Anchors**
+- `^` → Start of a string
+- `$` → End of a string
+- `\b` → Word boundary
+- `\B` → Not a word boundary
+
+## 5. **Grouping & Alternation**
+### **Grouping**
+- `(abc)` → Capturing group
+- `(?:abc)` → Non-capturing group
+- `(?P<name>abc)` → Named capturing group
+
+### **Alternation (OR)**
+- `cat|dog` → Matches `cat` or `dog`
+
+## 6. **Lookaheads & Lookbehinds**
+### **Lookaheads**
+- `foo(?=bar)` → Matches `foo` only if followed by `bar`
+- `foo(?!bar)` → Matches `foo` only if NOT followed by `bar`
+
+### **Lookbehinds**
+- `(?<=abc)def` → Matches `def` only if preceded by `abc`
+- `(?<!abc)def` → Matches `def` only if NOT preceded by `abc`
+
+## 7. **Wildcards & Special Tokens**
+- `.` → Any character except newline
+- `.*` → Matches everything (greedy)
+- `.*?` → Matches everything (lazy)
+
+## 8. **Examples**
+| Regex | Matches |
+|--------|---------|
+| `\d{3}-\d{2}-\d{4}` | SSN (`123-45-6789`) |
+| `\b[A-Z][a-z]+\b` | Capitalized words |
+| `^https?://\S+` | URLs |
+| `\$\d+(\.\d{2})?` | Currency (`$10.99`) |
+
+## 9. **Flags**
+- `i` → Case-insensitive
+- `g` → Global (match all occurrences)
+- `m` → Multiline mode (`^` and `$` match per line)
+- `s` → Dotall (`.` matches newlines)
+- `x` → Ignore whitespace for readability
+
