@@ -188,6 +188,163 @@ person.greet
 
 ---
 
+#### **1. Basic Class Definition**
+```ruby
+class Person
+  # Class body goes here
+end
+```
+- **`class`**: Keyword to define a class (always **PascalCase**).  
+- **`end`**: Closes the class definition.  
+
+---
+
+#### **2. Instance Variables & Accessors (Getters/Setters)**
+Ruby provides shortcuts to generate getters/setters automatically.
+
+##### **(a) Manual Getters/Setters**
+```ruby
+class Person
+  # Constructor (initializes instance variables)
+  def initialize(name, age)
+    @name = name  # @ denotes instance variables
+    @age = age
+  end
+
+  # Getter for @name
+  def name
+    @name
+  end
+
+  # Setter for @name (note the '=')
+  def name=(new_name)
+    @name = new_name
+  end
+
+  # Getter for @age
+  def age
+    @age
+  end
+
+  # Setter for @age
+  def age=(new_age)
+    @age = new_age
+  end
+end
+```
+- **`@variable`**: Instance variable (private by default).  
+- **Getter**: Method name matches variable (e.g., `name`).  
+- **Setter**: Method name ends with `=` (e.g., `name=`).  
+
+##### **(b) Automated Accessors (Recommended)**
+Ruby provides macros to generate getters/setters:
+```ruby
+class Person
+  attr_reader :name, :age   # Generates getters
+  attr_writer :name, :age   # Generates setters
+  attr_accessor :name, :age  # Generates both getters and setters
+
+  def initialize(name, age)
+    @name = name
+    @age = age
+  end
+end
+```
+- **`attr_reader`**: Auto-generates getters.  
+- **`attr_writer`**: Auto-generates setters.  
+- **`attr_accessor`**: Generates both.  
+
+---
+
+#### **3. Constructors (`initialize`)**
+Ruby uses `initialize` as the constructor (called when `new` is invoked).
+
+```ruby
+class Person
+  attr_accessor :name, :age
+
+  # Constructor
+  def initialize(name, age)
+    @name = name
+    @age = age
+  end
+end
+
+# Usage
+person = Person.new("Alice", 30)
+puts person.name  # => "Alice" (getter)
+person.age = 31   # => 31 (setter)
+```
+
+---
+
+#### **4. Custom Factory Methods (Class Methods)**
+Define methods on the **class itself** (not instances) using `self.`.
+
+```ruby
+class Person
+  attr_accessor :name, :age
+
+  def initialize(name, age)
+    @name = name
+    @age = age
+  end
+
+  # Class method (factory)
+  def self.from_birth_year(name, birth_year)
+    age = Time.now.year - birth_year
+    new(name, age)  # Calls initialize
+  end
+end
+
+# Usage
+person = Person.from_birth_year("Bob", 1990)
+puts person.age  # => 34 (if current year is 2024)
+```
+- **`self.`**: Defines a class-level method.  
+- **`new`**: Calls the constructor.  
+
+---
+
+#### **5. Complete Example**
+##### **Class Definition**
+```ruby
+class Person
+  attr_accessor :name, :age
+
+  # Constructor
+  def initialize(name, age)
+    @name = name
+    @age = age
+  end
+
+  # Instance method
+  def greet
+    puts "Hello, I'm #{@name}!"
+  end
+
+  # Class method (factory)
+  def self.from_birth_year(name, birth_year)
+    age = Time.now.year - birth_year
+    new(name, age)
+  end
+end
+```
+
+##### **Usage**
+```ruby
+# Default construction
+p1 = Person.new("Alice", 25)
+p1.greet          # => "Hello, I'm Alice!"
+p1.age = 26       # Uses setter
+
+# Factory method
+p2 = Person.from_birth_year("Bob", 1990)
+puts p2.age       # => 34 (in 2024)
+```
+
+---
+
 ### **6. Blocks and Procs**
 
 Ruby has a powerful **block** and **proc** system to pass chunks of code as arguments to methods.

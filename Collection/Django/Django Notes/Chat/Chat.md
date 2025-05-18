@@ -261,7 +261,7 @@ Explained
 
 - This value is then retrieved in the domready block by parsing the content of the element with id="course-id" using JSON.parse(). This is the safe way to use Python objects in JavaScript.
 
-NB - The json_script template filter securely encodes Python objects as JSON and safely embeds them in a <script> HTML tag, protecting against cross-site scripting (XSS) attacks by escaping potentially harmful characters.  https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#json-script.
+NB - The json_script template filter securely encodes Python objects as JSON and safely embeds them in a <script></script> HTML tag, protecting against cross-site scripting (XSS) attacks by escaping potentially harmful characters.  https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#json-script.
 
 - You define an URL with the WebSocket protocol, which looks like ws:// (or wss:// for secure WebSockets, just like https://). You build the URL using the current location of the browser, which you obtain from window.location.host.
 The rest of the URL is built with the path for the chat room URL pattern that you defined in the routing.py file of the chat application.
@@ -308,9 +308,9 @@ chat/room.html dom
 Explained
 - onmessage: Triggered when data is received through the WebSocket. You parse the message, which you expect in JSON format, and access its message attribute. 
 
-- You then append a new <div> element with the message received to the HTML element with the chat ID. This will add new messages to the chat log, while keeping all previous messages that have been added to the log. 
+- You then append a new <div></div> element with the message received to the HTML element with the chat ID. This will add new messages to the chat log, while keeping all previous messages that have been added to the log. 
 
-- You scroll the chat log <div> to the bottom to ensure that the new message gets visibility. You achieve this by scrolling to the total scrollable height of the chat log, which can be obtained by accessing its scrollHeight attribute.
+- You scroll the chat log <div></div> to the bottom to ensure that the new message gets visibility. You achieve this by scrolling to the total scrollable height of the chat log, which can be obtained by accessing its scrollHeight attribute.
 
 - onclose: Fired when the connection with the WebSocket is closed. You don’t expect to close the connection, and therefore, you write the error Chat socket closed unexpectedly to the console log if this happens.
 
