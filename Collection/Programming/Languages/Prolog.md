@@ -95,9 +95,9 @@ This query asks "Who is a child of John?" Prolog will respond with `X = mary` be
 Prolog has several built-in operators, such as:
 
 - **:-** (If, implies)
-- **,** (And, conjunction)
-- **;** (Or, disjunction)
-- **not** (Negation)
+- **,** (And, conjunction) 
+- **;** (Or, disjunction) X
+- **not** (Negation) X
 
 ### **Examples**: `:-`
 
@@ -219,6 +219,11 @@ R = [3, 2, 1].
 R = [].
 ```
 
+#### **Absolute**
+```prolog
+my_abs(N, N) :- N >= 0.
+my_abs(N, Abs) :- N < 0, Abs is -N.
+```
 These are basic implementations. Each of these predicates demonstrates typical recursive patterns commonly used in Prolog.
 
 ---
@@ -420,3 +425,6 @@ If you want to re-enable tracing, you can use:
 ### **Conclusion**
 
 Prolog’s syntax is deeply rooted in **logic and relationships**. It leverages **facts** and **rules** to infer new information and **answers queries** based on its knowledge base. It’s very different from traditional programming languages, with a focus on **what to solve** instead of **how to solve it**.
+
+
+
