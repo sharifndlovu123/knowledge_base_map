@@ -1,3 +1,0 @@
-- Relational Databases (PostgreSQL, MySQL) [[Relational Db]] [[NoSQL Db]]
-- NoSQL Databases with Django (MongoDB, Redis as DB)
-- Database Optimization Techniques [[Database Optimization Techniques]]

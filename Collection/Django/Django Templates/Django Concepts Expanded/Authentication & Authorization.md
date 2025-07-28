@@ -1,5 +1,0 @@
- - User Authentication System [[Django Default Auth]]
-- Custom User Models
-- Permissions & Groups
-- Authentication Backends
-- Single Sign-On (SSO) Integration

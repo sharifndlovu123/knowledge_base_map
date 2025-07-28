@@ -73,8 +73,8 @@ Until the entire tree is traversed.
 ---
 
 ## **Example**  
-![alt text](image.png)  
-![alt text](image-2.png)  
+![alt text](Programming/Algorithms/Search%20Algorithms/Game%20Playing/image.png)  
+![alt text](Programming/Algorithms/Search%20Algorithms/Game%20Playing/image-2.png)  
 ![alt text](image-3.png)  
 ![alt text](image-4.png)  
 

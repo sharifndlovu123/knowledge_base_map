@@ -43,7 +43,7 @@ Programming languages can be categorized into several types based on their purpo
    - **What they are**: These languages are used to write scripts that automate tasks or control other software applications. They are often interpreted rather than compiled.
    - **Used for**: Web development, automation, and rapid prototyping.
    - **Examples**:
-     - **[[JavaScript]]**: The backbone of web development, used for both front-end and back-end (Node.js).
+     - **[[Programming/Languages/JavaScript]]**: The backbone of web development, used for both front-end and back-end (Node.js).
      - **[[Python]]**: Used for scripting, automation, and web development.
      - **[[Ruby]]**: Known for its simplicity and used in web development (e.g., Ruby on Rails).
      - **PHP**: Powers server-side web development (e.g., WordPress, Facebook). 
@@ -150,7 +150,7 @@ Programming languages can be categorized into several types based on their purpo
    - **Used for**: Compiled languages are often used for performance-critical applications, while interpreted languages are used for scripting and rapid development.
    - **Examples**:
      - **Compiled**: [[C]], [[C++]], [[Rust]].
-     - **Interpreted**: [[Python]], [[JavaScript]], [[Ruby]]. 
+     - **Interpreted**: [[Python]], [[Programming/Languages/JavaScript]], [[Ruby]]. 
      - **Hybrid**: Java (compiled to bytecode, then interpreted by the JVM), C# (compiled to IL, then executed by the CLR).
 
 ---
