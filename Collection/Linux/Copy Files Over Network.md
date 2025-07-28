@@ -1,0 +1,190 @@
+# Copying Files Over a Network
+
+## SSH-Based Methods
+
+### SCP (Secure Copy Protocol)
+Traditional and simple file transfer over SSH.
+
+```bash
+# Copy file to remote host
+scp file.txt user@remote-host:/path/to/destination/
+
+# Copy file from remote host
+scp user@remote-host:/path/to/file.txt ./local-destination/
+
+# Copy directory recursively
+scp -r /local/directory/ user@remote-host:/remote/path/
+
+# Copy with port specification
+scp -P 2222 file.txt user@remote-host:/path/
+
+# Copy multiple files
+scp file1.txt file2.txt user@remote-host:/path/
+```
+
+### SFTP (SSH File Transfer Protocol)
+Interactive file transfer with more features than SCP.
+
+```bash
+# Connect to remote host
+sftp user@remote-host
+
+# SFTP commands
+sftp> put local-file.txt remote-file.txt    # Upload
+sftp> get remote-file.txt local-file.txt    # Download
+sftp> put -r local-directory/               # Upload directory
+sftp> get -r remote-directory/              # Download directory
+sftp> ls                                    # List remote files
+sftp> lls                                   # List local files
+sftp> cd /remote/path                       # Change remote directory
+sftp> lcd /local/path                       # Change local directory
+```
+
+### rsync over SSH
+Most powerful and efficient for synchronization.
+
+```bash
+# Basic sync to remote
+rsync -avz /local/path/ user@remote-host:/remote/path/
+
+# Sync from remote
+rsync -avz user@remote-host:/remote/path/ /local/path/
+
+# Common options
+rsync -avz --delete /source/ user@host:/dest/  # Delete extra files
+rsync -avz --progress /source/ user@host:/dest/ # Show progress
+rsync -avz --exclude='*.tmp' /source/ user@host:/dest/ # Exclude files
+
+# Dry run (test without copying)
+rsync -avz --dry-run /source/ user@host:/dest/
+```
+
+## Network File Systems
+
+### NFS (Network File System)
+Mount remote directories as local filesystems.
+
+```bash
+# Server setup (/etc/exports)
+/shared/directory 192.168.1.0/24(rw,sync,no_subtree_check)
+
+# Client mount
+sudo mount -t nfs server-ip:/shared/directory /local/mount/point
+
+# Permanent mount (/etc/fstab)
+server-ip:/shared/directory /mnt/nfs nfs defaults 0 0
+```
+
+### SMB/CIFS (Windows Shares)
+Access Windows shares or Samba servers.
+
+```bash
+# Mount SMB share
+sudo mount -t cifs //server-ip/share /mnt/smb -o username=user,password=pass
+
+# Using credentials file
+sudo mount -t cifs //server/share /mnt/smb -o credentials=/etc/samba/credentials
+
+# Copy files after mounting
+cp /local/files/* /mnt/smb/
+```
+
+## HTTP-Based Methods
+
+### wget
+Download files from web servers.
+
+```bash
+# Download single file
+wget https://example.com/file.zip
+
+# Download with custom filename
+wget -O custom-name.zip https://example.com/file.zip
+
+# Download directory recursively
+wget -r -np -k https://example.com/directory/
+
+# Resume interrupted download
+wget -c https://example.com/large-file.zip
+```
+
+### curl
+Versatile tool for uploading and downloading.
+
+```bash
+# Download file
+curl -O https://example.com/file.zip
+
+# Upload file via POST
+curl -X POST -F "file=@local-file.txt" https://upload.example.com/
+
+# Upload with authentication
+curl -u username:password -T file.txt ftp://ftp.example.com/
+```
+
+## Modern Transfer Tools
+
+### rclone
+"rsync for cloud storage" - supports many cloud providers.
+
+```bash
+# Configure cloud storage
+rclone config
+
+# Copy to cloud
+rclone copy /local/path remote:bucket/path
+
+# Sync with cloud
+rclone sync /local/path remote:bucket/path
+
+# Mount cloud storage
+rclone mount remote:bucket /mnt/cloud
+```
+
+## Performance Comparison
+
+| Method | Speed | Security | Resumable | Compression | Best For |
+|--------|-------|----------|-----------|-------------|----------|
+| scp | Medium | High | No | No | Simple transfers |
+| sftp | Medium | High | Yes | No | Interactive transfers |
+| rsync | Fast | High | Yes | Yes | Synchronization |
+| wget/curl | Fast | Medium | Yes | No | Web downloads |
+| rclone | Fast | High | Yes | Yes | Cloud storage |
+
+## Security Considerations
+
+### SSH Key Authentication
+More secure than passwords for SSH-based transfers.
+
+```bash
+# Generate SSH key pair
+ssh-keygen -t rsa -b 4096
+
+# Copy public key to remote host
+ssh-copy-id user@remote-host
+
+# Now SCP/SFTP/rsync work without passwords
+scp file.txt user@remote-host:/path/
+```
+
+### Encryption in Transit
+- **SSH-based methods** (SCP, SFTP, rsync over SSH) - Always encrypted
+- **HTTPS** - Encrypted web transfers
+- **Plain FTP/HTTP** - Unencrypted, avoid for sensitive data
+
+## Best Practices
+
+1. **Use rsync for large transfers** - It's resumable and only transfers changes
+2. **Compress data** - Use `-z` flag with rsync for slow networks
+3. **Test with dry-run** - Always test large operations first
+4. **Use SSH keys** - More secure and convenient than passwords
+5. **Monitor progress** - Use `--progress` flag for long transfers
+6. **Verify transfers** - Use checksums to ensure data integrity
+
+```bash
+# Example: Secure, efficient backup to remote server
+rsync -avz --progress --delete \
+  --exclude='*.tmp' --exclude='.cache' \
+  /home/user/important-data/ \
+  backup-server:/backups/$(date +%Y-%m-%d)/
+```

@@ -1,0 +1,29 @@
+# Linux Processor Architectures
+
+## x86_64 (AMD64)
+This is the dominant 64-bit architecture for desktop and server computing. Despite the "AMD64" name, it's used by both AMD and Intel processors. It extends the original x86 instruction set to support 64-bit addressing, allowing access to much more RAM than 32-bit systems. Almost all modern PCs, laptops, and many servers use this architecture.
+
+## ARM64 (AArch64)
+The 64-bit version of ARM's Reduced Instruction Set Computing (RISC) architecture. ARM processors are designed for power efficiency, making them popular in smartphones, tablets, and increasingly in laptops (like Apple's M-series chips) and servers. ARM64 is becoming more prominent in data centers due to its energy efficiency and performance per watt.
+
+## x86 (i386)
+The legacy 32-bit Intel architecture that dominated personal computing for decades. It's limited to addressing 4GB of RAM and is mostly obsolete now, though still found in some embedded systems and older hardware. Most modern distributions have dropped or are phasing out 32-bit support.
+
+## ARM (32-bit)
+The original ARM architecture, widely used in embedded systems, IoT devices, single-board computers like Raspberry Pi (older models), and mobile devices. It's known for low power consumption and is still common in microcontrollers and specialized hardware.
+
+## RISC-V
+An open-source instruction set architecture that anyone can use without licensing fees. It's gaining significant momentum in academia and industry as an alternative to proprietary architectures. RISC-V is particularly attractive for custom silicon and research applications, with growing support in embedded systems and potentially future consumer devices.
+
+## PowerPC (PPC)
+Originally developed by IBM, Motorola, and Apple, PowerPC was used in older Mac computers, some IBM servers, and gaming consoles like PlayStation 3 and Xbox 360. It uses a RISC design and is still found in some specialized IBM systems and embedded applications.
+
+## MIPS (Microprocessor without Interlocked Pipeline Stages)
+A RISC architecture commonly used in embedded systems, networking equipment, routers, and some gaming consoles. It's known for its simple, efficient design and is often used in applications where cost and power consumption are critical factors.
+
+## s390x
+IBM's 64-bit mainframe architecture, used in IBM Z mainframe computers. These systems are designed for high reliability, security, and the ability to run thousands of virtual machines simultaneously. They're primarily used in enterprise environments for mission-critical applications.
+
+---
+
+Each architecture has different strengths: x86_64 offers broad software compatibility, ARM focuses on power efficiency, RISC-V provides open-source flexibility, and specialized architectures like s390x excel in specific enterprise use cases.
