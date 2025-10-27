@@ -7,7 +7,7 @@ docs_dir: 'Collection'
 site_url: https://www.knowledgemap.devbridge.co.za
 copyright: Sharif Ndlovu | 'Build Test Deploy'
 theme:
-  name: simple-blog 
+  name: bootstrap386 
   favicon: assets/globe-green.png
   logo: assets/globe-green.png
 
