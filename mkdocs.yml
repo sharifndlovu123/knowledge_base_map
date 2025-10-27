@@ -105,7 +105,7 @@ plugins:
         - DevBridge/*
         - Networking/My Roadmap/*
         - Networking/Network path.md
-        - Django/*
+        - Frameworks/Django/*
         - "*.tmp"
         - "*.gz"
   - mermaid2
