@@ -380,3 +380,31 @@ input[type="text"], input[type="search"], textarea, .md-search__input, .md-types
     content: "Close \2715"; font: 700 .66rem "Space Mono", monospace; letter-spacing: .12em; text-transform: uppercase; color: var(--bp-ink);
   }
 }
+
+/* ---- Loading sheet (first visit per session) ---- */
+.bp-load { display: none; }
+html.bp-loading .bp-load {
+  display: grid; place-items: center; position: fixed; inset: 0; z-index: 1000;
+  background-color: var(--bp-paper);
+  background-image: linear-gradient(var(--bp-grid) 1px, transparent 1px), linear-gradient(90deg, var(--bp-grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+  color: var(--bp-ink); cursor: pointer;
+  transition: opacity .3s ease;
+  /* fail-safe: hide itself even if the script never runs */
+  animation: bp-load-failsafe 0s linear 4s forwards;
+}
+html.bp-loading .bp-load.bp-load--out { opacity: 0; pointer-events: none; }
+.bp-load__sheet { position: relative; width: min(26rem, 82vw); padding: 2rem 1.75rem; border: 1px solid var(--bp-rule2); text-align: left; }
+.bp-load__tick { position: absolute; width: .9rem; height: .9rem; border-color: var(--bp-red); border-style: solid; border-width: 0; }
+.bp-load__tick--tl { top: -1px; left: -1px; border-top-width: 3px; border-left-width: 3px; }
+.bp-load__tick--tr { top: -1px; right: -1px; border-top-width: 3px; border-right-width: 3px; }
+.bp-load__tick--bl { bottom: -1px; left: -1px; border-bottom-width: 3px; border-left-width: 3px; }
+.bp-load__tick--br { bottom: -1px; right: -1px; border-bottom-width: 3px; border-right-width: 3px; }
+.bp-load__label { margin: 0 0 .5rem; font: 700 .72rem/1 var(--md-code-font), monospace; letter-spacing: .14em; color: var(--bp-red); }
+.bp-load__title { margin: 0 0 1.25rem; font: 700 1.5rem/1.2 var(--md-text-font), sans-serif; }
+.bp-load__line { height: 2px; background: var(--bp-red); transform-origin: left; transform: scaleX(0); animation: bp-load-draw .9s ease-out forwards; }
+.bp-load__hint { margin: 1rem 0 0; font: 400 .7rem/1 var(--md-code-font), monospace; color: var(--bp-muted); }
+@keyframes bp-load-draw { to { transform: scaleX(1); } }
+@keyframes bp-load-failsafe { to { opacity: 0; visibility: hidden; pointer-events: none; } }
+/* reduced motion: skip the loading sheet entirely */
+@media (prefers-reduced-motion: reduce) { html.bp-loading .bp-load { display: none; } }

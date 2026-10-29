@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block extrahead %}
+  {{ super() }}
+  {# Decide before first paint whether to show the loading sheet (first visit per session only) #}
+  <script>
+    try { if (!sessionStorage.getItem("bp-seen")) document.documentElement.classList.add("bp-loading"); } catch (e) {}
+  </script>
+{% endblock %}
+
+{% block announce %}
+  <div class="bp-load" role="status" aria-live="polite">
+    <div class="bp-load__sheet">
+      <span class="bp-load__tick bp-load__tick--tl"></span><span class="bp-load__tick bp-load__tick--tr"></span>
+      <span class="bp-load__tick bp-load__tick--bl"></span><span class="bp-load__tick bp-load__tick--br"></span>
+      <p class="bp-load__label">SHEET 01 &middot; LOADING</p>
+      <p class="bp-load__title">{{ config.site_name }}</p>
+      <div class="bp-load__line"></div>
+      <p class="bp-load__hint">Press Esc or click to skip</p>
+    </div>
+  </div>
+{% endblock %}
