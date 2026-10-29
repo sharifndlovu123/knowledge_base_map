@@ -17,20 +17,19 @@ theme:
     code: Space Mono
 
   palette:
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
+    # Light is the default (no media query); the toggle remembers the visitor's choice
+    - scheme: default
       primary: custom
       accent: green
       toggle:
         icon: material/weather-night
-        name: Switch to light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default
+        name: Switch to dark mode
+    - scheme: slate
       primary: custom
       accent: green
       toggle:
         icon: material/weather-sunny
-        name: Switch to dark mode
+        name: Switch to light mode
 
   features:
     - announce.dismiss
