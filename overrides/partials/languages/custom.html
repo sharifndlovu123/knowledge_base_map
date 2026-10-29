@@ -1,0 +1,9 @@
+{#- Blueprint wording for the search box; everything else falls back to English. -#}
+{% import "partials/languages/en.html" as en %}
+{% macro t(key) %}{{ {
+  "search.placeholder": "Search the sheets",
+  "search.result.placeholder": "Type to search all 297 pages",
+  "search.result.none": "No sheets match",
+  "search.result.one": "1 sheet matches",
+  "search.result.other": "# sheets match"
+}[key] or en.t(key) }}{% endmacro %}

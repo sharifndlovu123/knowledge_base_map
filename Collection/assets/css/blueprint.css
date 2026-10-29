@@ -254,3 +254,38 @@ a.bp-mega__h:hover { color: var(--bp-ink); }
 .bp-mega__panel { overflow-x: hidden; }
 .bp-mega__panel { white-space: normal; }
 .bp-mega__li a { text-wrap: pretty; }
+
+/* ===== Search: a drafting-table input with a "/" key hint and an index-style result list ===== */
+@media screen and (min-width: 60em) { .md-search__inner { width: 22rem; transition: width .2s; } .md-search[data-md-state="active"] .md-search__inner { width: 36rem; } }
+.md-search__form { background: var(--bp-panel); border: 1px solid var(--bp-ink); height: 2rem; }
+.md-search__form:focus-within { border-color: var(--bp-red); outline: 2px solid color-mix(in srgb, var(--bp-red) 35%, transparent); outline-offset: 1px; }
+.md-search__input { font: 400 .72rem "Space Mono", monospace; letter-spacing: .04em; color: var(--bp-ink); }
+.md-search__input::placeholder { color: var(--bp-muted); text-transform: uppercase; letter-spacing: .12em; font-size: .6rem; }
+.md-search__icon { color: var(--bp-ink); }
+[data-md-toggle="search"]:not(:checked) ~ .md-header .md-search__form::after,
+.md-search[data-md-state=""] .md-search__form::after {
+  content: "/"; position: absolute; right: .5rem; top: 50%; transform: translateY(-50%);
+  font: 700 .6rem "Space Mono", monospace; color: var(--bp-muted); border: 1px solid var(--bp-rule2); padding: 0 .35rem; background: var(--bp-paper); pointer-events: none;
+}
+.md-search__form { position: relative; }
+.md-search[data-md-state="active"] .md-search__form::after { display: none; }
+.md-search__output { background: var(--bp-paper); border: 2px solid var(--bp-ink); border-top: 0; }
+.md-search-result__meta {
+  background: var(--bp-panel); color: var(--bp-muted); font: 700 .58rem "Space Mono", monospace;
+  text-transform: uppercase; letter-spacing: .12em; border-bottom: 1px dashed var(--bp-rule2);
+}
+.md-search-result__list { scrollbar-color: var(--bp-rule2) transparent; }
+.md-search-result__item { box-shadow: none; border-bottom: 1px solid var(--bp-rule); }
+.md-search-result__link { border-left: 3px solid transparent; outline: 0; }
+.md-search-result__link:hover, .md-search-result__link[data-md-state="active"] { background: var(--bp-panel); border-left-color: var(--bp-red); }
+.md-search-result__title { font: 700 .76rem "Space Grotesk", sans-serif; color: var(--bp-ink); }
+.md-search-result__article--document .md-search-result__title::before { content: "\00a7  "; color: var(--bp-red); }
+.md-search-result__teaser { color: var(--bp-muted); font-size: .68rem; line-height: 1.45; }
+.md-search-result mark { background: transparent; color: var(--bp-red); text-decoration: underline; text-underline-offset: .15em; font-weight: 700; }
+.md-search-result__icon { color: var(--bp-red); }
+
+/* Stacking: search results sit above the tab bar and mega-menu; the mega-menu sits above the page */
+.md-header__inner { position: relative; z-index: 30; }
+.md-tabs { position: relative; z-index: 1; }
+.md-search { z-index: 40; }
+.md-search__output { z-index: 40; }
