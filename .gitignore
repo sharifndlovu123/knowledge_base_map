@@ -185,3 +185,6 @@ build-folders.py
 /Collection/02. Networking/Network path.md
 /Collection/Frameworks/Django/
 .idea/
+
+# Local-only notes
+/PYPI-AND-CLEANUP-NOTES.md
