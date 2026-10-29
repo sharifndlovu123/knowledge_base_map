@@ -146,6 +146,21 @@ plugins:
 nav:
   - Home: 'index.md'
   - Whats New: 'Whats New.md'
+  - Orchestration:
+      - 'Orchestration/Orchestration Platforms.md'
+      - Kubernetes:
+          - 'Orchestration/Kubernetes/Local Kubernetes Tools.md'
+          - 'Orchestration/Kubernetes/kubectl Cheat Sheet.md'
+          - 'Orchestration/Kubernetes/Chapters/2. Kubernetes Architecture – from Container Images to Running Pods.md'
+          - 'Orchestration/Kubernetes/Chapters/3. Installing Your First Kubernetes Cluster.md'
+          - 'Orchestration/Kubernetes/Chapters/4. Running Your Containers in Kubernetes.md'
+      - Docker:
+          - 'Orchestration/Docker/1. Docker.md'
+          - 'Orchestration/Docker/2. Docker Compose.md'
+          - 'Orchestration/Docker/3. Container Images and Build Tools.md'
+      - Camunda:
+          - 'Orchestration/Camunda/Common Camunda Use Cases.md'
+          - 'Orchestration/Camunda/Camunda 8/Camunda 8 Code Studio Tutorial.md'
   # - Django:
   #     - 'Collection/Django/*.md'
   # - DevBridge:

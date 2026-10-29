@@ -1,0 +1,243 @@
+> **Hands-on:** [sharifndlovu123/github-actions-course](https://github.com/sharifndlovu123/github-actions-course), the companion repo for the DevOps Directive "GitHub Actions: Beginner to Pro" course (workflows, authoring actions, best practices, capstone).
+
+GitHub Actions is CI/CD built into GitHub. Workflows are YAML files in `.github/workflows/` that run on **events** in your repository. Concepts are in [[CI-CD Pipelines]].
+
+---
+
+# Anatomy
+
+| Term | Meaning |
+| ---- | ------- |
+| **Workflow** | A YAML file defining an automated process |
+| **Event** | What triggers it (`push`, `pull_request`, `schedule`, `workflow_dispatch`, `release`) |
+| **Job** | A set of steps run on one runner. Jobs run **in parallel** unless `needs` is set |
+| **Step** | A shell command (`run`) or a reusable action (`uses`) |
+| **Action** | A reusable unit from the Marketplace or your repo |
+| **Runner** | The machine: **GitHub-hosted** (`ubuntu-latest`, `windows-latest`, `macos-latest`) or **self-hosted** |
+
+---
+
+# A Basic CI Workflow
+
+```yaml
+# .github/workflows/ci.yml
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+          cache: pip
+
+      - run: pip install -r requirements.txt
+      - run: pytest
+```
+
+- `matrix` runs the job once per combination (versions, OSes)
+- `cache: pip` restores dependencies between runs
+- `permissions` limits the automatic `GITHUB_TOKEN`; always set it explicitly (least privilege)
+
+---
+
+# Triggers (`on`)
+
+```yaml
+on:
+  push:
+    branches: [main]
+    paths: ["src/**"]
+    tags: ["v*"]
+  pull_request:
+    types: [opened, synchronize]
+  schedule:
+    - cron: "0 2 * * *"        # nightly, UTC
+  workflow_dispatch:            # manual button, with inputs
+    inputs:
+      environment:
+        type: choice
+        options: [staging, production]
+  workflow_call:                # reusable workflow
+```
+
+---
+
+# Build and Push a Docker Image
+
+```yaml
+name: Docker
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/${{ github.repository }}:${{ github.sha }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+```
+
+See [[1. Docker]].
+
+---
+
+# Secrets, Variables and Contexts
+
+- **Secrets**: encrypted, set at repo / environment / org level, used as `${{ secrets.NAME }}`; masked in logs, **not passed to workflows from forks**
+- **Variables**: non-sensitive config, `${{ vars.NAME }}`
+- **Contexts**: `github` (event, ref, sha, actor), `env`, `job`, `steps`, `runner`, `needs`, `matrix`
+- Pass data between steps with `$GITHUB_OUTPUT`, and between jobs with job `outputs`
+
+```yaml
+steps:
+  - id: ver
+    run: echo "version=$(cat VERSION)" >> "$GITHUB_OUTPUT"
+  - run: echo "Building ${{ steps.ver.outputs.version }}"
+```
+
+---
+
+# Job Dependencies and Environments
+
+```yaml
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: ./build.sh
+      - uses: actions/upload-artifact@v4
+        with: { name: dist, path: dist/ }
+
+  deploy-staging:
+    needs: build
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - uses: actions/download-artifact@v4
+        with: { name: dist }
+      - run: ./deploy.sh staging
+
+  deploy-prod:
+    needs: deploy-staging
+    runs-on: ubuntu-latest
+    environment: production     # can require reviewers / wait timer
+    steps:
+      - uses: actions/download-artifact@v4
+        with: { name: dist }
+      - run: ./deploy.sh production
+```
+
+**Environments** hold their own secrets and **protection rules** (required reviewers, branch restrictions), which gives manual approval gates.
+
+`if:` conditions control steps and jobs, for example `if: github.ref == 'refs/heads/main'`.
+
+---
+
+# Deploying to the Cloud with OIDC (no stored keys)
+
+GitHub issues a short-lived OIDC token; the cloud trusts it and hands back temporary credentials.
+
+## AWS
+
+```yaml
+permissions:
+  id-token: write
+  contents: read
+
+steps:
+  - uses: aws-actions/configure-aws-credentials@v4
+    with:
+      role-to-assume: arn:aws:iam::123456789012:role/github-deploy
+      aws-region: af-south-1
+  - run: aws s3 sync ./site s3://my-unique-bucket-12345 --delete
+```
+
+The role's trust policy restricts it to your repo and branch (`token.actions.githubusercontent.com`). See [[2. AWS IAM and Security]].
+
+## Azure
+
+```yaml
+permissions:
+  id-token: write
+  contents: read
+
+steps:
+  - uses: azure/login@v2
+    with:
+      client-id: ${{ secrets.AZURE_CLIENT_ID }}
+      tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+      subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+  - uses: azure/webapps-deploy@v3
+    with:
+      app-name: my-unique-webapp
+      package: .
+```
+
+Uses an Entra **federated credential** on an app registration. See [[5. Azure Identity and Security]].
+
+---
+
+# Reuse
+
+- **Reusable workflows** (`workflow_call`): call a workflow from another with `uses: org/repo/.github/workflows/build.yml@v1`
+- **Composite actions**: bundle several steps in an `action.yml`
+- **JavaScript / Docker actions**: custom logic with inputs and outputs
+- **Starter workflows** in the organisation `.github` repo
+
+---
+
+# Security Practices
+- Set `permissions:` to the minimum; default `contents: read`
+- **Pin third-party actions to a full commit SHA**, not a moving tag
+- Never echo secrets; avoid `pull_request_target` with untrusted code
+- Use **OIDC** instead of long-lived cloud keys
+- **Dependabot** for actions and dependencies; **CodeQL** code scanning; **secret scanning** and push protection
+- **Self-hosted runners**: use ephemeral runners, never on public repos
+
+---
+
+# Operations
+- **Caching** (`actions/cache`, built-in `cache:` in setup actions), **concurrency** groups to cancel superseded runs:
+
+```yaml
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
+```
+
+- **Re-run** failed jobs, enable **debug logging** with `ACTIONS_STEP_DEBUG`
+- Hosted runner minutes are metered (free tier for public repos)
+- Use `timeout-minutes:` on jobs to avoid runaway builds

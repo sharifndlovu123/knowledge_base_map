@@ -1,0 +1,112 @@
+Layer 2 behaviour: how switches build tables, segment networks with VLANs, and prevent loops. Frame details are in [[Ethernet]] and [[2. Date Link Layer]].
+
+---
+
+# Switch Operation
+
+A switch **learns** source MACs, **forwards** known destinations out one port, and **floods** unknown / broadcast frames.
+
+```
+Switch# show mac address-table
+Vlan    Mac Address       Type     Ports
+10      aabb.cc00.0100    DYNAMIC  Gi0/1
+```
+
+- **MAC aging**: dynamic entries expire (default 300 s)
+- **Collision domain**: per switch port; **broadcast domain**: whole VLAN
+- **Duplex and speed**: auto-negotiation, mismatches cause **late collisions / CRC errors**. Full duplex = no collisions
+- **ARP** maps IP → MAC inside the broadcast domain
+
+---
+
+# VLANs
+
+A **Virtual LAN** logically splits one switch into multiple broadcast domains.
+
+- Benefits: smaller broadcast domains, security isolation, flexible grouping regardless of location
+- IDs **1-4094** (1 = default, 1002-1005 legacy; 4095 reserved)
+- Each VLAN usually maps to **one IP subnet** ([[Subnetting]])
+- Hosts in different VLANs communicate only through a **router / L3 switch** (**inter-VLAN routing**)
+
+## Port modes
+| Mode | Behaviour |
+| ---- | --------- |
+| **Access** | Carries one VLAN, untagged to the end device |
+| **Trunk** | Carries many VLANs between switches / routers using tags |
+| **Native VLAN** | Untagged VLAN on a trunk (change from VLAN 1 and match both ends) |
+| **Voice VLAN** | Separate VLAN for IP phones on an access port |
+
+## 802.1Q tagging
+A 4-byte tag inserted in the Ethernet frame: TPID (0x8100), **PCP** (3 bits, 802.1p priority / QoS), DEI, **VLAN ID** (12 bits).
+
+## Configuration (Cisco-style)
+
+```
+Switch(config)# vlan 10
+Switch(config-vlan)# name SALES
+Switch(config)# interface Gi0/1
+Switch(config-if)# switchport mode access
+Switch(config-if)# switchport access vlan 10
+Switch(config)# interface Gi0/24
+Switch(config-if)# switchport mode trunk
+Switch(config-if)# switchport trunk allowed vlan 10,20,30
+Switch(config-if)# switchport trunk native vlan 99
+Switch# show vlan brief
+Switch# show interfaces trunk
+```
+
+## Inter-VLAN routing
+- **Router-on-a-stick**: one trunk to a router with **sub-interfaces** (`Gi0/0.10` with `encapsulation dot1Q 10`)
+- **Layer 3 switch with SVIs**: `interface vlan 10` + `ip address` + `ip routing`
+
+---
+
+# Spanning Tree Protocol (STP)
+
+Redundant switch links create **loops** that cause **broadcast storms**, MAC table instability and duplicate frames (Ethernet has no TTL). STP blocks redundant paths and keeps them as standby.
+
+- Elects a **root bridge** (lowest **bridge ID** = priority + MAC; default priority 32768)
+- Each switch finds its **root port** (best path to root); each segment gets one **designated port**; the rest are **blocked / alternate**
+- Port states (802.1D): Blocking → Listening → Learning → Forwarding (~30-50 s convergence)
+
+| Standard | Name | Notes |
+| -------- | ---- | ----- |
+| 802.1D | STP | Slow convergence |
+| 802.1w | **RSTP** | Rapid, seconds |
+| 802.1s | **MSTP** | Multiple instances mapped to VLAN groups |
+| Cisco | PVST+ / Rapid PVST+ | One tree per VLAN |
+
+Protections:
+- **PortFast**: edge ports go straight to forwarding (access ports only)
+- **BPDU Guard**: shut a PortFast port that receives BPDUs
+- **Root Guard**, **Loop Guard**
+
+---
+
+# Link Aggregation
+Bundle several physical links into one logical link for bandwidth and redundancy: **LACP (802.3ad / 802.1AX)**, Cisco **EtherChannel**, also called port channel, NIC teaming or bonding. STP sees one link.
+
+---
+
+# Layer 2 Security Features
+
+| Feature | Purpose |
+| ------- | ------- |
+| **Port security** | Limit / pin MAC addresses per port, violation action: protect, restrict, shutdown |
+| **DHCP snooping** | Trust only legitimate DHCP server ports, builds a binding table |
+| **Dynamic ARP Inspection (DAI)** | Blocks ARP spoofing using the snooping table |
+| **IP Source Guard** | Drops spoofed source IPs |
+| **802.1X (NAC)** | Authenticate a device / user before the port opens (RADIUS) |
+| **Disable unused ports**, put in an unused VLAN | Reduce attack surface |
+
+Attacks: **MAC flooding** (fills the CAM table so the switch acts like a hub), **VLAN hopping** (switch spoofing, double tagging), **ARP poisoning**, **rogue DHCP**, **STP manipulation**.
+
+---
+
+# Other Layer 2 Items
+- **PoE** for powering devices
+- **Jumbo frames** (MTU up to ~9000) for storage / data centre
+- **LLDP / CDP**: neighbour discovery
+- **Port mirroring (SPAN)** for capture
+- **MTU** and fragmentation issues cause mysterious drops for large packets
+- **QoS** marking with 802.1p CoS; see [[Network Operations and Monitoring]]

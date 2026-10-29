@@ -452,3 +452,5 @@ public class AlarmTrigger {
    - `q` → quits the program
 
 3. Use `mail` to check your inbox and verify each alert arrived.
+
+**Related project:** [sharifndlovu123/SMTP-Pop-Test](https://github.com/sharifndlovu123/SMTP-Pop-Test) (EmailPruner) is a Java command-line tool that speaks POP3 directly over a socket (`USER`, `PASS`, `STAT`, `TOP`, `LIST`, `DELE`, `QUIT`) to list, search, filter and bulk-delete messages.

@@ -177,3 +177,5 @@ cython_debug/
 build-folders.py
 
 .obsidian
+/personal
+/work

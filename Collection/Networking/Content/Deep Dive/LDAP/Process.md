@@ -96,3 +96,5 @@ You should be able to run the program multiple times, input different UIDs, and 
 | 5 | Build and send a SearchRequest for `uid=<name>` |
 | 6 | Read the SearchResponse, parse `telephoneNumber` |
 | 7 | Print result to user |
+
+**Try it yourself:** [sharifndlovu123/LDAP-Test-Environment](https://github.com/sharifndlovu123/LDAP-Test-Environment) runs OpenLDAP in Docker with Java test utilities (`make up`, then `./test/test_ldap.sh`).
