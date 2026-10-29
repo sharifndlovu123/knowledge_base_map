@@ -1,0 +1,17 @@
+nav:
+  - Foundations:
+      - 01. Learning Cloud In IT.md
+      - 02. Cloud Computing Services.md
+      - 03. Hosting.md
+      - 04. The Big Three.md
+  - 05. AWS
+  - 06. Azure
+  - 07. GCP
+  - Across Clouds:
+      - 08. Azure and GCP Edge Delivery and Load Balancing.md
+      - 09. Smaller Cloud Platforms for Startups and Demos.md
+      - 10. Static Sites on Cloudflare.md
+  - Hands-On Builds:
+      - 11. Cloud Portfolio Blueprints.md
+      - 12. VPC Playground.md
+  - "..."

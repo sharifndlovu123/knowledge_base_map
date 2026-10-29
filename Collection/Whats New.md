@@ -40,8 +40,18 @@ NOTE- not all notes are shared publicly, thus some files will be visible on the 
 ## Repos and hands-on projects
 - **Linux**: server hardening with SSH, UFW and fail2ban (Terraform on Azure + Lynis), and network device monitoring with NetPulse (capabilities, Celery, nmap).
 - **Security**: Siteward, a passive web security scanner, with what each check means and how it is built.
+- **Security**: standard practice notes: fundamentals and threat modelling, web application security (OWASP Top 10), HTTP security headers and CSP, cloud security across AWS, Azure and GCP, and secure coding and supply chain.
+- **Django in production** (Programming): payments and webhooks, async Django (ASGI, Channels, SSE), Celery and message brokers, subdomain multi-tenancy, data modelling lessons. Also Django on ECS Fargate (AWS), WAF in production (Security) and static sites on Cloudflare (Cloud).
+- **Cloud**: smaller platforms for startups, demos and testing (Render, Railway, Fly.io, Heroku, DigitalOcean, Vercel, Netlify, Cloudflare, Supabase, Neon, VPS) with a chooser and a path to the big three.
+- **Cloud deep dives**: AWS CloudFront (origins, behaviors, cache keys and TTLs, response header policies, invalidations, domains, edge functions), Route 53, Elastic Load Balancing, API Gateway and S3, plus Azure Front Door / Application Gateway and GCP Cloud CDN / load balancing.
 - **Cloud**: VPC Playground, the same network built with CloudFormation, Terraform, ARM and Bicep.
 - **AI**: Kandev canvas for step history, and genetic programming, decision trees and MLP compared.
 - **Algorithms**: ant colony optimisation, tabu search and simulated annealing.
 - **Networking**: Remote workstation note expanded with the security model and troubleshooting.
 
+## Reorganised, new sections
+- **Numbering**: every section and its notes are prefixed with numbers (`01.` to `11.`) so the order is logical and does not depend on alphabetical sorting.
+- **About**: a page about the author and the site.
+- **GitHub Actions and Kubernetes**: deep dive and authoring/testing notes for Actions; resource types, CRDs and operators, packaging, developer experience, secrets, debugging, upgrades and GitOps for Kubernetes.
+- **Hardware**: Raspberry Pi and Pi 5, Pi-hole, Tailscale and VPNs, sensors and buses, prototyping from bench to field.
+- **Books**: a reading list with bookshop links, including a writing and authorship shelf.

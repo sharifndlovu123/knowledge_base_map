@@ -8,63 +8,28 @@ site_url: https://www.knowledgemap.devbridge.co.za
 copyright: Sharif Ndlovu | 'Build Test Deploy'
 theme:
   name: material
-  favicon: assets/globe-green.png
-  logo: assets/globe-green.png
+  favicon: assets/face-logo.svg
+  logo: assets/face-logo.svg
 
   font:
-    text: 'Fira Sans, sans-serif'
-    code: 'Fira Mono, monospace'
+    text: Inter
+    code: JetBrains Mono
 
-  # theme_style: dark
-  site_name_style: bold
-  # title_style: bold
-  # sidebar: true
-  navigation_depth: 5
-  highlightjs: true
-    - yaml
-    - python
-  colors:
-    text: white
-    title: green
-    primary: white
-    background: black
-  components:
-    site_name: false
-    title: false
-    menu: true
-    preview: false
-    footer: true
-
-
-
-#  avaaible schemes : default (Light mode)slate (Dark mode), default high contrast , slate high contrast , dracula 
-# material theme
   palette:
-  # Dark theme 1: Midnight Blue
-  - scheme: slate
-    primary: black
-    accent: green
-    toggle:
-      icon: material/weather-night
-      # name: Switch to Emerald Dark
-    
-  # Dark theme 2: Emerald Dark
-  - scheme: default
-    primary: black
-    accent: indigo
-    toggle:
-      icon: material/forest
-      name: Switch to Tech Dark
-    
-  # Dark theme 3: Tech Dark
-  # - scheme: slate
-  #   primary: red
-  #   accent: red
-  #   toggle:
-  #     icon: material/shield
-      # name: Switch to Light Classic
-      
-
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: green
+      toggle:
+        icon: material/weather-night
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: green
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
 
   features:
     - navigation.tabs
@@ -103,8 +68,8 @@ plugins:
   - exclude:
       glob:
         - DevBridge/*
-        - Networking/My Roadmap/*
-        - Networking/Network path.md
+        - 02. Networking/My Roadmap/*
+        - 02. Networking/Network path.md
         - Frameworks/Django/*
         - "*.tmp"
         - "*.gz"
@@ -143,37 +108,7 @@ plugins:
   #         - my/css/dir/file2.css
 
 
-nav:
-  - Home: 'index.md'
-  - Whats New: 'Whats New.md'
-  - Orchestration:
-      - 'Orchestration/Orchestration Platforms.md'
-      - Kubernetes:
-          - 'Orchestration/Kubernetes/Local Kubernetes Tools.md'
-          - 'Orchestration/Kubernetes/kubectl Cheat Sheet.md'
-          - 'Orchestration/Kubernetes/Chapters/2. Kubernetes Architecture – from Container Images to Running Pods.md'
-          - 'Orchestration/Kubernetes/Chapters/3. Installing Your First Kubernetes Cluster.md'
-          - 'Orchestration/Kubernetes/Chapters/4. Running Your Containers in Kubernetes.md'
-      - Docker:
-          - 'Orchestration/Docker/1. Docker.md'
-          - 'Orchestration/Docker/2. Docker Compose.md'
-          - 'Orchestration/Docker/3. Container Images and Build Tools.md'
-      - Camunda:
-          - 'Orchestration/Camunda/Common Camunda Use Cases.md'
-          - 'Orchestration/Camunda/Camunda 8/Camunda 8 Code Studio Tutorial.md'
-  # - Django:
-  #     - 'Collection/Django/*.md'
-  # - DevBridge:
-  #     - 'Collection/DevBridge/*.md'
-  # - Programming:
-  #     - 'Collection/Programming/*'
-  # - Networking:   
-  #     # - 'Collection/Networking Path/Content/*.md'
-  #   - Deepseek_Solution: 'Networking Path/My Roadmap/Deepseek Solution.md'
-  #   - Linux_Distros: 'Networking Path/My Roadmap/Linux Distros.md'
-  #   - MyPath: 'Networking Path/My Roadmap/My Path.md'
-  #   - Networking_Projects: 'Networking Path/My Roadmap/Networking Projects.md'
-      
+# Navigation order and grouping live in .nav.yml files (mkdocs-awesome-nav) inside Collection/
 
 #  Mermaid
 
@@ -182,6 +117,12 @@ markdown_extensions:
   - pymdownx.magiclink
   - pymdownx.superfences
   - md_in_html
+  - attr_list
+  - admonition
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   # - obsidian_callouts
   - pymdownx.superfences:
         # make exceptions to highlighting of code:

@@ -1,0 +1,22 @@
+nav:
+  - Foundations:
+      - 01. OSI Model.md
+      - 02. PDUs.md
+      - 03. Physical
+      - 04. Ipv4 and Ipv6.md
+      - 05. Subnetting.md
+  - Protocols and Services:
+      - 06. Protocols
+      - 07. DNS.md
+      - 08. HTTP.md
+      - 09. Network Services.md
+  - Devices and Design:
+      - 10. Network Devices.md
+      - 11. Switching and VLANs.md
+      - 12. Network Architecture
+  - Operate and Protect:
+      - 13. Network Security.md
+      - 14. Network Operations and Monitoring.md
+      - 15. Network Troubleshooting.md
+  - 16. Deep Dive
+  - "..."

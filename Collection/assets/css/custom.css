@@ -1,29 +1,110 @@
-/* :root  > * {
-    --md-primary-fg-color:        #c2c2c2;
-    --md-primary-fg-color--light: #ecd7b7;
-    --md-primary-fg-color--dark:  #904203;
-  } */
-
+/* Brand colour: green, matching the globe logo */
+:root {
+  --md-primary-fg-color: #15803d;
+  --md-primary-fg-color--light: #22c55e;
+  --md-primary-fg-color--dark: #14532d;
+  --md-accent-fg-color: #16a34a;
+}
 
 [data-md-color-scheme="slate"] {
---md-hue: 1254433; 
+  --md-default-bg-color: #0d1117;
+  --md-default-bg-color--light: #161b22;
+  --md-default-fg-color--light: #c9d1d9;
+  --md-code-bg-color: #161b22;
+  --md-primary-fg-color: #0d1117;
+  --md-typeset-a-color: #3fb950;
+  --md-footer-bg-color: #0d1117;
 }
 
-
-/* Make the entire layout full-width */
-/* .md-grid {
-  max-width: 100%;
-  margin: 0;
-  padding: 0;
-} */
-
-/* Make the main content span full width */
-.md-main__inner {
-  max-width:90%;
+[data-md-color-scheme="default"] .md-header,
+[data-md-color-scheme="default"] .md-tabs {
+  background-color: #14532d;
 }
 
-/* Make sure tables, images, and other content do not overflow */
-/* .md-content {
-  max-width: 100%;
-  padding: 0 16px; 
-} */
+/* Wider reading area, comfortable line length */
+.md-grid { max-width: 78rem; }
+.md-typeset { font-size: 0.78rem; line-height: 1.7; }
+
+/* Headings */
+.md-typeset h1 { font-weight: 700; letter-spacing: -0.02em; }
+.md-typeset h2 {
+  font-weight: 650;
+  margin-top: 2.2em;
+  padding-bottom: 0.3em;
+  border-bottom: 1px solid var(--md-default-fg-color--lightest);
+}
+
+/* Tables: contained, rounded, subtle header */
+.md-typeset__table { width: 100%; }
+.md-typeset table:not([class]) {
+  display: table;
+  width: 100%;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  box-shadow: none;
+}
+.md-typeset table:not([class]) th {
+  background: var(--md-default-fg-color--lightest);
+  font-weight: 600;
+}
+
+/* Code blocks and diagrams */
+.md-typeset pre > code,
+.md-typeset .highlight {
+  border-radius: 8px;
+}
+.md-typeset .mermaid {
+  text-align: center;
+  padding: 1rem;
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 8px;
+}
+
+/* Callout used for "Repository" links at the top of notes */
+.md-typeset blockquote {
+  border-left: 4px solid var(--md-accent-fg-color);
+  background: var(--md-default-fg-color--lightest);
+  border-radius: 0 8px 8px 0;
+  padding: 0.4rem 1rem;
+  color: var(--md-default-fg-color);
+}
+
+/* Home page cards */
+.md-typeset .grid.cards > ul > li {
+  border-radius: 10px;
+  transition: transform 0.15s, border-color 0.15s;
+}
+.md-typeset .grid.cards > ul > li:hover {
+  transform: translateY(-2px);
+  border-color: var(--md-accent-fg-color);
+}
+
+/* Images */
+.md-typeset img { border-radius: 6px; }
+
+/* About page */
+.about-hero { text-align: center; padding: 1rem 0 0.5rem; }
+.about-hero .about-face { width: 120px; height: auto; margin-bottom: 0.5rem; }
+.about-hero h1 { margin-top: 0; }
+
+/* Buttons: dark mode primary colour equals the page background, so set them explicitly */
+.md-typeset .md-button {
+  color: var(--md-accent-fg-color);
+  border-color: var(--md-accent-fg-color);
+  border-radius: 8px;
+}
+.md-typeset .md-button--primary {
+  background-color: var(--md-accent-fg-color);
+  border-color: var(--md-accent-fg-color);
+  color: #fff;
+}
+.md-typeset .md-button:hover,
+.md-typeset .md-button:focus {
+  background-color: var(--md-primary-fg-color--light);
+  border-color: var(--md-primary-fg-color--light);
+  color: #fff;
+}
+.about-hero .md-button { margin: 0.2rem; }

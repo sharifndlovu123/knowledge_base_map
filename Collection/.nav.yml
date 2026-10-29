@@ -1,0 +1,17 @@
+nav:
+  - Home: index.md
+  - About: About.md
+  - Whats New: Whats New.md
+  - Work In IT.md
+  - Linux: 01. Linux
+  - Networking: 02. Networking
+  - Programming: 03. Programming
+  - Databases: 04. Databases
+  - Security: 05. Security
+  - Containers and Orchestration: 06. Orchestration
+  - Cloud: 07. Cloud
+  - DevOps: 08. DevOps
+  - AI: 09. AI
+  - Hardware: 10. Hardware
+  - Books: 11. Books
+  - "..."
