@@ -367,3 +367,16 @@ input[type="text"], input[type="search"], textarea, .md-search__input, .md-types
   .md-header__title { font-size: .58rem; }
   .md-typeset .grid.cards > ul > li { padding: .6rem .7rem; }
 }
+
+/* Mobile menu: no site title or face in the drawer header; keep the bar as a plain close button */
+@media screen and (max-width: 76.1875em) {
+  .md-nav--primary > .md-nav__title[for="__drawer"] {
+    font-size: 0; color: transparent; display: flex; align-items: center; justify-content: flex-end;
+    padding: .7rem .9rem; background: var(--bp-panel); border-bottom: 2px solid var(--bp-ink); height: auto;
+  }
+  .md-nav--primary > .md-nav__title[for="__drawer"] .md-logo { display: none; }
+  .md-nav--primary > .md-nav__title[for="__drawer"]::before { display: none; }
+  .md-nav--primary > .md-nav__title[for="__drawer"]::after {
+    content: "Close \2715"; font: 700 .66rem "Space Mono", monospace; letter-spacing: .12em; text-transform: uppercase; color: var(--bp-ink);
+  }
+}
