@@ -2,7 +2,7 @@
    Paper + ink + one red-orange callout colour, 32px grid, mono labels, hairline rules. */
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap");
 
-:root, [data-md-color-scheme="default"] {
+:root, [data-md-color-scheme="default"], [data-md-color-scheme="paper"] {
   --bp-paper: #e6f0f8; --bp-ink: #0b2d52; --bp-red: #b43b0a; --bp-muted: #44627f;
   --bp-rule: rgba(11,45,82,.2); --bp-rule2: rgba(11,45,82,.55);
   --bp-panel: #d7e6f2; --bp-grid: rgba(11,45,82,.08);
@@ -317,6 +317,16 @@ a.bp-mega__h:hover { color: var(--bp-ink); }
   --md-code-hl-function-color: #6b21a8; --md-code-hl-constant-color: #0f6b5e; --md-code-hl-comment-color: #48607a;
   --md-code-hl-special-color: #b43b0a; --md-code-hl-operator-color: #0b2d52; --md-code-hl-punctuation-color: #0b2d52;
   --md-code-hl-name-color: #0b2d52; --md-code-hl-variable-color: #0b2d52; --md-code-hl-generic-color: #0b2d52;
+}
+/* Paper: warm sepia sheet for long reading; reuses every light-scheme rule above */
+[data-md-color-scheme="paper"] {
+  --bp-paper: #f4ecdc; --bp-ink: #2e2217; --bp-red: #a3340f; --bp-muted: #6a5845;
+  --bp-rule: rgba(46,34,23,.2); --bp-rule2: rgba(46,34,23,.55);
+  --bp-panel: #e9dcc3; --bp-grid: rgba(46,34,23,.07);
+  --md-code-hl-keyword-color: #a3340f; --md-code-hl-string-color: #3f6b2d; --md-code-hl-number-color: #8a5a00;
+  --md-code-hl-function-color: #5b3f8c; --md-code-hl-constant-color: #1f5f7a; --md-code-hl-comment-color: #7d6b57;
+  --md-code-hl-special-color: #a3340f; --md-code-hl-operator-color: #2e2217; --md-code-hl-punctuation-color: #2e2217;
+  --md-code-hl-name-color: #2e2217; --md-code-hl-variable-color: #2e2217; --md-code-hl-generic-color: #2e2217;
 }
 [data-md-color-scheme="slate"] {
   --md-code-hl-color: rgba(255,209,102,.16);

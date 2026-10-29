@@ -29,6 +29,12 @@ theme:
       primary: custom
       accent: green
       toggle:
+        icon: material/book-open-page-variant
+        name: Switch to paper mode
+    - scheme: paper
+      primary: custom
+      accent: green
+      toggle:
         icon: material/weather-sunny
         name: Switch to light mode
 
