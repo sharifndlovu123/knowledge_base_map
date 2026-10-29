@@ -46,6 +46,8 @@ NOTE- not all notes are shared publicly, thus some files will be visible on the 
 - **Cloud deep dives**: AWS CloudFront (origins, behaviors, cache keys and TTLs, response header policies, invalidations, domains, edge functions), Route 53, Elastic Load Balancing, API Gateway and S3, plus Azure Front Door / Application Gateway and GCP Cloud CDN / load balancing.
 - **Cloud**: VPC Playground, the same network built with CloudFormation, Terraform, ARM and Bicep.
 - **AI**: Kandev canvas for step history, and genetic programming, decision trees and MLP compared.
+- **System design**: a new Programming section covering the design framework and back-of-the-envelope estimation, building blocks (load balancers, caches, CDNs, queues), data and consistency (replication, sharding, consistent hashing, snowflake IDs), reliability patterns (rate limiting, retries, circuit breakers), container and distributed patterns (sidecar, ambassador, adapter, scatter/gather, FaaS, ownership election, work queues, event-driven and coordinated batch) and worked designs with diagrams (URL shortener, crawler, notifications, news feed, chat, autocomplete, video, file sync).
+- **Open source**: a new Programming section on licences (MIT, Apache, GPL, AGPL and how to choose), contributor etiquette (issues, pull requests, AI-assisted changes), running a project (community files, code of conduct, saying no), versioning and releases (SemVer, Conventional Commits, changelogs) and security and supply-chain hygiene (disclosure, dependencies, Scorecard checks).
 - **Algorithms**: ant colony optimisation, tabu search and simulated annealing.
 - **Networking**: Remote workstation note expanded with the security model and troubleshooting.
 

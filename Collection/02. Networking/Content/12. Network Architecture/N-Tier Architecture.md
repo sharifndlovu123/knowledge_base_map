@@ -62,3 +62,5 @@ A **web application** might be designed with the following N-Tier structure:
 ### **Conclusion**:
 
 N-Tier architecture helps build scalable, maintainable, and well-organized systems by dividing the responsibilities across multiple layers. It allows teams to work on different parts of an application independently, improve performance through caching and scaling, and manage the overall complexity of large applications.
+
+**See also:** [[1. Fundamentals|System Design]] for scaling, caching, load balancing and worked examples.
