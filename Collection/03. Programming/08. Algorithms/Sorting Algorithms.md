@@ -1,4 +1,6 @@
 
+> **Try it:** every visual example below ends with an interactive player: **Play** runs it, **Step** moves one action at a time, and the drop-down switches algorithm on the same data. Red bars are being compared or moved, dark bars are in their final place, a dashed outline marks the pivot.
+
 ## 1. Bubble Sort
 
 ```java
@@ -18,6 +20,19 @@ void bubbleSort(int[] arr) {
 ```
 
 **Explanation**: Bubble sort repeatedly steps through the list, compares adjacent elements, and swaps them if they're in the wrong order. The algorithm gets its name because smaller elements "bubble" to the top of the list. Time complexity: O(n²).
+
+**Visual example** (sorting `5 2 9 1 6 3`; the sorted tail is on the right):
+
+| Pass | Swaps made | Array after the pass |
+|------|------------|----------------------|
+| start | | `5 2 9 1 6 3` |
+| 1 | 5↔2, 9↔1, 9↔6, 9↔3 | `2 5 1 6 3 9` |
+| 2 | 5↔1, 6↔3 | `2 1 5 3 6 9` |
+| 3 | 2↔1, 5↔3 | `1 2 3 5 6 9` |
+| 4 | none, so stop early | `1 2 3 5 6 9` |
+
+<div class="sortviz" data-algo="bubble" data-values="5,2,9,1,6,3,8,4"></div>
+
 
 ## 2. Selection Sort
 
@@ -41,6 +56,22 @@ void selectionSort(int[] arr) {
 
 **Explanation**: Selection sort divides the array into a sorted and unsorted part. It repeatedly finds the minimum element from the unsorted part and puts it at the beginning. Time complexity: O(n²).
 
+**Visual example** (sorting `5 2 9 1 6 3`; `|` separates sorted from unsorted):
+
+| Step | Smallest in the unsorted part | Array after the swap |
+|------|-------------------------------|----------------------|
+| start | | `5 2 9 1 6 3` |
+| 1 | 1 | `1 \| 2 9 5 6 3` |
+| 2 | 2 (already in place) | `1 2 \| 9 5 6 3` |
+| 3 | 3 | `1 2 3 \| 5 6 9` |
+| 4 | 5 (already in place) | `1 2 3 5 \| 6 9` |
+| 5 | 6 (already in place) | `1 2 3 5 6 9` |
+
+Selection sort makes at most n-1 swaps, which is its one advantage when writes are expensive.
+
+<div class="sortviz" data-algo="selection" data-values="5,2,9,1,6,3,8,4"></div>
+
+
 ## 3. Insertion Sort
 
 ```java
@@ -61,6 +92,20 @@ void insertionSort(int[] arr) {
 ```
 
 **Explanation**: Insertion sort builds the final sorted array one item at a time. It's efficient for small data sets and nearly sorted arrays. Time complexity: O(n²).
+
+**Visual example** (sorting `5 2 9 1 6 3`; the left side of `|` is always sorted):
+
+| Step | Item inserted | Array after inserting |
+|------|---------------|-----------------------|
+| start | | `5 \| 2 9 1 6 3` |
+| 1 | 2 slides past 5 | `2 5 \| 9 1 6 3` |
+| 2 | 9 stays | `2 5 9 \| 1 6 3` |
+| 3 | 1 slides past 9, 5, 2 | `1 2 5 9 \| 6 3` |
+| 4 | 6 slides past 9 | `1 2 5 6 9 \| 3` |
+| 5 | 3 slides past 9, 6, 5 | `1 2 3 5 6 9` |
+
+<div class="sortviz" data-algo="insertion" data-values="5,2,9,1,6,3,8,4"></div>
+
 
 ## 4. Merge Sort
 
@@ -126,6 +171,37 @@ void merge(int[] arr, int left, int mid, int right) {
 
 **Explanation**: Merge sort uses divide-and-conquer. It divides the array into two halves, sorts them separately, then merges them. Stable sort with O(n log n) time complexity but requires O(n) extra space.
 
+**Visual example** (split down to single items, then merge back up):
+
+```mermaid
+flowchart TD
+    A["5 2 9 1 6 3"] --> B["5 2 9"]
+    A --> C["1 6 3"]
+    B --> D["5"]
+    B --> E["2 9"]
+    E --> F["2"]
+    E --> G["9"]
+    C --> H["1"]
+    C --> I["6 3"]
+    I --> J["6"]
+    I --> K["3"]
+    F --> M1["merge: 2 9"]
+    G --> M1
+    D --> M2["merge: 2 5 9"]
+    M1 --> M2
+    J --> M3["merge: 3 6"]
+    K --> M3
+    H --> M4["merge: 1 3 6"]
+    M3 --> M4
+    M2 --> R["merge: 1 2 3 5 6 9"]
+    M4 --> R
+```
+
+Merging two sorted halves only ever looks at the front of each, so each level of the tree costs O(n) and there are about log n levels.
+
+<div class="sortviz" data-algo="merge" data-values="5,2,9,1,6,3,8,4"></div>
+
+
 ## 5. QuickSort
 
 ```java
@@ -165,6 +241,24 @@ int partition(int[] arr, int low, int high) {
 ```
 
 **Explanation**: QuickSort also uses divide-and-conquer. It picks a 'pivot' element and partitions the array around it. Average time complexity is O(n log n), but worst case is O(n²).
+
+**Visual example** (the last item is the pivot; sorting `5 2 9 1 6 3`):
+
+```mermaid
+flowchart TD
+    A["5 2 9 1 6 3 : pivot 3"] --> B["partition: smaller items go left"]
+    B --> C["2 1 | 3 | 5 6 9"]
+    C --> D["2 1 : pivot 1"]
+    C --> E["5 6 9 : pivot 9"]
+    D --> F["1 | 2"]
+    E --> G["5 6 : pivot 6"]
+    G --> H["5 | 6"]
+```
+
+After each partition the pivot is in its final position, so only the two sides remain. A pivot near the middle gives balanced halves; an already sorted array with a last-item pivot gives the O(n²) worst case.
+
+<div class="sortviz" data-algo="quick" data-values="5,2,9,1,6,3,8,4"></div>
+
 
 ## 6. HeapSort
 
@@ -217,6 +311,22 @@ void heapify(int[] arr, int n, int i) {
 ```
 
 **Explanation**: HeapSort uses a binary heap data structure to sort elements. It creates a max heap, then repeatedly extracts the maximum element. Time complexity: O(n log n).
+
+**Visual example** (the array `9 6 5 1 2 3` read as a binary tree, the max heap built from `5 2 9 1 6 3`):
+
+```mermaid
+flowchart TD
+    A["9"] --> B["6"]
+    A --> C["5"]
+    B --> D["1"]
+    B --> E["2"]
+    C --> F["3"]
+```
+
+Index `i` has children at `2i+1` and `2i+2`, so the tree lives inside the array with no pointers. Each round swaps the root (the largest) with the last item of the heap, shrinks the heap by one and sifts the new root down.
+
+<div class="sortviz" data-algo="heap" data-values="5,2,9,1,6,3,8,4"></div>
+
 
 ## 7. Radix Sort
 
@@ -272,6 +382,20 @@ void countingSortByDigit(int[] arr, int exp) {
 
 **Explanation**: Radix sort sorts integers by processing individual digits. It sorts numbers digit by digit, starting from the least significant digit. Time complexity: O(nk) where k is the number of digits.
 
+**Visual example** (sorting `170 45 75 90 802 24 2 66`, one digit at a time, keeping equal digits in their earlier order):
+
+| Pass | Sorted by | Result |
+|------|-----------|--------|
+| start | | `170 45 75 90 802 24 2 66` |
+| 1 | ones digit | `170 90 802 2 24 45 75 66` |
+| 2 | tens digit | `802 2 24 45 66 170 75 90` |
+| 3 | hundreds digit | `2 24 45 66 75 90 170 802` |
+
+Each pass must be stable, otherwise the work of the earlier passes is lost.
+
+<div class="sortviz" data-algo="radix" data-values="170,45,75,90,802,24,2,66"></div>
+
+
 ## 8. Counting Sort
 
 ```java
@@ -315,6 +439,17 @@ void countingSort(int[] arr) {
 ```
 
 **Explanation**: Counting sort works by counting the occurrences of each unique element in the array, then using this information to place elements in the correct order. Time complexity: O(n+k) where k is the range of input.
+
+**Visual example** (sorting `4 2 2 8 3 3 1`):
+
+| Value | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
+|-------|---|---|---|---|---|---|---|---|
+| Count | 1 | 2 | 2 | 1 | 0 | 0 | 0 | 1 |
+
+Reading the counts from left to right gives `1 2 2 3 3 4 8`. No two items are ever compared, which is how it beats the O(n log n) limit, at the cost of memory proportional to the value range.
+
+<div class="sortviz" data-algo="counting" data-values="4,2,2,8,3,3,1,6"></div>
+
 
 ---
 

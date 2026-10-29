@@ -134,10 +134,12 @@ use_directory_urls: false
 extra_css:
   - assets/css/blueprint.css
   - assets/css/mermaid-zoom.css
+  - assets/css/sort-visualizer.css
 
 extra_javascript:
   - assets/js/a11y.js
   - assets/js/mermaid-zoom.js
+  - assets/js/sort-visualizer.js
 
 # extra_javascript:
 #   - "https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js"

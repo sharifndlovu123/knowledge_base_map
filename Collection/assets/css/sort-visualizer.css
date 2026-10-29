@@ -1,0 +1,35 @@
+/* Sorting visualiser (see js/sort-visualizer.js). Uses the blueprint tokens. */
+.sortviz { margin: 1rem 0; padding: .75rem; border: 1px solid var(--bp-rule2); background: color-mix(in srgb, var(--bp-panel) 55%, transparent); }
+.sortviz__bar { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; margin-bottom: .6rem; }
+.sortviz__btn, .sortviz__select {
+  min-height: 2rem; padding: .15rem .6rem; border: 1px solid var(--bp-ink); background: transparent; color: var(--bp-ink);
+  font: 700 .64rem "Space Mono", monospace; letter-spacing: .06em; text-transform: uppercase; cursor: pointer;
+}
+.sortviz__select { text-transform: none; background: var(--bp-paper); }
+.sortviz__btn:hover:not(:disabled), .sortviz__btn:focus-visible { background: var(--bp-ink); color: var(--bp-paper); }
+.sortviz__btn:disabled { opacity: .4; cursor: default; }
+.sortviz__speed { width: 6rem; accent-color: var(--bp-red); }
+
+.sortviz__bars {
+  display: flex; align-items: flex-end; gap: 3px; height: 190px; padding: 0 2px;
+  border-bottom: 2px solid var(--bp-ink);
+  background-image: linear-gradient(var(--bp-grid) 1px, transparent 1px); background-size: 100% 25%;
+}
+.sortviz__col {
+  position: relative; flex: 1 1 0; min-width: 3px;
+  background: color-mix(in srgb, var(--bp-ink) 35%, transparent); border: 1px solid var(--bp-ink);
+  transition: height .12s;
+}
+.sortviz__col.is-range { background: color-mix(in srgb, var(--bp-ink) 55%, transparent); }
+.sortviz__col.is-sorted { background: var(--bp-ink); }
+.sortviz__col.is-compare { background: var(--bp-red); border-color: var(--bp-red); }
+.sortviz__col.is-swap { background: var(--bp-red); border-color: var(--bp-ink); outline: 2px solid var(--bp-ink); }
+.sortviz__col.is-write { background: color-mix(in srgb, var(--bp-red) 70%, var(--bp-paper)); border-color: var(--bp-red); }
+.sortviz__col.is-pivot { outline: 2px dashed var(--bp-red); outline-offset: 1px; }
+.sortviz__num { position: absolute; left: 50%; bottom: 100%; transform: translateX(-50%); font: 700 .62rem "Space Mono", monospace; color: var(--bp-ink); }
+
+.sortviz__caption { min-height: 1.4rem; margin-top: .5rem; font: 400 .72rem "Space Mono", monospace; color: var(--bp-ink); }
+.sortviz__stats { font: 400 .66rem "Space Mono", monospace; color: var(--bp-muted); white-space: pre; }
+.sortviz__legend { margin-top: .4rem; font: 400 .62rem "Space Mono", monospace; color: var(--bp-muted); }
+@media (max-width: 600px) { .sortviz__bars { height: 150px; } .sortviz__speed { width: 100%; } }
+@media (prefers-reduced-motion: reduce) { .sortviz__col { transition: none; } }
