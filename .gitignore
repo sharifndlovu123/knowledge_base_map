@@ -179,3 +179,9 @@ build-folders.py
 .obsidian
 /personal
 /work
+# Kept out of the public repo (also excluded from the site in mkdocs.yml)
+/Collection/DevBridge/
+/Collection/02. Networking/My Roadmap/
+/Collection/02. Networking/Network path.md
+/Collection/Frameworks/Django/
+.idea/
