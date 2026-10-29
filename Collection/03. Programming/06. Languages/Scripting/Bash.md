@@ -7,7 +7,7 @@ Bash syntax is vast and flexible, so let's break it down into fundamental compon
 A script starts with a **shebang** to specify the interpreter:
 
 ```bash
-# !/bin/bash
+#!/bin/bash
 ```
 
 - `#!` tells the system which interpreter to use.
