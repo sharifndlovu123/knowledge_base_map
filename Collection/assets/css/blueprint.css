@@ -336,3 +336,34 @@ a, button, label, summary, select, [role="button"], .md-nav__link, .md-tabs__lin
 }
 input[type="text"], input[type="search"], textarea, .md-search__input, .md-typeset pre, .md-typeset code { cursor: text; }
 @media (pointer: coarse), (forced-colors: active) { body, a, button { cursor: auto; } }
+
+/* ===== Phones and small tablets ===== */
+/* single frame for code blocks (the wrapper carries it; the pre inside must not double it) */
+.md-typeset .highlight pre, .md-typeset .highlight > pre { border: 0; }
+@media screen and (max-width: 59.9375em) {
+  .md-header__title { letter-spacing: .06em; font-size: .64rem; }
+  .md-typeset { font-size: .85rem; line-height: 1.7; }
+  .md-typeset h1 { font-size: 1.7rem; line-height: 1.15; }
+  .md-typeset h2 { font-size: .82rem; letter-spacing: .06em; margin-top: 2em; }
+  /* tables: tighter cells so text gets the width, header labels stay compact */
+  .md-typeset table:not([class]) { font-size: .74rem; }
+  .md-typeset table:not([class]) th, .md-typeset table:not([class]) td { padding: .55em .6em; line-height: 1.45; }
+  .md-typeset table:not([class]) th { font-size: .54rem; letter-spacing: .05em; white-space: nowrap; }
+  .md-typeset table:not([class]) td:first-child { min-width: 6.5rem; }
+  /* code and diagrams: full width, smaller type, scroll rather than clip */
+  .md-typeset .highlight, .md-typeset .highlight pre, .md-typeset pre > code { font-size: .68rem; }
+  .md-typeset .mermaid { padding: .5rem; overflow-x: auto; }
+  .md-content__inner { margin-left: .8rem; margin-right: .8rem; }
+  /* drawer: comfortable tap targets */
+  .md-nav__item .md-nav__link { padding-top: .6rem; padding-bottom: .6rem; }
+  .md-nav--primary .md-nav__title { font-size: .7rem; }
+  /* blockquote and admonition callouts: less side padding */
+  .md-typeset blockquote, .md-typeset .admonition { padding: .4rem .7rem; }
+  /* home cards: single column, no oversized bubble */
+  .md-typeset .grid.cards > ul { grid-template-columns: 1fr; }
+  .md-typeset .grid.cards > ul > li::before { width: 1.5rem; height: 1.5rem; font-size: .56rem; }
+}
+@media screen and (max-width: 29.9375em) {
+  .md-header__title { font-size: .58rem; }
+  .md-typeset .grid.cards > ul > li { padding: .6rem .7rem; }
+}
