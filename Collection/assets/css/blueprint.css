@@ -3,8 +3,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap");
 
 :root, [data-md-color-scheme="default"] {
-  --bp-paper: #e6f0f8; --bp-ink: #0b2d52; --bp-red: #d9480f; --bp-muted: #4b6a8a;
-  --bp-rule: rgba(11,45,82,.2); --bp-rule2: rgba(11,45,82,.45);
+  --bp-paper: #e6f0f8; --bp-ink: #0b2d52; --bp-red: #b43b0a; --bp-muted: #44627f;
+  --bp-rule: rgba(11,45,82,.2); --bp-rule2: rgba(11,45,82,.55);
   --bp-panel: #d7e6f2; --bp-grid: rgba(11,45,82,.08);
   --md-text-font: "Space Grotesk"; --md-code-font: "Space Mono";
   --md-default-bg-color: var(--bp-paper);
@@ -63,9 +63,8 @@ body {
 .md-grid { max-width: 80rem; }
 
 /* Navigation: readable sans for page titles, mono only for small section labels */
-.md-sidebar { width: 14.5rem; }
+@media screen and (min-width: 76.25em) { .md-sidebar { width: 14.5rem; } .md-sidebar--secondary { width: 13rem; } }
 .md-sidebar--primary { border-right: 1px dashed var(--bp-rule2); }
-.md-sidebar--secondary { width: 13rem; }
 .md-nav { font-family: "Space Grotesk", system-ui, sans-serif; font-size: .72rem; line-height: 1.35; letter-spacing: 0; }
 .md-nav__title {
   font-family: "Space Mono", monospace; font-size: .6rem; font-weight: 700;
@@ -310,3 +309,30 @@ a.bp-mega__h:hover { color: var(--bp-ink); }
   border-bottom: 2px solid var(--bp-ink); padding: .5rem .4rem .45rem; margin-bottom: .3rem;
 }
 .md-sidebar--secondary .md-nav__title::before { content: ""; display: inline-block; width: .5rem; height: .5rem; background: var(--bp-red); margin-right: .5rem; vertical-align: middle; }
+
+/* ===== Code highlighting: AA-contrast tokens on the code background ===== */
+:root, [data-md-color-scheme="default"] {
+  --md-code-hl-color: rgba(180,59,10,.14);
+  --md-code-hl-keyword-color: #1b4f9c; --md-code-hl-string-color: #8a3b00; --md-code-hl-number-color: #8a3b00;
+  --md-code-hl-function-color: #6b21a8; --md-code-hl-constant-color: #0f6b5e; --md-code-hl-comment-color: #48607a;
+  --md-code-hl-special-color: #b43b0a; --md-code-hl-operator-color: #0b2d52; --md-code-hl-punctuation-color: #0b2d52;
+  --md-code-hl-name-color: #0b2d52; --md-code-hl-variable-color: #0b2d52; --md-code-hl-generic-color: #0b2d52;
+}
+[data-md-color-scheme="slate"] {
+  --md-code-hl-color: rgba(255,209,102,.16);
+  --md-code-hl-keyword-color: #ffd166; --md-code-hl-string-color: #b8f0cf; --md-code-hl-number-color: #ffbf80;
+  --md-code-hl-function-color: #d4c4ff; --md-code-hl-constant-color: #8fd8ff; --md-code-hl-comment-color: #b4cbe3;
+  --md-code-hl-special-color: #ffd166; --md-code-hl-operator-color: #e8f1fb; --md-code-hl-punctuation-color: #e8f1fb;
+  --md-code-hl-name-color: #e8f1fb; --md-code-hl-variable-color: #e8f1fb; --md-code-hl-generic-color: #e8f1fb;
+}
+.md-footer__direction { opacity: 1; }
+
+/* ===== Cursor: drafting crosshair; red ring over anything clickable ===== */
+:root { --bp-cur-cross: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M16 3v9M16 20v9M3 16h9M20 16h9' stroke='%230b2d52' stroke-width='1.6' fill='none'/%3E%3Ccircle cx='16' cy='16' r='1.8' fill='%23b43b0a'/%3E%3C/svg%3E") 16 16; --bp-cur-ring: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%23b43b0a' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='1.6' fill='%23b43b0a'/%3E%3C/svg%3E") 16 16; }
+[data-md-color-scheme="slate"] { --bp-cur-cross: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M16 3v9M16 20v9M3 16h9M20 16h9' stroke='%23e8f1fb' stroke-width='1.6' fill='none'/%3E%3Ccircle cx='16' cy='16' r='1.8' fill='%23ffd166'/%3E%3C/svg%3E") 16 16; --bp-cur-ring: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%23ffd166' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='1.6' fill='%23ffd166'/%3E%3C/svg%3E") 16 16; }
+body { cursor: var(--bp-cur-cross), crosshair; }
+a, button, label, summary, select, [role="button"], .md-nav__link, .md-tabs__link, .md-search-result__link, .md-button, .md-top, .md-header__button, .md-icon {
+  cursor: var(--bp-cur-ring), pointer !important;
+}
+input[type="text"], input[type="search"], textarea, .md-search__input, .md-typeset pre, .md-typeset code { cursor: text; }
+@media (pointer: coarse), (forced-colors: active) { body, a, button { cursor: auto; } }
