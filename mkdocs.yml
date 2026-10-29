@@ -7,6 +7,7 @@ docs_dir: 'Collection'
 site_url: https://www.knowledgemap.devbridge.co.za
 copyright: Sharif Ndlovu | 'Build Test Deploy'
 theme:
+  custom_dir: overrides
   name: material
   favicon: assets/face-logo.svg
   logo: assets/face-logo.svg

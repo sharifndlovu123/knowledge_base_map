@@ -1,0 +1,37 @@
+{#- Blueprint mega-menu: each top-level section opens a full-width panel of its pages. Pure CSS (hover / focus). -#}
+{% macro first_url(item) %}{% if item.children %}{{ first_url(item.children | first) }}{% else %}{{ item.url | url }}{% endif %}{% endmacro %}
+{% macro leaf(item) %}<li class="bp-mega__li{% if item.active %} is-active{% endif %}"><a href="{{ first_url(item) | trim }}">{{ item.title }}</a></li>{% endmacro %}
+<nav class="md-tabs" aria-label="{{ lang.t('tabs') }}" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      {% for nav_item in nav.items %}
+        {% set cls = "md-tabs__item" ~ (" md-tabs__item--active" if nav_item.active else "") %}
+        {% if nav_item.children %}
+        <li class="{{ cls }} bp-mega">
+          <a href="{{ first_url(nav_item) | trim }}" class="md-tabs__link" aria-haspopup="true">{{ nav_item.title }}</a>
+          <div class="bp-mega__panel">
+            {% set leaves = nav_item.children | rejectattr("children") | list %}
+            {% if leaves %}
+            <div class="bp-mega__col">
+              <span class="bp-mega__h">Pages</span>
+              <ul>{% for c in leaves[:12] %}{{ leaf(c) }}{% endfor %}</ul>
+            </div>
+            {% endif %}
+            {% for sec in nav_item.children if sec.children %}
+            <div class="bp-mega__col">
+              <a class="bp-mega__h" href="{{ first_url(sec) | trim }}">{{ sec.title }}</a>
+              <ul>
+                {% for c in sec.children[:9] %}{{ leaf(c) }}{% endfor %}
+                {% if sec.children | length > 9 %}<li class="bp-mega__more"><a href="{{ first_url(sec) | trim }}">+{{ sec.children | length - 9 }} more</a></li>{% endif %}
+              </ul>
+            </div>
+            {% endfor %}
+          </div>
+        </li>
+        {% else %}
+        <li class="{{ cls }}"><a href="{{ nav_item.url | url }}" class="md-tabs__link">{{ nav_item.title }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+</nav>
