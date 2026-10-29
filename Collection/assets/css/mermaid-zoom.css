@@ -1,0 +1,57 @@
+/* Diagram viewer (see js/mermaid-zoom.js): expand button on diagrams + full-screen overlay.
+   Uses the blueprint tokens, so it follows the light/dark toggle. */
+
+.mmz-wrap { position: relative; }
+.md-typeset .mermaid { cursor: zoom-in; overflow-x: auto; }
+.mmz-open {
+  position: absolute; top: .4rem; right: .4rem; padding: .25rem .55rem;
+  border: 1px solid var(--bp-ink); background: var(--bp-paper); color: var(--bp-ink);
+  font: 700 .6rem "Space Mono", monospace; letter-spacing: .08em; text-transform: uppercase;
+  opacity: .8; cursor: pointer;
+}
+.mmz-open:hover, .mmz-open:focus-visible { opacity: 1; background: var(--bp-ink); color: var(--bp-paper); }
+@media (hover: none) { .mmz-open { opacity: 1; } }
+
+html.mmz-lock { overflow: hidden; }
+.mmz {
+  position: fixed; inset: 0; z-index: 1000; display: flex; flex-direction: column;
+  background: var(--md-default-bg-color); color: var(--md-default-fg-color);
+}
+.mmz[hidden] { display: none; }
+
+.mmz__bar {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; padding: .5rem .75rem;
+  border-bottom: 1px solid var(--bp-ink); background: var(--bp-paper);
+}
+.mmz__btn {
+  min-width: 2.2rem; min-height: 2.2rem; padding: .2rem .7rem;
+  border: 1px solid var(--bp-ink); background: transparent; color: var(--bp-ink);
+  font: 700 .66rem "Space Mono", monospace; letter-spacing: .06em; text-transform: uppercase; cursor: pointer;
+}
+.mmz__btn:hover, .mmz__btn:focus-visible { background: var(--bp-ink); color: var(--bp-paper); }
+.mmz__btn--close { margin-left: auto; border-color: var(--bp-red); color: var(--bp-red); }
+.mmz__btn--close:hover, .mmz__btn--close:focus-visible { background: var(--bp-red); color: var(--bp-paper); }
+.mmz__readout { min-width: 3.2rem; font: 700 .7rem "Space Mono", monospace; }
+.mmz__hint { color: var(--bp-muted); font: 400 .66rem "Space Mono", monospace; }
+
+.mmz__stage {
+  position: relative; flex: 1; overflow: hidden; cursor: grab; touch-action: none; user-select: none;
+  background-image:
+    linear-gradient(var(--bp-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--bp-grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.mmz__stage:focus { outline: none; }
+.mmz__stage--drag { cursor: grabbing; }
+.mmz__box {
+  position: absolute; top: 0; left: 0; transform-origin: 0 0; padding: 24px;
+  background: color-mix(in srgb, var(--bp-panel) 55%, var(--bp-paper)); border: 1px solid var(--bp-rule2);
+}
+.mmz__box svg { display: block; max-width: none; }
+
+@media (max-width: 600px) {
+  .mmz__hint { display: none; }
+  .mmz__bar { gap: .3rem; padding: .4rem .5rem; }
+  .mmz__btn { min-width: 2rem; padding: .2rem .4rem; font-size: .6rem; }
+}
+@media print { .mmz-open, .mmz { display: none !important; } }
