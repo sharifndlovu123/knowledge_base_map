@@ -58,18 +58,47 @@ body {
 .md-search__input, .md-search__input::placeholder { color: var(--bp-ink); }
 .md-grid { max-width: 80rem; }
 
-/* Left rail: the numbered folders read like drawing-sheet index entries */
+/* Navigation: readable sans for page titles, mono only for small section labels */
+.md-sidebar { width: 14.5rem; }
 .md-sidebar--primary { border-right: 1px dashed var(--bp-rule2); }
-.md-nav { font-family: "Space Mono", monospace; font-size: .66rem; letter-spacing: .04em; }
-.md-nav__title { font-weight: 700; text-transform: uppercase; letter-spacing: .14em; color: var(--bp-muted); box-shadow: none; }
-.md-nav__item .md-nav__link { color: var(--bp-ink); opacity: .85; }
-.md-nav__link--active, .md-nav__link:hover { color: var(--bp-red) !important; opacity: 1; }
-.md-nav--primary > .md-nav__list > .md-nav__item > .md-nav__link,
-.md-nav--primary > .md-nav__list > .md-nav__item > label.md-nav__link { text-transform: uppercase; font-weight: 700; letter-spacing: .08em; }
+.md-sidebar--secondary { width: 13rem; }
+.md-nav { font-family: "Space Grotesk", system-ui, sans-serif; font-size: .72rem; line-height: 1.35; letter-spacing: 0; }
+.md-nav__title {
+  font-family: "Space Mono", monospace; font-size: .6rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .14em; color: var(--bp-muted); box-shadow: none; padding-bottom: .3rem;
+}
+.md-nav__list { margin: 0; }
+.md-nav__item .md-nav__link {
+  color: var(--bp-ink); opacity: 1; padding: .32rem .5rem .32rem .6rem; margin: 0;
+  border-left: 2px solid transparent; text-overflow: clip; white-space: normal; overflow-wrap: anywhere;
+}
+.md-nav__item .md-nav__link:hover { background: var(--bp-panel); color: var(--bp-ink) !important; border-left-color: var(--bp-rule2); }
+.md-nav__item .md-nav__link--active, .md-nav__item--active > .md-nav__link {
+  color: var(--bp-ink) !important; font-weight: 700; background: var(--bp-panel); border-left-color: var(--bp-red);
+}
+/* top-level sections: mono small caps so they read as group headings, with space above */
+.md-nav--primary > .md-nav__list > .md-nav__item--section { margin-top: 1rem; }
+.md-nav--primary > .md-nav__list > .md-nav__item--section > .md-nav__link {
+  font-family: "Space Mono", monospace; font-size: .6rem; text-transform: uppercase; letter-spacing: .14em;
+  font-weight: 700; color: var(--bp-muted); border-left: 0; padding-left: .6rem; background: none;
+}
+.md-nav--primary .md-nav__item--nested .md-nav__item { padding-left: .4rem; }
+/* table of contents on the right */
+.md-sidebar--secondary .md-nav__link { color: var(--bp-muted); padding: .22rem .4rem; border-left: 1px solid var(--bp-rule); }
+.md-sidebar--secondary .md-nav__link:hover { color: var(--bp-ink) !important; background: none; border-left-color: var(--bp-red); }
+.md-sidebar--secondary .md-nav__link--active { color: var(--bp-ink) !important; font-weight: 700; background: none; border-left: 2px solid var(--bp-red); }
 .md-sidebar--secondary .md-nav__title { color: var(--bp-muted); }
+.md-sidebar__scrollwrap { scrollbar-width: thin; scrollbar-color: var(--bp-rule2) transparent; }
+
+/* Accessibility */
+:focus-visible { outline: 2px solid var(--bp-red); outline-offset: 2px; }
+.md-typeset a { text-decoration: underline; text-decoration-color: var(--bp-rule2); text-underline-offset: .18em; }
+.md-typeset a:hover { text-decoration-color: currentColor; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
 
 /* Content */
-.md-typeset { font-size: .8rem; line-height: 1.7; color: var(--bp-ink); }
+.md-typeset { font-size: .82rem; line-height: 1.75; color: var(--bp-ink); }
+.md-content__inner { max-width: 46rem; }
 .md-typeset h1 { font-weight: 700; letter-spacing: -.03em; color: var(--bp-ink); }
 .md-typeset h2 {
   font-family: "Space Mono", monospace; text-transform: uppercase; letter-spacing: .1em;
@@ -79,7 +108,6 @@ body {
 .md-typeset h2::before { content: "§ "; color: var(--bp-red); }
 .md-typeset h3 { font-weight: 700; letter-spacing: -.01em; }
 .md-typeset hr { border-bottom: 1px dashed var(--bp-rule2); }
-.md-typeset a:hover { text-decoration: underline; }
 .md-typeset code { font-family: "Space Mono", monospace; border: 1px solid var(--bp-rule); }
 .md-typeset pre > code { border: 0; }
 .md-typeset .highlight, .md-typeset pre { border: 1px solid var(--bp-ink); }
@@ -144,3 +172,16 @@ body {
 .md-footer-meta { background: transparent; }
 .md-copyright { font-family: "Space Mono", monospace; font-size: .6rem; text-transform: uppercase; letter-spacing: .1em; }
 ::selection { background: var(--bp-red); color: var(--bp-paper); }
+
+/* Top tab bar: sections as drawing-sheet tabs */
+.md-tabs { background: color-mix(in srgb, var(--bp-paper) 96%, transparent); color: var(--bp-ink); border-bottom: 1px solid var(--bp-rule2); }
+.md-tabs__list { contain: none; }
+.md-tabs__link {
+  font-family: "Space Mono", monospace; font-size: .6rem; text-transform: uppercase; letter-spacing: .1em;
+  color: var(--bp-muted); opacity: 1; margin-top: .45rem; padding-bottom: .35rem; border-bottom: 2px solid transparent;
+}
+.md-tabs__link:hover { color: var(--bp-ink); }
+.md-tabs__item--active .md-tabs__link { color: var(--bp-ink); font-weight: 700; border-bottom-color: var(--bp-red); }
+.md-tabs__link { letter-spacing: .05em; }
+.md-tabs__item { padding-left: .5rem; padding-right: .5rem; }
+.md-tabs .md-grid { max-width: none; }
