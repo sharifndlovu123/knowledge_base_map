@@ -12,8 +12,8 @@ theme:
   logo: assets/face-logo.svg
 
   font:
-    text: Inter
-    code: JetBrains Mono
+    text: Space Grotesk
+    code: Space Mono
 
   palette:
     - media: "(prefers-color-scheme: dark)"
@@ -32,7 +32,6 @@ theme:
         name: Switch to dark mode
 
   features:
-    - navigation.tabs
     - announce.dismiss
     - content.action.edit
     - content.action.view
@@ -51,7 +50,6 @@ theme:
     - navigation.instant.progress
     - navigation.prune
     - navigation.sections
-    - navigation.tabs
     - navigation.tabs.sticky
     - navigation.top
     - navigation.tracking
@@ -137,7 +135,7 @@ mermaid:
 use_directory_urls: false
 
 extra_css:
-  - assets/css/custom.css
+  - assets/css/blueprint.css
 
 # extra_javascript:
 #   - "https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js"

@@ -1,0 +1,146 @@
+/* Blueprint theme: drafting-sheet look borrowed from the CV site.
+   Paper + ink + one red-orange callout colour, 32px grid, mono labels, hairline rules. */
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap");
+
+:root, [data-md-color-scheme="default"] {
+  --bp-paper: #e6f0f8; --bp-ink: #0b2d52; --bp-red: #d9480f; --bp-muted: #4b6a8a;
+  --bp-rule: rgba(11,45,82,.2); --bp-rule2: rgba(11,45,82,.45);
+  --bp-panel: #d7e6f2; --bp-grid: rgba(11,45,82,.08);
+  --md-text-font: "Space Grotesk"; --md-code-font: "Space Mono";
+  --md-default-bg-color: var(--bp-paper);
+  --md-default-fg-color: var(--bp-ink);
+  --md-default-fg-color--light: var(--bp-muted);
+  --md-default-fg-color--lighter: var(--bp-rule2);
+  --md-default-fg-color--lightest: var(--bp-rule);
+  --md-primary-fg-color: var(--bp-paper);
+  --md-primary-bg-color: var(--bp-ink);
+  --md-accent-fg-color: var(--bp-red);
+  --md-typeset-a-color: var(--bp-red);
+  --md-typeset-color: var(--bp-ink);
+  --md-code-bg-color: var(--bp-panel);
+  --md-code-fg-color: var(--bp-ink);
+  --md-footer-bg-color: var(--bp-paper);
+  --md-footer-fg-color: var(--bp-ink);
+}
+[data-md-color-scheme="slate"] {
+  --bp-paper: #0f3d6e; --bp-ink: #e8f1fb; --bp-red: #ffd166; --bp-muted: #9fbad8;
+  --bp-rule: rgba(232,241,251,.2); --bp-rule2: rgba(232,241,251,.42);
+  --bp-panel: #134a80; --bp-grid: rgba(232,241,251,.08);
+  --md-default-bg-color: var(--bp-paper);
+  --md-default-fg-color: var(--bp-ink);
+  --md-default-fg-color--light: var(--bp-muted);
+  --md-default-fg-color--lighter: var(--bp-rule2);
+  --md-default-fg-color--lightest: var(--bp-rule);
+  --md-primary-fg-color: var(--bp-paper);
+  --md-primary-bg-color: var(--bp-ink);
+  --md-typeset-a-color: var(--bp-red);
+  --md-typeset-color: var(--bp-ink);
+  --md-code-bg-color: var(--bp-panel);
+  --md-code-fg-color: var(--bp-ink);
+  --md-footer-bg-color: var(--bp-paper);
+  --md-footer-fg-color: var(--bp-ink);
+}
+[data-md-color-scheme="slate"] .md-header__button.md-logo img { filter: invert(1); }
+
+/* Drafting-sheet grid behind everything, no radius, no shadow */
+body {
+  background-image: linear-gradient(var(--bp-grid) 1px, transparent 1px), linear-gradient(90deg, var(--bp-grid) 1px, transparent 1px);
+  background-size: 32px 32px;
+  background-color: var(--bp-paper);
+}
+.md-main, .md-container { background: transparent; }
+* { border-radius: 0 !important; box-shadow: none !important; }
+
+/* Header: ruled title strip */
+.md-header { background: color-mix(in srgb, var(--bp-paper) 94%, transparent); color: var(--bp-ink); border-bottom: 2px solid var(--bp-ink); }
+.md-header__title { font-family: "Space Mono", monospace; text-transform: uppercase; letter-spacing: .12em; font-size: .72rem; }
+.md-search__form { background: var(--bp-panel); border: 1px solid var(--bp-rule2); }
+.md-search__input, .md-search__input::placeholder { color: var(--bp-ink); }
+.md-grid { max-width: 80rem; }
+
+/* Left rail: the numbered folders read like drawing-sheet index entries */
+.md-sidebar--primary { border-right: 1px dashed var(--bp-rule2); }
+.md-nav { font-family: "Space Mono", monospace; font-size: .66rem; letter-spacing: .04em; }
+.md-nav__title { font-weight: 700; text-transform: uppercase; letter-spacing: .14em; color: var(--bp-muted); box-shadow: none; }
+.md-nav__item .md-nav__link { color: var(--bp-ink); opacity: .85; }
+.md-nav__link--active, .md-nav__link:hover { color: var(--bp-red) !important; opacity: 1; }
+.md-nav--primary > .md-nav__list > .md-nav__item > .md-nav__link,
+.md-nav--primary > .md-nav__list > .md-nav__item > label.md-nav__link { text-transform: uppercase; font-weight: 700; letter-spacing: .08em; }
+.md-sidebar--secondary .md-nav__title { color: var(--bp-muted); }
+
+/* Content */
+.md-typeset { font-size: .8rem; line-height: 1.7; color: var(--bp-ink); }
+.md-typeset h1 { font-weight: 700; letter-spacing: -.03em; color: var(--bp-ink); }
+.md-typeset h2 {
+  font-family: "Space Mono", monospace; text-transform: uppercase; letter-spacing: .1em;
+  font-size: .9rem; font-weight: 700; margin-top: 2.4em; padding-bottom: .4em;
+  border-bottom: 1px dashed var(--bp-rule2);
+}
+.md-typeset h2::before { content: "§ "; color: var(--bp-red); }
+.md-typeset h3 { font-weight: 700; letter-spacing: -.01em; }
+.md-typeset hr { border-bottom: 1px dashed var(--bp-rule2); }
+.md-typeset a:hover { text-decoration: underline; }
+.md-typeset code { font-family: "Space Mono", monospace; border: 1px solid var(--bp-rule); }
+.md-typeset pre > code { border: 0; }
+.md-typeset .highlight, .md-typeset pre { border: 1px solid var(--bp-ink); }
+
+/* Tables read as drawing schedules: heavy top and bottom rules, mono header */
+.md-typeset__table { width: 100%; }
+.md-typeset table:not([class]) {
+  display: table; width: 100%; border: 0;
+  border-top: 2px solid var(--bp-ink); border-bottom: 2px solid var(--bp-ink);
+  font-size: .72rem;
+}
+.md-typeset table:not([class]) th {
+  background: var(--bp-panel); font-family: "Space Mono", monospace;
+  text-transform: uppercase; letter-spacing: .08em; font-size: .6rem; font-weight: 700;
+  border-bottom: 1px solid var(--bp-ink);
+}
+.md-typeset table:not([class]) td { border-top: 1px solid var(--bp-rule); }
+
+/* Callout / repository note = title-block cell */
+.md-typeset blockquote {
+  border: 1px solid var(--bp-ink); border-left: 6px solid var(--bp-red);
+  background: color-mix(in srgb, var(--bp-panel) 70%, transparent);
+  padding: .5rem 1rem; color: var(--bp-ink);
+}
+.md-typeset .admonition, .md-typeset details { border: 1px solid var(--bp-ink); border-left: 6px solid var(--bp-red); background: color-mix(in srgb, var(--bp-panel) 55%, transparent); }
+
+/* Diagrams mounted on a panel like the CV's figures */
+.md-typeset .mermaid {
+  text-align: center; padding: 1rem; background: color-mix(in srgb, var(--bp-panel) 55%, transparent);
+  border: 1px solid var(--bp-rule2);
+}
+.md-typeset img { border: 1px solid var(--bp-ink); }
+
+/* Home cards: numbered title-block cells */
+.md-typeset .grid.cards { counter-reset: sheet; }
+.md-typeset .grid.cards > ul { gap: 0; border: 2px solid var(--bp-ink); background: var(--bp-rule2); gap: 1px; }
+.md-typeset .grid.cards > ul > li {
+  counter-increment: sheet; border: 0; margin: 0; background: color-mix(in srgb, var(--bp-panel) 70%, var(--bp-paper));
+  transition: background .2s;
+}
+.md-typeset .grid.cards > ul > li::before {
+  content: counter(sheet, decimal-leading-zero); float: right; display: inline-grid; place-items: center;
+  width: 1.7rem; height: 1.7rem; border-radius: 50% !important; background: var(--bp-red); color: var(--bp-paper);
+  font: 700 .62rem "Space Mono", monospace;
+}
+.md-typeset .grid.cards > ul > li:hover { background: var(--bp-ink); transform: none; }
+.md-typeset .grid.cards > ul > li:hover, .md-typeset .grid.cards > ul > li:hover a, .md-typeset .grid.cards > ul > li:hover .twemoji { color: var(--bp-paper); }
+.md-typeset .grid.cards > ul > li > hr { border-color: var(--bp-rule2); }
+
+/* Buttons */
+.md-typeset .md-button { color: var(--bp-ink); border: 1px solid var(--bp-ink); font-family: "Space Mono", monospace; text-transform: uppercase; letter-spacing: .1em; font-size: .62rem; background: transparent; }
+.md-typeset .md-button--primary { background: var(--bp-red); border-color: var(--bp-red); color: var(--bp-paper); }
+.md-typeset .md-button:hover, .md-typeset .md-button:focus { background: var(--bp-ink); border-color: var(--bp-ink); color: var(--bp-paper); }
+
+/* About page */
+.about-hero { text-align: left; padding: 1rem 0; border-bottom: 2px solid var(--bp-ink); }
+.about-hero .about-face { width: 110px; border: 1px solid var(--bp-ink); padding: 6px; background: var(--bp-panel); }
+.about-hero .md-button { margin: .2rem .4rem .2rem 0; }
+
+/* Footer */
+.md-footer { border-top: 2px solid var(--bp-ink); }
+.md-footer-meta { background: transparent; }
+.md-copyright { font-family: "Space Mono", monospace; font-size: .6rem; text-transform: uppercase; letter-spacing: .1em; }
+::selection { background: var(--bp-red); color: var(--bp-paper); }

@@ -399,7 +399,7 @@ parsed_data = json.loads(json_str)
 
 ---
 ## List/Dictionary Comprehensions
-[[##Advanced Comprehensions]]
+[[#Advanced Comprehensions]]
 
 ```python
 # List comprehension
