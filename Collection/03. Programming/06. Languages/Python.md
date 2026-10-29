@@ -1,6 +1,6 @@
 
 Great for
-- [[1. Django Concepts]]
+- 1. Django Concepts
 - Flask
 # Python Syntax Breakdown
 

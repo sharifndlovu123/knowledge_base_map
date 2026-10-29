@@ -1,0 +1,57 @@
+name: Content checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    name: Build is valid
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      # Fail on any warning or error (broken links, bad config, unresolved wikilinks).
+      # The '...' catch-all in .nav.yml files warns when a folder has nothing left to
+      # collect; that is intentional, so it is the one message allowed through.
+      - name: Build site and fail on warnings
+        run: |
+          mkdocs build 2>&1 | tee build.log
+          if grep -E "^(WARNING|ERROR) " build.log | grep -viF "nav item '...' doesn't match"; then
+            echo "::error::mkdocs reported warnings or errors (listed above)"
+            exit 1
+          fi
+
+      # Folders listed under the exclude plugin must never reach the published site
+      - name: Check private folders are not published
+        run: |
+          for p in "DevBridge" "02. Networking/My Roadmap" "Frameworks/Django"; do
+            if [ -e "site/$p" ]; then
+              echo "::error::site/$p was published but should be excluded"
+              exit 1
+            fi
+          done
+
+  secrets:
+    name: No secrets committed
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

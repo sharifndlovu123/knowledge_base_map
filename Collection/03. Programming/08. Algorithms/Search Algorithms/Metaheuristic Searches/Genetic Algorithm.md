@@ -41,7 +41,7 @@ A Genetic Algorithm (GA) is a search heuristic inspired by the process of natura
      
 
     Mutation Sample
-     ![alt text](Programming/Algorithms/Search%20Algorithms/Metaheuristic%20Searches/image.png)
+     ![alt text](image.png)
 
 6. **Population Update**
    - Replace the old population with the new offspring created by the genetic operators.
