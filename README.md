@@ -39,8 +39,8 @@ cd <repo-name>
 # Install Zensical and the extensions used by this site
 pip install -r requirements.txt
 
-# Serve locally with live reload (PYTHONPATH=. exposes tools/obsidian_links.py)
-PYTHONPATH=. zensical serve
+# Serve locally with live reload
+zensical serve
 ```
 
 Then open `http://127.0.0.1:8000` in your browser.
@@ -48,7 +48,7 @@ Then open `http://127.0.0.1:8000` in your browser.
 To build a static version of the site:
 
 ```bash
-PYTHONPATH=. zensical build
+zensical build
 ```
 
 The generated site will be output to the `site/` directory.
@@ -60,6 +60,7 @@ The generated site will be output to the `site/` directory.
 ├── docs/           # Markdown source files (the actual notes/nodes)
 ├── mkdocs.yml       # Site configuration (read by Zensical)
 ├── tools/           # obsidian_links.py: [[wikilink]] support
+├── pyproject.toml   # makes tools/ installable (pip install -r requirements.txt)
 └── README.md
 ```
 

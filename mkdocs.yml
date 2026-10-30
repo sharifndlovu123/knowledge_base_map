@@ -120,7 +120,7 @@ markdown_extensions:
   - pymdownx.magiclink
   - pymdownx.superfences
   - md_in_html
-  - tools.obsidian_links:
+  - obsidian_links:
       docs_dir: Collection
       exclude: ["DevBridge/", "02. Networking/My Roadmap/", "Frameworks/Django/"]
   - attr_list

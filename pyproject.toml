@@ -1,0 +1,16 @@
+# Makes tools/obsidian_links.py importable (it is listed under markdown_extensions in
+# mkdocs.yml). Installed in editable mode via requirements.txt, so edits apply at once.
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "vault-tools"
+version = "0.1.0"
+description = "Obsidian wikilink support for the Knowledge Hub site build"
+requires-python = ">=3.10"
+dependencies = ["Markdown>=3.5"]
+
+[tool.setuptools]
+package-dir = {"" = "tools"}
+py-modules = ["obsidian_links"]

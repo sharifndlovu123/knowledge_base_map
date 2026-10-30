@@ -26,10 +26,7 @@ jobs:
       # Fail on any warning or error (broken links, bad config, unresolved wikilinks).
       # The '...' catch-all in .nav.yml files warns when a folder has nothing left to
       # collect; that is intentional, so it is the one message allowed through.
-      # PYTHONPATH=. lets Zensical import tools/obsidian_links.py (the wikilink extension)
       - name: Build site and fail on warnings
-        env:
-          PYTHONPATH: .
         run: |
           zensical build --clean 2>&1 | sed 's/\x1b\[[0-9;]*m//g' | tee build.log
           if grep -E "^(WARNING|ERROR) |^(Warning|Error):" build.log | grep -vE "nav item '([^']*/)?\.\.\.' doesn't match"; then

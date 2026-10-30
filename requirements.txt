@@ -9,8 +9,8 @@ zensical==0.0.73
 pymdown-extensions==12.3        # markdown_extensions in mkdocs.yml
 
 # [[wikilinks]] and ![[image]] embeds come from tools/obsidian_links.py (replaces
-# mkdocs-obsidian-bridge, which Zensical cannot run). Build with PYTHONPATH=. so
-# that module is importable.
+# mkdocs-obsidian-bridge, which Zensical cannot run). Installed from pyproject.toml.
+-e .
 
 # build-folders.py
 PyYAML>=6.0
