@@ -1,0 +1,10 @@
+{
+  // Publishes the built static site (zensical build -> site/). `name` must match the
+  // Workers project name in the Cloudflare dashboard, or Workers Builds rejects the deploy.
+  "name": "knowledge-base-map",
+  "compatibility_date": "2026-10-30",
+  "assets": {
+    "directory": "./site",
+    "not_found_handling": "404-page"
+  }
+}
