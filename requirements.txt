@@ -2,15 +2,15 @@
 # pip resolves the rest. Install with: pip install -r requirements.txt
 # Versions are the ones the site was last built and checked with.
 
-mkdocs==1.6.1
-mkdocs-material==9.8.0          # theme (also provides pymdown-extensions, search, emoji)
+# Zensical replaces mkdocs + mkdocs-material (Material reaches end of life on 2027-05-05).
+# It reads mkdocs.yml and builds the plugins below natively: search, awesome-nav,
+# exclude and glightbox. Mermaid diagrams are handled through the pymdownx fence.
+zensical==0.0.73
+pymdown-extensions==12.3        # markdown_extensions in mkdocs.yml
 
-# plugins listed under `plugins:` in mkdocs.yml
-mkdocs-awesome-nav==3.3.0       # awesome-nav: ordering via .nav.yml files
-mkdocs-obsidian-bridge==1.3.1   # obsidian-bridge: [[wikilinks]] and image embeds
-mkdocs-exclude==1.0.2           # exclude: keeps private folders out of the site
-mkdocs-mermaid2-plugin==1.2.3   # mermaid2: diagrams
-mkdocs-glightbox==0.5.3         # glightbox: image zoom
+# [[wikilinks]] and ![[image]] embeds come from tools/obsidian_links.py (replaces
+# mkdocs-obsidian-bridge, which Zensical cannot run). Build with PYTHONPATH=. so
+# that module is importable.
 
 # build-folders.py
 PyYAML>=6.0

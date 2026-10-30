@@ -23,7 +23,7 @@ Metaheuristic algorithms are high-level strategies used to guide the search proc
 ### **Examples of Single-Point Metaheuristic Searches**  
 These algorithms maintain a **single candidate solution** at any given time and iteratively improve it.  
 
-1. **[[Simulated Annealing]] (SA)** – Inspired by thermodynamics, it probabilistically accepts worse solutions to escape local optima.  
+1. **[[Simulate Anealling|Simulated Annealing]] (SA)** – Inspired by thermodynamics, it probabilistically accepts worse solutions to escape local optima.  
 2. **[[Tabu Search]] (TS)** – Uses memory structures (tabu list) to avoid revisiting previously explored solutions.  
 3. **[[Iterated Local Search (ILS)]]** – Perturbs the current solution and applies local search to refine it.  
 4. **Variable Neighbourhood Search (VNS)** – Dynamically changes the neighborhood structure to explore different regions of the search space.  

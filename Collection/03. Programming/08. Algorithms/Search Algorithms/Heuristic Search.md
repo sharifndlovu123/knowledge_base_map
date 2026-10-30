@@ -54,4 +54,4 @@ DFS and BFS may require too much memory to generate the entire state space. In t
 
 - **[[Hill Climbing]]**  
 - **[[Best First Search]] (BFS)**  
-- **[[A* Algorithm]]**  
+- **[[A+ Algorithm|A* Algorithm]]**  

@@ -60,5 +60,5 @@
 ## **Examples of Local Search Algorithms**  
 
 - **[[Hill Climbing]]**  
-- **[[Simulated Annealing]]**  
+- **[[Simulate Anealling|Simulated Annealing]]**  
 - **[[Tabu Search]]**  

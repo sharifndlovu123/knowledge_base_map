@@ -1,6 +1,9 @@
+---
+title: A* Algorithm
+---
 
 
-## A Algorithm
+## A* Algorithm
 
 The A algorithm is essentially the best-first search implemented with the following function:
 

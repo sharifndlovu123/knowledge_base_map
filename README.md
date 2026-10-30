@@ -1,6 +1,6 @@
 # 📚 Knowledge Hub
 
-A living collection of personal notes on cloud infrastructure, software engineering, and DevOps — built with [MkDocs](https://www.mkdocs.org/) and published as a public reference site.
+A living collection of personal notes on cloud infrastructure, software engineering, and DevOps — built with [Zensical](https://zensical.org/) (reading `mkdocs.yml`) and published as a public reference site.
 
 > This site is filled with a wealth of knowledge across various nodes. It's constantly updated with fresh, relevant content. These are rough-draft notes originally gathered to remind myself of brief concepts, later processed through an LLM to format them, fix grammar, and improve readability.
 
@@ -25,7 +25,7 @@ This site is a **work in progress**, and new nodes are added regularly as I lear
 
 ## 🛠 Built With
 
-- [MkDocs](https://www.mkdocs.org/) — static site generator for project documentation
+- [Zensical](https://zensical.org/) — static site generator, successor to Material for MkDocs; reads `mkdocs.yml`
 - Markdown — all notes are written in plain Markdown for easy editing and version control
 
 ## 🚀 Running Locally
@@ -36,14 +36,11 @@ Clone the repo and serve the site locally:
 git clone https://github.com/<your-username>/<repo-name>.git
 cd <repo-name>
 
-# Install MkDocs
-pip install mkdocs
-
-# (Optional) install the theme/plugins used by this site
+# Install Zensical and the extensions used by this site
 pip install -r requirements.txt
 
-# Serve locally with live reload
-mkdocs serve
+# Serve locally with live reload (PYTHONPATH=. exposes tools/obsidian_links.py)
+PYTHONPATH=. zensical serve
 ```
 
 Then open `http://127.0.0.1:8000` in your browser.
@@ -51,7 +48,7 @@ Then open `http://127.0.0.1:8000` in your browser.
 To build a static version of the site:
 
 ```bash
-mkdocs build
+PYTHONPATH=. zensical build
 ```
 
 The generated site will be output to the `site/` directory.
@@ -61,7 +58,8 @@ The generated site will be output to the `site/` directory.
 ```
 .
 ├── docs/           # Markdown source files (the actual notes/nodes)
-├── mkdocs.yml       # MkDocs site configuration
+├── mkdocs.yml       # Site configuration (read by Zensical)
+├── tools/           # obsidian_links.py: [[wikilink]] support
 └── README.md
 ```
 
