@@ -1,0 +1,25 @@
+{
+  "id": "/",
+  "name": "My Knowledge Base",
+  "short_name": "Knowledge Base",
+  "description": "Notes on cloud infrastructure, software engineering and DevOps.",
+  "lang": "en-ZA",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#e6f0f8",
+  "background_color": "#e6f0f8",
+  "categories": ["education", "productivity", "reference"],
+  "icons": [
+    { "src": "/assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "What's New", "url": "/Whats%20New.html", "icons": [{ "src": "/assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "Linux", "url": "/01.%20Linux/01.%20Foundation.html", "icons": [{ "src": "/assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "Programming", "url": "/03.%20Programming/01.%20Coding.html", "icons": [{ "src": "/assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }] },
+    { "name": "Cloud", "url": "/07.%20Cloud/01.%20Learning%20Cloud%20In%20IT.html", "icons": [{ "src": "/assets/icons/icon-192.png", "sizes": "192x192", "type": "image/png" }] }
+  ]
+}

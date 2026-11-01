@@ -146,6 +146,7 @@ extra_css:
 
 extra_javascript:
   - assets/js/a11y.js
+  - assets/js/pwa.js
   - assets/js/mermaid-zoom.js
   - assets/js/sort-visualizer.js
 

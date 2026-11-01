@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Offline - My Knowledge Base</title>
+  <style>
+    :root { --paper: #e6f0f8; --ink: #0b2d52; --red: #b43b0a; --muted: #44627f; --grid: rgba(11,45,82,.08); }
+    @media (prefers-color-scheme: dark) {
+      :root { --paper: #0f3d6e; --ink: #e8f1fb; --red: #ffd166; --muted: #9fbad8; --grid: rgba(232,241,251,.08); }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; padding: 2rem 1rem; color: var(--ink); background-color: var(--paper);
+      background-image: linear-gradient(var(--grid) 1px, transparent 1px), linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 32px 32px; font: 400 1rem/1.6 system-ui, sans-serif;
+    }
+    main { max-width: 40rem; margin: 0 auto; padding: 1.5rem; border: 1px solid var(--ink); background: var(--paper); }
+    .label { margin: 0; font: 700 .75rem/1 ui-monospace, monospace; letter-spacing: .14em; text-transform: uppercase; color: var(--red); }
+    h1 { margin: .5rem 0 .75rem; font-size: 1.6rem; line-height: 1.2; }
+    p { margin: 0 0 1rem; color: var(--muted); }
+    ul { margin: 0; padding: 0; list-style: none; max-height: 50vh; overflow: auto; border-top: 1px solid var(--muted); }
+    li a { display: block; padding: .5rem 0; border-bottom: 1px solid var(--grid); color: var(--ink); text-decoration: none; }
+    li a:hover, li a:focus-visible { color: var(--red); }
+    button { margin-top: 1rem; padding: .5rem 1rem; font: inherit; color: var(--paper); background: var(--ink); border: 0; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="label">Sheet &middot; Offline</p>
+    <h1>You're offline</h1>
+    <p>This page isn't saved on your device yet. Notes you've already opened still work:</p>
+    <ul id="saved"></ul>
+    <p id="none" hidden>Nothing saved yet. Open a few notes while connected and they'll be available here.</p>
+    <button type="button" onclick="location.reload()">Try again</button>
+  </main>
+  <script>
+    (function () {
+      var list = document.getElementById("saved"), none = document.getElementById("none");
+      function show() { none.hidden = false; }
+      if (!window.caches) { show(); return; }
+      caches.keys().then(function (names) {
+        return Promise.all(names.map(function (n) { return caches.open(n).then(function (c) { return c.keys(); }); }));
+      }).then(function (groups) {
+        var seen = {}, pages = [];
+        groups.forEach(function (reqs) {
+          reqs.forEach(function (r) {
+            var u = new URL(r.url);
+            if (u.origin !== location.origin || !/\.html$/.test(u.pathname) || u.pathname === "/offline.html" || u.pathname === "/404.html" || seen[u.pathname]) { return; }
+            seen[u.pathname] = 1;
+            pages.push(u.pathname);
+          });
+        });
+        if (!pages.length) { show(); return; }
+        pages.sort().forEach(function (p) {
+          var li = document.createElement("li"), a = document.createElement("a");
+          a.href = p;
+          a.textContent = decodeURIComponent(p).replace(/^\//, "").replace(/\.html$/, "");
+          li.appendChild(a);
+          list.appendChild(li);
+        });
+      }).catch(show);
+    })();
+  </script>
+</body>
+</html>
