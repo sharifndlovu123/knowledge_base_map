@@ -47,16 +47,19 @@
         groups.forEach(function (reqs) {
           reqs.forEach(function (r) {
             var u = new URL(r.url);
-            if (u.origin !== location.origin || !/\.html$/.test(u.pathname) || u.pathname === "/offline.html" || u.pathname === "/404.html" || seen[u.pathname]) { return; }
-            seen[u.pathname] = 1;
-            pages.push(u.pathname);
+            // Pages are cached as /Page (Cloudflare strips .html) or /Page.html; fold both into one entry
+            var path = u.pathname.replace(/(^|\/)index\.html$/, "$1").replace(/\.html$/, "");
+            var isAsset = /^\/assets\//.test(path) || /\.(js|css|json|webmanifest|png|jpe?g|gif|svg|webp|ico|woff2?|xml|txt|map)$/i.test(path);
+            if (u.origin !== location.origin || isAsset || path === "/" || path === "/offline" || path === "/404" || seen[path]) { return; }
+            seen[path] = 1;
+            pages.push(path);
           });
         });
         if (!pages.length) { show(); return; }
         pages.sort().forEach(function (p) {
           var li = document.createElement("li"), a = document.createElement("a");
           a.href = p;
-          a.textContent = decodeURIComponent(p).replace(/^\//, "").replace(/\.html$/, "");
+          a.textContent = decodeURIComponent(p).replace(/^\//, "");
           li.appendChild(a);
           list.appendChild(li);
         });
