@@ -1,0 +1,50 @@
+/* Reading mode: strips the page down to the note. Toggled by assets/js/reading-mode.js, which sets
+   html.bp-reading (remembered across visits) and --bp-read-scale (the A-/A+ buttons). */
+
+/* ---- header button and floating bar (always present, styled in every scheme) ---- */
+.bp-reader-btn svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.bp-reader-btn[aria-pressed="true"] { color: var(--bp-red); }
+
+.bp-read-bar { display: none; }
+.bp-reading .bp-read-bar {
+  position: fixed; right: 1rem; bottom: 1rem; z-index: 4; display: flex; align-items: stretch; gap: 0;
+  background: var(--bp-paper); border: 1px solid var(--bp-ink); box-shadow: 3px 3px 0 var(--bp-rule2);
+  font: 700 .62rem/1 "Space Mono", monospace; letter-spacing: .1em; text-transform: uppercase;
+}
+.bp-read-bar button {
+  margin: 0; padding: .7rem .8rem; font: inherit; letter-spacing: inherit; text-transform: inherit;
+  color: var(--bp-ink); background: transparent; border: 0; border-left: 1px solid var(--bp-rule2); cursor: pointer;
+}
+.bp-read-bar button:first-child { border-left: 0; }
+.bp-read-bar button:hover, .bp-read-bar button:focus-visible { color: var(--bp-paper); background: var(--bp-ink); }
+.bp-read-bar button:disabled { opacity: .35; cursor: default; color: var(--bp-ink); background: transparent; }
+.bp-read-bar button:focus-visible { outline: 2px solid var(--bp-red); outline-offset: -4px; }
+
+/* ---- the reading layout ---- */
+.bp-reading { --bp-read-scale: 1.2; --bp-measure: 46rem; }
+
+/* Everything that is not the note */
+.bp-reading .md-sidebar,
+.bp-reading .md-tabs,
+.bp-reading .md-footer-meta,
+.bp-reading .md-content__button,
+.bp-reading .md-source-file,
+.bp-reading .md-top { display: none !important; }
+
+/* One centred column */
+.bp-reading .md-main__inner { max-width: none; margin-inline: auto; }
+.bp-reading .md-content { flex: 0 1 var(--bp-measure); max-width: var(--bp-measure); margin-inline: auto; }
+.bp-reading .md-content__inner { margin: 1.5rem 1rem 3rem; }
+.bp-reading .md-footer__inner { max-width: var(--bp-measure); margin-inline: auto; }
+
+/* Comfortable type: larger, looser, and left-aligned so line lengths stay even */
+.bp-reading .md-typeset { font-size: calc(.8rem * var(--bp-read-scale)); line-height: 1.8; text-align: left; }
+.bp-reading .md-typeset p, .bp-reading .md-typeset li { line-height: 1.8; }
+.bp-reading .md-typeset h1 { margin-bottom: 1.2em; }
+.bp-reading .md-typeset h2, .bp-reading .md-typeset h3 { margin-top: 2em; }
+.bp-reading .md-typeset pre > code, .bp-reading .md-typeset table:not([class]) { font-size: .85em; }
+
+/* Tall diagrams and wide tables scroll inside the column instead of stretching it */
+.bp-reading .md-typeset .mermaid, .bp-reading .md-typeset .md-typeset__scrollwrap { max-width: 100%; overflow-x: auto; }
+
+@media print { .bp-read-bar, .bp-reader-btn { display: none !important; } }

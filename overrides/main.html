@@ -13,6 +13,12 @@
   {# Decide before first paint whether to show the loading sheet (first visit per session only) #}
   <script>
     try { if (!sessionStorage.getItem("bp-seen")) document.documentElement.classList.add("bp-loading"); } catch (e) {}
+    // Reading mode (assets/js/reading-mode.js) is remembered; apply it now so the page doesn't flash
+    try {
+      if (localStorage.getItem("bp-reading") === "1") document.documentElement.classList.add("bp-reading");
+      var s = parseInt(localStorage.getItem("bp-reading-size"), 10), steps = [1, 1.1, 1.2, 1.35, 1.5, 1.7];
+      if (steps[s]) document.documentElement.style.setProperty("--bp-read-scale", steps[s]);
+    } catch (e) {}
   </script>
 {% endblock %}
 

@@ -143,10 +143,12 @@ extra_css:
   - assets/css/blueprint.css
   - assets/css/mermaid-zoom.css
   - assets/css/sort-visualizer.css
+  - assets/css/reading-mode.css
 
 extra_javascript:
   - assets/js/a11y.js
   - assets/js/pwa.js
+  - assets/js/reading-mode.js
   - assets/js/mermaid-zoom.js
   - assets/js/sort-visualizer.js
 
