@@ -1,3 +1,5 @@
+# 01. HTML
+
 ### **HTML (HyperText Markup Language) Breakdown**
 
 HTML (**HyperText Markup Language**) is the **standard language for creating web pages**. It defines a webpage's structure using elements enclosed in **tags**. HTML is **not a programming language**—it is a **markup language** that structures content.

@@ -1,3 +1,5 @@
+# 02. SSH
+
 How to set up SSH on a Linux machine (written for Ubuntu) so you can log in remotely, with keys and sensible defaults. Concepts and more tools are in [[15. Remote Access|Remote Access]]; a fuller lock-down is in [[Server Hardening with SSH, UFW and Fail2ban]].
 
 ```mermaid

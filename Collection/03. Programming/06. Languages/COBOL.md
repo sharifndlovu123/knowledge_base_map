@@ -1,3 +1,5 @@
+# 04. COBOL
+
 ### Breakdown of COBOL Syntax
 
 **COBOL** (Common Business-Oriented Language) is one of the oldest programming languages, developed in the 1950s, primarily for business, finance, and administrative systems. It has a very verbose and readable syntax, designed to be close to natural language. It’s still used today in legacy systems, especially in banking, government, and insurance sectors.

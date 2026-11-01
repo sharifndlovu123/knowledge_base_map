@@ -1,4 +1,4 @@
-# Swap Partitions and Swap Space
+# 08. Swap Partitions and Swap Space
 
 ## What is Swap?
 Swap is a space on a disk that is used when the amount of physical RAM memory is full. When a Linux system runs out of RAM, inactive pages are moved to the swap space, freeing up RAM for active processes. This allows the system to handle more applications than would fit in physical memory alone.

@@ -1,3 +1,5 @@
+# 03. Stored Procedures and Functions
+
 ### **Stored Procedures and Functions in SQL**  
 
 Stored procedures and functions **allow reusable, modular, and efficient execution of SQL logic** inside a database.  

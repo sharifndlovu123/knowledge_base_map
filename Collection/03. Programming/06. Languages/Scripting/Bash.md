@@ -1,3 +1,5 @@
+# 01. Bash
+
 Bash syntax is vast and flexible, so let's break it down into fundamental components and dig deep into each.
 
 ---

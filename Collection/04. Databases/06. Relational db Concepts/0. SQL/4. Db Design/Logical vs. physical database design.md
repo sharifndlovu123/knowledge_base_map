@@ -1,3 +1,5 @@
+# 04. Logical vs. physical database design
+
 ### **Logical vs. Physical Database Design**  
 
 Database design consists of two major stages: **Logical Design** and **Physical Design**. Each stage serves a different purpose in structuring data for efficiency and maintainability.  

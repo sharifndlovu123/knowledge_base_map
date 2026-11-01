@@ -1,4 +1,4 @@
-# Alpha Beta Pruning  
+# 01. Alpha Beta Pruning  
 
 The disadvantage of the minimax algorithm is that all nodes in the game tree cut off to a certain depth were examined.  
 

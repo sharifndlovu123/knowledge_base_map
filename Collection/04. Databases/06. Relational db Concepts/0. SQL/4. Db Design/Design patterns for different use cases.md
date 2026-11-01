@@ -1,3 +1,5 @@
+# 02. Design patterns for different use cases
+
 ### **Database Design Patterns for Different Use Cases**  
 
 Database design patterns help structure data efficiently based on specific use cases, ensuring scalability, performance, and maintainability.  

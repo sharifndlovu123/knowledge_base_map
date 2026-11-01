@@ -1,3 +1,5 @@
+# 03. Interpreters
+
 ## **Interpreters: Deep Breakdown**
 
 An **interpreter** is a type of program that **executes code line by line**, translating high-level programming languages into machine code or intermediate representations on the fly, rather than compiling the entire code at once.

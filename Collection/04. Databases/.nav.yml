@@ -1,0 +1,11 @@
+nav:
+  - "01. Beginner Route.md"
+  - "02. Foundation.md"
+  - "03. Database Map.md"
+  - "04. Database Architecture.md"
+  - "05. ACID.md"
+  - "08. When to use NoSQL vs. relational databases.md"
+  - "09. Advanced Db Concepts.md"
+  - "10. Modern Database Trends.md"
+  - "Relational db Concepts": "06. Relational db Concepts"
+  - "NoSQL Databases": "07. NoSQL Databases"

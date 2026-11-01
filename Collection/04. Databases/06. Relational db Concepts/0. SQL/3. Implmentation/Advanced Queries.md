@@ -1,3 +1,5 @@
+# 01. Advanced Queries
+
 ### **Advanced SQL Queries**  
 
 Advanced SQL techniques like **JOINs, subqueries, Common Table Expressions (CTEs), and window functions** allow for powerful data retrieval and manipulation.  

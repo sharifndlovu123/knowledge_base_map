@@ -1,3 +1,5 @@
+# 07. Server Hardening with SSH, UFW and Fail2ban
+
 > **Repository:** [sharifndlovu123/linux-server-hardening](https://github.com/sharifndlovu123/linux-server-hardening) · Terraform + a step-by-step `extra/cheatsheet.sh` (read it, do not run it blindly)
 
 A hands-on walk-through: create a small Ubuntu VM on Azure with Terraform, then harden it by hand. The infrastructure side is in [[2. Terraform|Terraform]]; the same ideas apply to any Linux server, cloud or home lab. Source: the `linux-server-hardening` repo.
@@ -61,7 +63,7 @@ Found in the repo's own notes:
 - An SSH rule must match the **destination** port (`destination_port_range`), not the source port, because clients connect from random source ports
 - Every inbound rule needs a **unique priority** (Azure rejects duplicates in the same direction)
 
-NSG concepts are in [[3. Azure Networking]].
+NSG concepts are in [[3. Azure Networking|03. Azure Networking]].
 
 ---
 

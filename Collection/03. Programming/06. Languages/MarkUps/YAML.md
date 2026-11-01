@@ -1,3 +1,5 @@
+# 04. YAML
+
 ### **YAML (Yet Another Markup Language / YAML Ain't Markup Language) Breakdown**
 
 YAML is a **human-readable data serialization format** commonly used for **configuration files**, **data exchange**, and **infrastructure-as-code** (e.g., Docker Compose, Kubernetes, Ansible).

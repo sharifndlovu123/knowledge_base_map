@@ -1,3 +1,5 @@
+# 08. Logo
+
 UCBLogo (University of California, Berkeley Logo) uses a simple, Lisp-like syntax with a focus on **turtle graphics** and **recursion**. Below is an overview of its syntax and key features.
 
 # Syntax

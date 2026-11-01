@@ -1,0 +1,9 @@
+nav:
+  - "2. Local Kubernetes Tools.md"
+  - "3. kubectl Cheat Sheet.md"
+  - "4. Kubernetes Resource Types.md"
+  - "5. Extending Kubernetes - CRDs and Operators.md"
+  - "6. Packaging and Multi-Environment Deploys.md"
+  - "7. Developer Experience, Secrets and Debugging.md"
+  - "8. Upgrades, CI-CD and GitOps.md"
+  - "Chapters": "1. Chapters"

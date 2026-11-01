@@ -1,3 +1,5 @@
+# 02. Minimax Search Algorithm
+
 
 https://www.youtube.com/watch?v=l-hh51ncgDI
 

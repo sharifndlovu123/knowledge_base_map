@@ -1,3 +1,5 @@
+# 03. Index strategies
+
 ### **Index Strategies for Database Performance**  
 
 Indexes improve query performance by allowing the database to find data efficiently rather than scanning entire tables. However, improper indexing can degrade performance due to increased write overhead.  

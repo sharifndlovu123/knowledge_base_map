@@ -1,3 +1,5 @@
+# 02. Aggregate Functions
+
 ### **Aggregate Functions in SQL**  
 
 Aggregate functions **perform calculations** on a set of rows and return a **single** result. They are often used with `GROUP BY` to summarize data.  

@@ -1,3 +1,5 @@
+# 07. Important Note
+
 
 ## Why you dont see SQL too often? 
 

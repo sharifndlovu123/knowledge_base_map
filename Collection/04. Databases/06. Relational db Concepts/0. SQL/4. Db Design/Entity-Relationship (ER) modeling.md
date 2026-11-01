@@ -1,3 +1,5 @@
+# 03. Entity-Relationship (ER) modeling
+
 ### **Entity-Relationship (ER) Modeling in Database Design**  
 
 ER modeling is a **conceptual design approach** used to structure data by defining entities, attributes, and relationships. It helps in **visualizing database structure** before actual implementation.

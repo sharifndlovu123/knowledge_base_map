@@ -1,4 +1,4 @@
-# Linux Files & Directories: Permissions, Links, and Special Files
+# 02. Linux Files & Directories: Permissions, Links, and Special Files
 
 ## Overview
 

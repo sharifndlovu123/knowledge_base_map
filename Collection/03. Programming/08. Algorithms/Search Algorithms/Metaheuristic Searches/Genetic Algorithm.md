@@ -1,3 +1,5 @@
+# 01. Genetic Algorithm
+
 ### Genetic Algorithm (GA)
 
 A Genetic Algorithm (GA) is a search heuristic inspired by the process of natural selection. It is commonly used to find approximate solutions to optimization and search problems. Individuals in a population represent possible solutions, and the algorithm iteratively improves the population using genetic operators.

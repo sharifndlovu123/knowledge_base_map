@@ -1,3 +1,5 @@
+# 18. Smalltak
+
 Certainly! Below is a **syntax breakdown** for Smalltalk, covering its fundamental syntactic elements. Smalltalk is a minimalist, dynamically typed, purely object-oriented language with a highly uniform syntax.
 
 ---

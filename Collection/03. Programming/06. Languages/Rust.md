@@ -1,3 +1,5 @@
+# 16. Rust
+
 ### Breakdown of Rust Syntax
 
 Rust is a systems programming language focused on safety, performance, and concurrency. It provides memory safety without needing a garbage collector. The syntax is influenced by C, but it introduces modern features like ownership, pattern matching, and more, making it both powerful and safe.

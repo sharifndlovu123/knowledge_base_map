@@ -1,3 +1,5 @@
+# 01. Caching mechanism
+
 ### **Database Caching Mechanisms**  
 
 Caching improves database performance by storing frequently accessed data in memory, reducing the need for expensive disk I/O operations.  

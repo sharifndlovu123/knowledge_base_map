@@ -1,0 +1,10 @@
+nav:
+  - "1. CI-CD Pipelines.md"
+  - "2. GitHub Actions.md"
+  - "3. GitHub Actions Deep Dive.md"
+  - "4. Authoring and Testing GitHub Actions.md"
+  - "5. Jenkins.md"
+  - "6. Azure Pipelines.md"
+  - "7. AWS CodePipeline.md"
+  - "9. Ansible.md"
+  - "IaC": "8. IaC"

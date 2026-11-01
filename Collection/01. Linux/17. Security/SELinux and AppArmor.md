@@ -1,4 +1,4 @@
-# SELinux vs AppArmor: Linux Security Frameworks
+# 06. SELinux vs AppArmor: Linux Security Frameworks
 
 ## Overview
 

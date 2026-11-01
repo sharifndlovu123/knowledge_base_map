@@ -1,4 +1,4 @@
-# Security Troubleshooting
+# 04. Security Troubleshooting
 
 ## SELinux Issues Resolution
 

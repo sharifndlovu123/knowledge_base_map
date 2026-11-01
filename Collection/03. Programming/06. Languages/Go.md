@@ -1,3 +1,5 @@
+# 06. Go
+
 ## **Go (Golang) Syntax Breakdown & Advanced Features**
 
 Go is a statically typed, compiled language known for simplicity, concurrency, and performance. Let's break it down:

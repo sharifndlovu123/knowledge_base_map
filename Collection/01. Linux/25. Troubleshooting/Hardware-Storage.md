@@ -1,4 +1,4 @@
-# Hardware and Storage Troubleshooting
+# 01. Hardware and Storage Troubleshooting
 
 ## Boot Issues Diagnosis
 

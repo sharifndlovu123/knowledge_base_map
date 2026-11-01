@@ -1,4 +1,4 @@
-# **Wi-Fi (Wireless Fidelity - IEEE 802.11)**  
+# 03. **Wi-Fi (Wireless Fidelity - IEEE 802.11)**  
 
 Wi-Fi is a wireless networking technology that allows devices to connect to a local area network (LAN) without physical cables. It is based on IEEE 802.11 standards and is commonly used in homes, businesses, and public spaces.  
 

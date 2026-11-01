@@ -1,4 +1,4 @@
-# Setting up Java with Maven in VS Code
+# 06. Setting up Java with Maven in VS Code
 
 Here's how to set up Java with Maven in Visual Studio Code:
 

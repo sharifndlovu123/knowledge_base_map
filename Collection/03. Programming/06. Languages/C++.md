@@ -1,3 +1,5 @@
+# 02. C++
+
 ### Breakdown of C++ Syntax
 
 C++ is a high-level, object-oriented programming language that builds upon C, adding support for classes, objects, templates, and advanced features like exception handling, overloading, and more. It’s widely used for system and application software, game development, real-time systems, and large-scale applications.

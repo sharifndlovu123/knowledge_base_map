@@ -1,3 +1,5 @@
+# 01. C
+
 ### Breakdown of C Syntax
 
 C is a procedural, low-level programming language that provides basic constructs for efficient system-level programming. It is widely used for embedded systems, operating systems, and high-performance applications. Below is a breakdown of the key syntax elements in C.

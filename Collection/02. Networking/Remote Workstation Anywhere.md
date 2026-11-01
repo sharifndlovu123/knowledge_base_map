@@ -1,3 +1,5 @@
+# 01. Remote Workstation Anywhere
+
 > **Repository:** [sharifndlovu123/Remote-Workstation-Anywhere-](https://github.com/sharifndlovu123/Remote-Workstation-Anywhere-) · docs, scripts and example config
 > **Get it:** `git clone https://github.com/sharifndlovu123/Remote-Workstation-Anywhere-.git` and start with `docs/prerequisites.md`.
 
@@ -186,4 +188,4 @@ An always-on Raspberry Pi should survive power cuts and SD-card wear:
 - RDP stays on the private network only; never expose it to the internet ([[13. Network Security|Network Security]])
 - Keep the workstation and gateway patched
 - Prefer SSH keys over passwords
-- Compare with cloud approaches: VPN gateways and bastion hosts ([[3. Azure Networking]], [[5. AWS Networking|5. AWS Networking]])
+- Compare with cloud approaches: VPN gateways and bastion hosts ([[3. Azure Networking|03. Azure Networking]], [[5. AWS Networking|05. AWS Networking]])

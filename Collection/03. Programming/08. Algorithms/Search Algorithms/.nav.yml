@@ -1,0 +1,8 @@
+nav:
+  - "Heuristic Search.md"
+  - "Game Playing": "Game Playing"
+  - "Informed Searches": "Informed Searches"
+  - "Local Searches": "Local Searches"
+  - "Metaheuristic Searches": "Metaheuristic Searches"
+  - "Swarm Intelligence": "Swarm Intelligence"
+  - "Uninformed Searches": "Uninformed Searches"

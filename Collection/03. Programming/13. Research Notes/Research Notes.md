@@ -1,3 +1,5 @@
+# 03. Research Notes
+
 How to find, read, record, write up and share research, with the tools that make each step easier. Writing: [[LaTex]]. Citations: [[BibTeX]].
 
 ## The research workflow

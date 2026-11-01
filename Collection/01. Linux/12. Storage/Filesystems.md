@@ -1,4 +1,4 @@
-# File Systems
+# 04. File Systems
 
 ## What are File Systems?
 A file system is a method and data structure that an operating system uses to control how data is stored, organized, and retrieved on storage devices. It defines how files are named, stored, and organized in directories, as well as metadata like permissions, timestamps, and file attributes.

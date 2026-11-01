@@ -1,3 +1,5 @@
+# 01. Compilers
+
 ## **Compilers: Deep Breakdown**
 
 A **compiler** is a program that **translates** high-level source code into machine code **before execution**. Unlike an interpreter, which executes code line by line, a compiler **converts the entire program** into an executable binary before running it.

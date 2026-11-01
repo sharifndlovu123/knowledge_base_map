@@ -1,3 +1,5 @@
+# 02. Data Definition Language (DDL)
+
 ### **SQL Data Definition Language (DDL)**  
 DDL (Data Definition Language) is used to define and manage the **structure** of database objects like tables, indexes, schemas, and views. These commands affect the database schema but not the data itself.  
 

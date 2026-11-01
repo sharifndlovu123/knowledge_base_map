@@ -1,3 +1,5 @@
+# 02. Compiling Jars
+
 To compile Java files into a JAR file, follow these steps:
 
 ---

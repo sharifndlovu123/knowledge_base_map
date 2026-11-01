@@ -1,3 +1,5 @@
+# 02. N-Tier Architecture
+
 
 An **N-Tier Architecture** (also known as **Multi-Tier Architecture**) is a software architecture pattern that separates an application into multiple logical layers or tiers, each responsible for different aspects of the application’s functionality. These layers are typically distributed across different machines, but they can also be deployed on a single machine.
 

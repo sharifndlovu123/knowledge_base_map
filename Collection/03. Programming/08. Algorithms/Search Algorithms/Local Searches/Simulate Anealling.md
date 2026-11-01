@@ -1,5 +1,5 @@
 
-# Simulated Annealing  
+# 03. Simulated Annealing  
 
 Simulated annealing is a flexible version of hill climbing that sometimes accepts a worse option.  
 

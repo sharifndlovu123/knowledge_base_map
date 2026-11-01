@@ -1,3 +1,5 @@
+# 01. CGI Setup
+
 
 [[HTML]]
 If you want to implement CGI using **Java** (without violating the assignment rules), you can create a **standalone Java CGI script** that generates HTML output. This script will be **executed by Apache**, similar to how a compiled C binary would work.

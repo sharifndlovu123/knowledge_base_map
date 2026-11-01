@@ -1,4 +1,4 @@
-# Partitions and Volumes
+# 05. Partitions and Volumes
 
 ## What are Partitions?
 A partition is a logical division of a physical disk drive that creates separate sections, each appearing to the operating system as a distinct storage device. Partitions allow you to organize data, install multiple operating systems, or separate system files from user data.

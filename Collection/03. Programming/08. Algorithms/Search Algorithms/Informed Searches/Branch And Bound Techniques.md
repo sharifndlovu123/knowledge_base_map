@@ -1,3 +1,5 @@
+# 03. Branch And Bound Techniques
+
 ### **Branch and Bound Algorithm**  
 
 Branch and Bound is an optimization technique used to find the most optimal solution by systematically exploring the solution space while eliminating suboptimal paths.  

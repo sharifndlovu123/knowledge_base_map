@@ -1,3 +1,5 @@
+# 02. Best First Search
+
 ### Best-First Search (BestFS)
 
 Best-first search is a search algorithm that expands the most promising node based on a given heuristic function.

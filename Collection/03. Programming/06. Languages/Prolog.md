@@ -1,3 +1,5 @@
+# 12. Prolog
+
 
 
 Prolog is a **logic programming language** primarily used for **declarative problem solving** and artificial intelligence applications. It is quite different from procedural or object-oriented programming languages like C, Python, or Java. In Prolog, you express **relationships** and **facts**, and the system uses **logical inference** to answer queries.

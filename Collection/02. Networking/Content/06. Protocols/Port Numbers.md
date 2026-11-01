@@ -1,3 +1,5 @@
+# 09. Port Numbers
+
 > Keep in mind this table is just a bried showcase of each protocol and their respective port number, there are instances where a protocol has more than one port and that should be kept in mind; these summaries dont refer to those additional ports.
 
 

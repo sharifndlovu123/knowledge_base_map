@@ -1,4 +1,4 @@
-# Network Troubleshooting
+# 02. Network Troubleshooting
 
 ## Connectivity Testing and Diagnosis
 

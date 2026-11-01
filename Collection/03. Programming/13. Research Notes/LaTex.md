@@ -1,3 +1,5 @@
+# 02. LaTex
+
 LaTeX is a typesetting system: you write plain text with commands, and it produces a clean PDF. It is the standard for papers, theses, maths and technical reports. Related: [[Research Notes]], [[BibTeX]].
 
 ## When to use it

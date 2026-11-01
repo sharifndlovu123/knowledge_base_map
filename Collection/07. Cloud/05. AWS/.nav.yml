@@ -1,0 +1,9 @@
+nav:
+  - "1. AWS Cloud Concepts.md"
+  - "2. AWS IAM and Security.md"
+  - "3. AWS Compute.md"
+  - "4. AWS Storage and Databases.md"
+  - "5. AWS Networking.md"
+  - "6. AWS Developer Services and Serverless.md"
+  - "7. AWS Solutions Architecture.md"
+  - "Deep Dives": "8. Deep Dives"

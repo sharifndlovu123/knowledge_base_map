@@ -1,3 +1,5 @@
+# 02. Powershell
+
 PowerShell is an object-oriented shell and scripting language designed for automation. It differs from Bash in that it works with objects rather than plain text. Here’s a deep dive into PowerShell syntax and concepts.
 
 ---

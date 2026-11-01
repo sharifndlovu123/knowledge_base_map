@@ -1,5 +1,5 @@
 
-# Tabu Search Algorithm
+# 04. Tabu Search Algorithm
 
 Tabu search algorithm is quite similar to hill climbing, except that it allows solutions to worsen when they reach local optima or are “almost” optimal.  
 A state is considered to be an “almost” local optimum if the only states that improve the objective function were visited earlier.

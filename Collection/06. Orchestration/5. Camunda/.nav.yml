@@ -1,0 +1,5 @@
+nav:
+  - "1. Common Camunda Use Cases.md"
+  - "2. BPMN Modelling Guide.md"
+  - "3. DMN and FEEL.md"
+  - "Camunda 8": "4. Camunda 8"

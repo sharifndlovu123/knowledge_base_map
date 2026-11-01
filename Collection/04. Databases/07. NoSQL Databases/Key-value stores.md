@@ -1,3 +1,5 @@
+# 05. Key-value stores
+
 ### **Key-Value Stores: Redis and DynamoDB**
 
 Key-value stores are a type of NoSQL database where data is stored as a collection of key-value pairs. These databases are designed for fast lookups and are commonly used for caching, session storage, real-time analytics, and high-performance applications.

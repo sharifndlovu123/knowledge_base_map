@@ -1,3 +1,5 @@
+# 01. CAP theorem and its implications
+
 ### **CAP Theorem and Its Implications**
 
 The **CAP Theorem**, also known as **Brewer's Theorem**, was introduced by computer scientist **Eric Brewer** in 2000. It states that in a distributed database system, it is impossible for a system to simultaneously achieve all three of the following goals:

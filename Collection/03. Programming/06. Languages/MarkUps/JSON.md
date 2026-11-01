@@ -1,3 +1,5 @@
+# 02. JSON
+
 ### **JSON (JavaScript Object Notation) Breakdown**
 
 JSON is a lightweight data format used for data exchange between systems. It's **text-based**, **human-readable**, and follows a **key-value** structure similar to dictionaries in Python or objects in JavaScript.

@@ -1,3 +1,5 @@
+# 09. PASCAL
+
 ### Breakdown of Pascal Syntax
 
 **Pascal** is a high-level procedural programming language developed by Niklaus Wirth in the late 1960s. It was designed for teaching structured programming concepts and emphasizes strong data typing and readability. Pascal is still used today, especially in academic environments for teaching programming concepts and sometimes in embedded systems.

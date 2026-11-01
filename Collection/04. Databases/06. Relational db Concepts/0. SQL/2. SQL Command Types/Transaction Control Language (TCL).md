@@ -1,3 +1,5 @@
+# 04. Transaction Control Language (TCL)
+
 ### **Transaction Control Language (TCL)**  
 
 TCL commands manage database transactions, ensuring data integrity and consistency. They are used to **commit, rollback, or save** changes within a transaction.

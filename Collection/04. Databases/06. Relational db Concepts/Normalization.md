@@ -1,3 +1,5 @@
+# 08. Normalization
+
 ### **Normalization in Relational Databases**  
 
 Normalization is the process of **organizing data** in a relational database to reduce **redundancy** and improve **data integrity**. It divides large tables into smaller, related tables and defines relationships between them.

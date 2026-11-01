@@ -1,3 +1,5 @@
+# 01. Data Control Language (DCL)
+
 ### **Data Control Language (DCL)**  
 
 DCL is a subset of SQL that deals with **permissions and access control** in a database. It is used to grant or revoke privileges to users or roles.  

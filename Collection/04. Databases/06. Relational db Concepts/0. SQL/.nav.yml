@@ -1,0 +1,7 @@
+nav:
+  - "1. What is SQL.md"
+  - "SQL Command Types": "2. SQL Command Types"
+  - "Implmentation": "3. Implmentation"
+  - "Performance": "3. Performance"
+  - "Db Design": "4. Db Design"
+  - "Security": "5. Security"

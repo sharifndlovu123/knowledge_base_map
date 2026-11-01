@@ -1,3 +1,5 @@
+# 05. Instant Messaging Protocols
+
 
 Here's a comparison of notable instant messaging protocols, categorized by their encryption support:
 

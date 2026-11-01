@@ -1,3 +1,5 @@
+# 03. Telnet
+
 Setting up **Telnet** to access your device involves the following steps, depending on whether you're setting up a **Telnet client** or a **Telnet server**.
 
 ---

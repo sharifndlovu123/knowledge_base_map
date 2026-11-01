@@ -1,3 +1,5 @@
+# 02. Depth First Search (DFS)
+
 
 
 A commonly used search algorithm for exploring a **state space**.  

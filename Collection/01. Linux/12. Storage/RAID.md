@@ -1,4 +1,4 @@
-# RAID (Redundant Array of Independent Disks)
+# 06. RAID (Redundant Array of Independent Disks)
 
 ## What is RAID?
 RAID is a data storage virtualization technology that combines multiple physical disk drive components into one or more logical units for the purposes of data redundancy, performance improvement, or both. RAID distributes data across multiple drives using various techniques called "RAID levels."

@@ -1,3 +1,5 @@
+# 04. Hill Climbing
+
 Similar to best-first search. While the best first search considers states globally, hillclimbing
 considers only local states.
 

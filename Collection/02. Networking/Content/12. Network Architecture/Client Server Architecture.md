@@ -1,3 +1,5 @@
+# 01. Client Server Architecture
+
 ### **Client/Server Architecture**
 
 The **Client/Server** model is a **distributed network architecture** where **clients** and **servers** perform distinct roles in providing services and resources. It's a foundation for most networked applications.

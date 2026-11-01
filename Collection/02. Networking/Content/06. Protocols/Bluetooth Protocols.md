@@ -1,3 +1,5 @@
+# 01. Bluetooth Protocols
+
 **Data Link Layer** or **Application Layer** based on their functionality.
 ### Bluetooth Protocol Stacks
 

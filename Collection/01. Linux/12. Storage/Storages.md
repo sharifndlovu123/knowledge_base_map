@@ -1,4 +1,4 @@
-# Block and Object Storage
+# 07. Block and Object Storage
 
 ## Block Storage
 Block storage divides data into fixed-size blocks, each with a unique identifier. The operating system treats block storage as raw, unformatted storage that can be mounted and formatted with any file system.

@@ -1,3 +1,5 @@
+# 01. Data modeling tools and methodologies
+
 ### **Data Modeling Tools and Methodologies**  
 
 Data modeling is the process of designing a structured representation of data for databases and applications. It ensures data consistency, integrity, and scalability.  

@@ -1,4 +1,4 @@
-# **Ethernet**  
+# 02. **Ethernet**  
 
 Ethernet is a widely used networking technology that enables wired communication in LANs (Local Area Networks), MANs (Metropolitan Area Networks), and some WANs (Wide Area Networks). It defines standards for cabling, signaling, and data transmission.  
 

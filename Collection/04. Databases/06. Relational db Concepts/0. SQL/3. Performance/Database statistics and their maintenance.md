@@ -1,3 +1,5 @@
+# 02. Database statistics and their maintenance
+
 ### **Query Profiling and Monitoring Tools**  
 
 Query profiling and monitoring are essential for optimizing database performance. They help identify slow queries, excessive resource usage, and inefficient execution plans.  

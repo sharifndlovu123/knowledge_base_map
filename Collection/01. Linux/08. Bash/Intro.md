@@ -1,3 +1,5 @@
+# 01. Intro
+
 Bash is the shell most Linux systems give you: a program that reads commands, runs them, and doubles as a scripting language. This note covers using it day to day and writing your first safe scripts. The full language reference (variables, arrays, loops, functions) is in [[Bash]].
 
 ## Shell, terminal and Bash

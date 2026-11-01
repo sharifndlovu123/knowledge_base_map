@@ -1,3 +1,5 @@
+# 03. Data Manipulation Language (DML)
+
 ### **Data Manipulation Language (DML)**  
 
 DML is a subset of SQL used for managing **data within tables**. Unlike DDL (which modifies database structure), DML operates on the actual **data stored in the tables**.  

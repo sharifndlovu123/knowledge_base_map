@@ -1,0 +1,6 @@
+nav:
+  - "HTTP Server.md"
+  - "SSH.md"
+  - "Telnet.md"
+  - "CGI": "CGI"
+  - "Scripts": "Scripts"

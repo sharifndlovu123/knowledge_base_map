@@ -1,4 +1,4 @@
-# System Integrity, Security Scans, and Standards Maintenance
+# 03. System Integrity, Security Scans, and Standards Maintenance
 
 ## Overview
 

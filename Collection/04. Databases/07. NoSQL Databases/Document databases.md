@@ -1,3 +1,5 @@
+# 03. Document databases
+
 ### **Document Databases: MongoDB and Couchbase**
 
 Document databases are a type of NoSQL database designed to store, retrieve, and manage semi-structured data in the form of **documents**. These databases use formats like JSON, BSON, or XML to store data, making them ideal for applications that need flexibility in data representation and schema evolution. MongoDB and Couchbase are two of the most popular document databases in the industry.

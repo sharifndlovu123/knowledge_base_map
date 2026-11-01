@@ -1,3 +1,5 @@
+# 01. Cabling
+
 ### **Breakdown of Cabling in Networking**  
 
 Cabling is a fundamental part of network infrastructure, providing physical connections between devices. Different types of network cables are used based on speed, distance, cost, and interference resistance.

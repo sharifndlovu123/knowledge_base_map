@@ -1,3 +1,5 @@
+# 01. Basic Commands
+
 ## **Essential Linux Commands for Ubuntu**  
 
 > Linux shares alot of commands with other distros but package managers will be different based on distro groups, meaning different syntax.

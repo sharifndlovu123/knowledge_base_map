@@ -1,4 +1,4 @@
-# Digital Certificates: Complete Guide
+# 02. Digital Certificates: Complete Guide
 
 ## What are Digital Certificates?
 

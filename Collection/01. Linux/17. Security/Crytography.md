@@ -1,4 +1,4 @@
-# Linux Cryptography: Encryption, Hashing, and Certificate Management
+# 04. Linux Cryptography: Encryption, Hashing, and Certificate Management
 
 ## Overview
 

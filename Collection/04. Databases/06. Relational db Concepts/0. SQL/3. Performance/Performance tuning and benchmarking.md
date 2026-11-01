@@ -1,3 +1,5 @@
+# 04. Performance tuning and benchmarking
+
 ### **Database Performance Tuning and Benchmarking**  
 
 Optimizing database performance ensures faster queries, better resource utilization, and scalability. This involves query optimization, indexing strategies, memory tuning, and benchmarking techniques.  

@@ -4,9 +4,9 @@ nav:
       - 02. Cloud Computing Services.md
       - 03. Hosting.md
       - 04. The Big Three.md
-  - 05. AWS
-  - 06. Azure
-  - 07. GCP
+  - "AWS": "05. AWS"
+  - "Azure": "06. Azure"
+  - "GCP": "07. GCP"
   - Across Clouds:
       - 08. Azure and GCP Edge Delivery and Load Balancing.md
       - 09. Smaller Cloud Platforms for Startups and Demos.md

@@ -1,3 +1,5 @@
+# 04. Vi
+
 ### **VI / Vim Quick Start Guide**  
 *(VI is the predecessor to Vim - most commands work in both)*  
 

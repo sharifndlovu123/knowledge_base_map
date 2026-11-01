@@ -1,4 +1,4 @@
-# **Hybrid Approach: Combination of Compilation and Interpretation**
+# 02. **Hybrid Approach: Combination of Compilation and Interpretation**
 
 A **hybrid system** uses **both a compiler and an interpreter** to execute code. This approach balances the **efficiency of compiled code** with the **flexibility of interpretation**.
 

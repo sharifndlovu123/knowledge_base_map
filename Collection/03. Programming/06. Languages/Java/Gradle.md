@@ -1,4 +1,4 @@
-# Setting up Java with Gradle in VS Code
+# 03. Setting up Java with Gradle in VS Code
 
 Here's how to set up Java with Gradle in Visual Studio Code:
 

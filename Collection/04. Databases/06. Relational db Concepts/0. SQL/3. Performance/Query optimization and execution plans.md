@@ -1,3 +1,5 @@
+# 05. Query optimization and execution plans
+
 ### **Query Optimization and Execution Plans**  
 
 Efficient query performance is crucial for database scalability and responsiveness. Query optimization involves refining SQL queries to reduce execution time and resource consumption.

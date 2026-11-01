@@ -1,3 +1,5 @@
+# 04. Graph databases
+
 ### **Graph Databases: Neo4j and Amazon Neptune**
 
 Graph databases are designed to store and query data as **graphs**, with entities as **nodes** and relationships as **edges**. This model is ideal for applications that require complex relationships between data points, such as social networks, recommendation systems, fraud detection, and more. Two of the most popular graph databases are **Neo4j** and **Amazon Neptune**.

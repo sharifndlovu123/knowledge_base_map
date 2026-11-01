@@ -1,3 +1,5 @@
+# 07. JavaScript
+
 JavaScript is a versatile, high-level programming language commonly used for web development. It supports multiple programming paradigms, including **procedural**, **object-oriented**, and **functional programming**. Below is a **complete breakdown of JavaScript syntax**, covering its core components and features.
 
 ---

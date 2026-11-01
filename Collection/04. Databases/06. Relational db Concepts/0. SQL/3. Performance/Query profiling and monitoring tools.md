@@ -1,3 +1,5 @@
+# 06. Query profiling and monitoring tools
+
 ### **Database Statistics and Their Maintenance**  
 
 Database statistics play a crucial role in query optimization. They provide the database engine with information about data distribution, table sizes, index efficiency, and other metadata that influence query execution plans.  

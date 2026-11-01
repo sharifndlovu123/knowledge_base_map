@@ -1,3 +1,5 @@
+# 14. R
+
 R is a language designed primarily for statistical computing and data visualization. Its syntax is relatively simple and expressive, with a focus on vectorized operations. Below is an overview of the key aspects of R syntax:
 
 # Syntax

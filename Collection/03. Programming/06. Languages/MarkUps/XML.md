@@ -1,3 +1,5 @@
+# 03. XML
+
 ### **XML (eXtensible Markup Language) Breakdown**
 
 XML is a structured, text-based format used for storing and transporting data. It is **self-descriptive**, meaning it defines its own structure with tags. Unlike JSON, XML is hierarchical and follows strict syntax rules similar to HTML but is **designed for data storage, not display**.

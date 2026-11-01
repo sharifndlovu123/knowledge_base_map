@@ -1,0 +1,10 @@
+nav:
+  - "1. tables rows and colums.md"
+  - "2. primary keys and relationships.md"
+  - "3. constraints.md"
+  - "4. views and materialized views.md"
+  - "5. Power of Indexing.md"
+  - "6. Schemes and Namespaces.md"
+  - "Important Note.md"
+  - "Normalization.md"
+  - "SQL": "0. SQL"

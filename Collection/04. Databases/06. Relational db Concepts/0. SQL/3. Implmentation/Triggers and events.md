@@ -1,3 +1,5 @@
+# 04. Triggers and events
+
 ### **Triggers and Events in SQL**  
 
 Triggers and events allow databases to **automate actions** in response to specific changes or scheduled tasks.  

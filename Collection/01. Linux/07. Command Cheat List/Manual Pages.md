@@ -1,3 +1,5 @@
+# 02. Manual Pages
+
 
 > if you ever get lost or confused and you've fotgotten commands look at the man pages. Great for installed package manuals too.
 

@@ -1,3 +1,5 @@
+# 01. BibTeX
+
 BibTeX keeps your references in one database file (`.bib`) and builds the bibliography for [[LaTex]] automatically. Workflow context: [[Research Notes]].
 
 ## The idea

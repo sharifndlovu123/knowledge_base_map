@@ -1,3 +1,5 @@
+# 02. Column-family stores
+
 ### **Column-Family Stores: Cassandra and HBase**
 
 Column-family stores are a type of NoSQL database designed to handle large amounts of data distributed across many servers. These databases organize data in column families rather than rows, which allows for highly efficient read and write operations in distributed systems, especially for big data and real-time analytics. Two of the most well-known column-family stores are **Apache Cassandra** and **Apache HBase**.

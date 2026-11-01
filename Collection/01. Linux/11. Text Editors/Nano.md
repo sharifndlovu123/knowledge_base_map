@@ -1,3 +1,5 @@
+# 02. Nano
+
 ### **Nano Quick Starter Guide**  
 
 Nano is a simple, beginner-friendly terminal text editor for Linux/macOS. Unlike Vim, it doesn't have modes and uses intuitive keyboard shortcuts.  

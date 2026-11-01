@@ -1,3 +1,5 @@
+# 02. Raw LDAP
+
 Yes — here's how to **fully set up the environment using phpLDAPadmin (PLA)** to meet your assignment’s first requirement:  
 > *“Create an appropriate Directory Information Tree on your server (containing Friends’ names and telephone numbers) using PLA. Populate the tree with some entries.”*
 

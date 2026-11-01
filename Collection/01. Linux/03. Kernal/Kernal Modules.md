@@ -1,4 +1,4 @@
-# Linux Kernel Modules: Complete Guide
+# 02. Linux Kernel Modules: Complete Guide
 
 ## Overview
 

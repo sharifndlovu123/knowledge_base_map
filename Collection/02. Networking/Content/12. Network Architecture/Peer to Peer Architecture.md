@@ -1,3 +1,5 @@
+# 03. Peer to Peer Architecture
+
 ### **Peer-to-Peer (P2P) Architecture**
 
 **Peer-to-Peer (P2P)** is a decentralized **network architecture** where each device (peer) acts both as a **client and a server**. In this model, all peers have equal capabilities and can communicate directly with each other to share resources, rather than relying on a central server.

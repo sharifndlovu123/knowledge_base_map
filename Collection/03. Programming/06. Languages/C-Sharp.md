@@ -1,3 +1,5 @@
+# 03. C-Sharp
+
 ### Breakdown of C# Syntax
 
 C# (pronounced C-sharp) is a high-level, object-oriented programming language developed by Microsoft. It is part of the .NET framework and shares many features with C, C++, and Java. Below is a breakdown of its key syntax elements:

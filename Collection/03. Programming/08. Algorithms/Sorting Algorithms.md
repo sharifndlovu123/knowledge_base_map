@@ -1,3 +1,5 @@
+# 02. Sorting Algorithms
+
 
 > **Try it:** every visual example below ends with an interactive player: **Play** runs it, **Step** moves one action at a time, and the drop-down switches algorithm on the same data. Red bars are being compared or moved, dark bars are in their final place, a dashed outline marks the pivot.
 

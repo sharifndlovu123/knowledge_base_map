@@ -1,3 +1,5 @@
+# 01. Metaheuristics - Ant Colony, Tabu Search and Simulated Annealing
+
 > **Repositories:** [sharifndlovu123/Ant-Colony-Implementation](https://github.com/sharifndlovu123/Ant-Colony-Implementation) (ACO for the team orienteering problem, `make run`, JDK 21+) · [sharifndlovu123/tabu_and_simulated_annealing](https://github.com/sharifndlovu123/tabu_and_simulated_annealing) (TSP, `java -jar app.jar`)
 
 **Metaheuristics** are general strategies for finding **good-enough answers to hard optimisation problems** when trying every possibility is impossible. Three were implemented in Java: **Ant Colony Optimization** for a routing problem with scores and time limits, and **Simulated Annealing** and **Tabu Search** for the Traveling Salesman Problem. Sources: the `Ant-Colony-Implementation` and `tabu_and_simulated_annealing` repos. Searching and sorting basics are in the neighbouring Algorithms notes.
