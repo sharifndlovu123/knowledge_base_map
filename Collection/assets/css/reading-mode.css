@@ -21,7 +21,7 @@
 .bp-read-bar button:focus-visible { outline: 2px solid var(--bp-red); outline-offset: -4px; }
 
 /* ---- the reading layout ---- */
-.bp-reading { --bp-read-scale: 1.2; --bp-measure: 46rem; }
+.bp-reading { --bp-read-scale: 1.2; --bp-measure: 60rem; }
 
 /* Everything that is not the note */
 .bp-reading .md-sidebar,
@@ -34,7 +34,10 @@
 /* One centred column */
 .bp-reading .md-main__inner { max-width: none; margin-inline: auto; }
 .bp-reading .md-content { flex: 0 1 var(--bp-measure); max-width: var(--bp-measure); margin-inline: auto; }
-.bp-reading .md-content__inner { margin: 1.5rem 1rem 3rem; }
+.bp-reading .md-content__inner { max-width: none; margin: 1.5rem 1rem 3rem; }
+/* blueprint.css caps prose at 78ch and splits lists into columns on wide screens; in reading mode the column is the limit */
+.bp-reading .md-typeset > p, .bp-reading .md-typeset > ul, .bp-reading .md-typeset > ol, .bp-reading .md-typeset > blockquote { max-width: none; }
+.bp-reading .md-typeset > ul:not(.contains-task-list) { columns: auto; }
 .bp-reading .md-footer__inner { max-width: var(--bp-measure); margin-inline: auto; }
 
 /* Comfortable type: larger, looser, and left-aligned so line lengths stay even */
