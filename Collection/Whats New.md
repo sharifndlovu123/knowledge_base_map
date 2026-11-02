@@ -58,6 +58,7 @@ NOTE- not all notes are shared publicly, thus some files will be visible on the 
 - **RAID**: expanded with RAID 6, RAID 10 and 01, nested RAID 50 and 60, JBOD, the legacy levels, degraded and rebuild states, ZFS and Btrfs equivalents, a level chooser, capacity examples and mdadm worked examples (including a practice array from files), with diagrams.
 - **Sorting visuals**: Sorting Algorithms now has a worked trace or diagram for each algorithm plus an interactive step-by-step visualiser (play, step, speed, shuffle, switch algorithm).
 - **Algorithms**: ant colony optimisation, tabu search and simulated annealing.
+- **DevOps**: Just, a command runner for project tasks (justfile recipes, parameters, dependencies, versus make), with Speedward's justfile as the worked example.
 - **Networking**: Remote workstation note expanded with the security model and troubleshooting.
 
 ## Reorganised, new sections

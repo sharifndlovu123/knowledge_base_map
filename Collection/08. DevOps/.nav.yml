@@ -7,4 +7,5 @@ nav:
   - "6. Azure Pipelines.md"
   - "7. AWS CodePipeline.md"
   - "9. Ansible.md"
+  - "10. Just.md"
   - "IaC": "8. IaC"
