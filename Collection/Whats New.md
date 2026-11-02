@@ -5,6 +5,19 @@ NOTE- not all notes are shared publicly, thus some files will be visible on the 
 
 ---
 
+## Business
+- **Business section** (new): study notes for running a small services or software business, filed by subject, each crediting its source books, with recall questions and a one-page frameworks cheat sheet.
+- **Foundations**: how a business works as a whole (the five parts, value, markets, marketing, sales, delivery, finance), what a formal business education teaches, and mental models for thinking, working with others and improving systems.
+- **Strategy**: what separates good strategy from bad (the kernel of diagnosis, guiding policy and coherent action), the seven sources of lasting advantage with their benefit and barrier, and deciding well under uncertainty (resulting, calibration, truth-seeking groups, premortems).
+- **Finance**: reading the income statement, balance sheet and cash flow, ratios and the cash cycle, the Profit First money system, plus accounting basics, corporate finance and valuation, and South African tax and compliance (dated and sourced).
+- **Marketing**: positioning, talking to customers without being misled, and marketing fundamentals.
+- **Sales and Negotiation**: consultative selling and its question types, tactical negotiation (mirroring, labels, calibrated questions, the Ackerman model) and trust-based advisory relationships.
+- **Pricing**: value-based pricing against hourly billing, conversations with the economic buyer, anchoring, options, proposals, retainers and terms.
+- **Operations and Management**: managerial output and leverage, running a business on systems, an operating rhythm of quarterly priorities and weekly meetings, building a business that can be sold, and operations basics.
+- **People**: a four-step hiring method (scorecard, source, select, sell) and leadership and organisational behaviour.
+- **Economics and Innovation**: economics essentials and innovation and entrepreneurship (lean startup, disruption, jobs to be done).
+- **Books**: a Business and Management shelf with bookshop links.
+
 ## Orchestration
 - **Kubernetes**: architecture (control plane, compute nodes, `kubectl`), installing a first cluster (`minikube`, `kind`, `kubeadm`, managed cloud), and running containers as Pods (manifests, labels, namespaces, probes).
 - **Kubernetes extras**: local cluster tools (minikube in depth, kind, k3s / k3d, MicroK8s, Helm, k9s and friends) and a `kubectl` cheat sheet.

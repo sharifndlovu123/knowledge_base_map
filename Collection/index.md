@@ -52,6 +52,10 @@ Welcome to this dynamic site, filled with a **wealth of knowledge** across vario
 
     Reading list across engineering, infrastructure, AI and writing.
 
+- :material-briefcase: **[Business](<12. Business/1. Business Start Here.md>)**
+
+    Strategy, finance, pricing, sales and management for running a business.
+
 </div>
 
 Some sections go **deep** into specialised topics; others are quick overviews. Feel free to explore.
