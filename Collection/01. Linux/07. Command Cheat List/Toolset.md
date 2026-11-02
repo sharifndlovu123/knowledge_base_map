@@ -83,7 +83,7 @@
 | **Package Install** | `dpkg`, `rpm` | `apt`, `dnf`, `pacman`, `zypper` | Software management |
 | **Dependencies** | Manual resolution | Automatic dependency handling | Dependency management |
 | **Software Sources** | Manual repos | `snap`, `flatpak`, `appimage` | Universal packages |
-| **Build Tools** | `make`, manual compilation | `cmake`, `meson`, `ninja` | Build systems |
+| **Build Tools** | `make`, manual compilation | `cmake`, `meson`, `ninja`, `justfile` | Build systems |
 
 ### Details
 - **dpkg → apt**: Manual dependency hell vs automatic resolution
