@@ -16,7 +16,7 @@ NOTE- not all notes are shared publicly, thus some files will be visible on the 
 - **Operations and Management**: managerial output and leverage, running a business on systems, an operating rhythm of quarterly priorities and weekly meetings, building a business that can be sold, and operations basics.
 - **People**: a four-step hiring method (scorecard, source, select, sell) and leadership and organisational behaviour.
 - **Economics and Innovation**: economics essentials and innovation and entrepreneurship (lean startup, disruption, jobs to be done).
-- **Books**: a Business and Management shelf with bookshop links.
+- **Books**: a Business and Management shelf with bookshop links, and an Honorable Mentions page of curated creators by subject.
 
 ## Orchestration
 - **Kubernetes**: architecture (control plane, compute nodes, `kubectl`), installing a first cluster (`minikube`, `kind`, `kubeadm`, managed cloud), and running containers as Pods (manifests, labels, namespaces, probes).
