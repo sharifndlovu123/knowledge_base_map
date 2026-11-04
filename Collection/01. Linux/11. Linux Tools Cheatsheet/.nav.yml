@@ -1,0 +1,4 @@
+nav:
+  - "00. Overview.md"
+  - "Text Editors": "01. Text Editors"
+  - "Terminals and Multiplexers": "02. Terminals and Multiplexers"

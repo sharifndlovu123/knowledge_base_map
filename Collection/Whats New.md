@@ -75,6 +75,7 @@ NOTE- not all notes are shared publicly, thus some files will be visible on the 
 - **Networking**: Remote workstation note expanded with the security model and troubleshooting.
 
 ## Reorganised, new sections
+- **Linux Tools Cheatsheet** (new): a section for quick-reference notes on everyday command line tools. The Vi, Vim, NeoVim and Nano notes moved here from Text Editors; tmux and Wave Terminal were added in a new Terminals and Multiplexers sub-section.
 - **Numbering**: every section and its notes are prefixed with numbers (`01.` to `11.`) so the order is logical and does not depend on alphabetical sorting.
 - **About**: a page about the author and the site.
 - **GitHub Actions and Kubernetes**: deep dive and authoring/testing notes for Actions; resource types, CRDs and operators, packaging, developer experience, secrets, debugging, upgrades and GitOps for Kubernetes.
