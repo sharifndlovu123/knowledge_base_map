@@ -2,7 +2,7 @@
 
 tmux is a **terminal multiplexer**: one terminal window that holds many shells, split into panes and grouped into windows, all living inside a **session** that keeps running when you disconnect. Close the terminal, drop an SSH connection, come back later and `tmux attach`: everything is still there.
 
-> Checked against tmux 3.6. Alternative with a graphical take on the same idea: [[Wave Terminal]].
+> Checked against tmux 3.6.
 
 ## Why use it
 
