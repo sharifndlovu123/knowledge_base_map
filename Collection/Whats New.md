@@ -13,6 +13,12 @@ NOTE- not all notes are shared publicly, thus some files will be visible on the 
 - **Smart Contracts**: how the EVM runs code, a Solidity example, Foundry tooling, deployment checklist and upgradeability.
 - **Smart Contract Security**: reentrancy, access control, oracle manipulation, signature and approval risks, MEV, and a pre-launch process.
 - **Web3 Development Workflow**: RPC, client libraries, wallets, events and indexing, IPFS, ENS and sign-in with Ethereum.
+- **DAOs and Governance**: Governor lifecycle, voting power and delegation, timelocks, treasury roles and governance attacks.
+- **Zero-Knowledge Proofs**: completeness, soundness and zero-knowledge, SNARK vs STARK, trusted setup, circuits with Circom, and under-constrained circuit bugs.
+- **Non-EVM Chains**: Solana accounts and PDAs, Cosmos and IBC, Move resources, Cardano eUTXO, with a comparison table.
+- **Bitcoin Internals**: transaction anatomy, Script, address types, SegWit and Taproot, block headers, Bitcoin Core and Lightning.
+- **MEV and Transaction Ordering**: searchers, builders and relays, sandwich attacks, private order flow and protocol-level defences.
+- **Node Operation and Infrastructure**: execution and consensus clients, a Docker Compose example, ports and hardening, monitoring and validators.
 
 ## Business
 - **Business section** (new): study notes for running a small services or software business, filed by subject, each crediting its source books, with recall questions and a one-page frameworks cheat sheet.
