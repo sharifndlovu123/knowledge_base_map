@@ -25,6 +25,11 @@ NOTE- not all notes are shared publicly, thus some files will be visible on the 
 - **DeFi Mechanics and Risks**: AMM maths and impermanent loss, lending and liquidation, perpetuals, ERC-4626 vaults, stablecoins and attacks by primitive.
 - **Oracles and Cross-Chain Messaging**: push, pull and TWAP oracles, safe price-feed reads, randomness, bridge verification models and a receiver checklist.
 - **Decentralised Storage**: content addressing, IPFS pinning, Arweave and Filecoin, NFT metadata and security considerations.
+- **EVM Bytecode and Low-Level Analysis**: stack, memory and storage, call opcodes, CREATE2 addresses, creation vs runtime code, dispatcher patterns and metadata trailers.
+- **Tracing and On-Chain Analytics Tooling**: RPC log queries, debug and trace APIs, callTracer and prestateTracer, SQL warehouses, scripts and forks.
+- **Fund Tracing and Attribution**: transaction graphs, Bitcoin clustering heuristics, obfuscation techniques, confidence levels and evidence handling.
+- **Wallet Drainers and Token Scam Analysis**: approval and permit drainers, address poisoning, safe site analysis, honeypot and rug-pull checks and recovery steps.
+- **Incident Response and Post-Mortems**: a prepare, detect, contain, investigate, recover playbook, communication and a post-mortem template.
 
 ## Business
 - **Business section** (new): study notes for running a small services or software business, filed by subject, each crediting its source books, with recall questions and a one-page frameworks cheat sheet.

@@ -18,3 +18,8 @@ nav:
   - "17. DeFi Mechanics and Risks.md"
   - "18. Oracles and Cross-Chain Messaging.md"
   - "19. Decentralised Storage.md"
+  - "20. EVM Bytecode and Low-Level Analysis.md"
+  - "21. Tracing and On-Chain Analytics Tooling.md"
+  - "22. Fund Tracing and Attribution.md"
+  - "23. Wallet Drainers and Token Scam Analysis.md"
+  - "24. Incident Response and Post-Mortems.md"
