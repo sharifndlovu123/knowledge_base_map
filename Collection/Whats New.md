@@ -5,6 +5,15 @@ NOTE- not all notes are shared publicly, thus some files will be visible on the 
 
 ---
 
+## Web3
+- **Web3 section** (new): blockchains, keys, tokens and smart contracts, with recall questions on each note.
+- **Blockchain Fundamentals**: hash chains, Proof of Work vs Proof of Stake, UTXO vs account models, finality and node types.
+- **Keys, Wallets and Signatures**: private key to address, signing, seed phrases and HD wallets, custody options and safe habits.
+- **Cryptocurrencies and Tokens**: coins vs tokens, gas, ERC standards, stablecoins, DeFi building blocks, layer 2 and bridges.
+- **Smart Contracts**: how the EVM runs code, a Solidity example, Foundry tooling, deployment checklist and upgradeability.
+- **Smart Contract Security**: reentrancy, access control, oracle manipulation, signature and approval risks, MEV, and a pre-launch process.
+- **Web3 Development Workflow**: RPC, client libraries, wallets, events and indexing, IPFS, ENS and sign-in with Ethereum.
+
 ## Business
 - **Business section** (new): study notes for running a small services or software business, filed by subject, each crediting its source books, with recall questions and a one-page frameworks cheat sheet.
 - **Foundations**: how a business works as a whole (the five parts, value, markets, marketing, sales, delivery, finance), what a formal business education teaches, and mental models for thinking, working with others and improving systems.

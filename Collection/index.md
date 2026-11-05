@@ -56,6 +56,10 @@ Welcome to this dynamic site, filled with a **wealth of knowledge** across vario
 
     Strategy, finance, pricing, sales and management for running a business.
 
+- :material-ethereum: **[Web3](<13. Web3/1. Web3 Start Here.md>)**
+
+    Blockchains, keys and wallets, crypto, smart contracts and their security.
+
 </div>
 
 Some sections go **deep** into specialised topics; others are quick overviews. Feel free to explore.
