@@ -19,6 +19,12 @@ NOTE- not all notes are shared publicly, thus some files will be visible on the 
 - **Bitcoin Internals**: transaction anatomy, Script, address types, SegWit and Taproot, block headers, Bitcoin Core and Lightning.
 - **MEV and Transaction Ordering**: searchers, builders and relays, sandwich attacks, private order flow and protocol-level defences.
 - **Node Operation and Infrastructure**: execution and consensus clients, a Docker Compose example, ports and hardening, monitoring and validators.
+- **Contract Testing and Auditing**: unit, fuzz, invariant and fork tests in Foundry, static analysis and formal tools, audit preparation and a reviewer checklist.
+- **On-Chain Forensics and Reverse Engineering**: reading transactions and traces with cast, storage layout and proxy slots, bytecode and decompilers, incident response and following funds.
+- **Exploit Case Studies**: The DAO, Parity, Wormhole, Ronin, Nomad, Beanstalk, Mango, Euler and Bybit, grouped by root cause.
+- **DeFi Mechanics and Risks**: AMM maths and impermanent loss, lending and liquidation, perpetuals, ERC-4626 vaults, stablecoins and attacks by primitive.
+- **Oracles and Cross-Chain Messaging**: push, pull and TWAP oracles, safe price-feed reads, randomness, bridge verification models and a receiver checklist.
+- **Decentralised Storage**: content addressing, IPFS pinning, Arweave and Filecoin, NFT metadata and security considerations.
 
 ## Business
 - **Business section** (new): study notes for running a small services or software business, filed by subject, each crediting its source books, with recall questions and a one-page frameworks cheat sheet.
