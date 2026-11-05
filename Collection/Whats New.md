@@ -5,6 +5,32 @@ NOTE- not all notes are shared publicly, thus some files will be visible on the 
 
 ---
 
+## Web3
+- **Web3 section** (new): blockchains, keys, tokens and smart contracts, with recall questions on each note.
+- **Blockchain Fundamentals**: hash chains, Proof of Work vs Proof of Stake, UTXO vs account models, finality and node types.
+- **Keys, Wallets and Signatures**: private key to address, signing, seed phrases and HD wallets, custody options and safe habits.
+- **Cryptocurrencies and Tokens**: coins vs tokens, gas, ERC standards, stablecoins, DeFi building blocks, layer 2 and bridges.
+- **Smart Contracts**: how the EVM runs code, a Solidity example, Foundry tooling, deployment checklist and upgradeability.
+- **Smart Contract Security**: reentrancy, access control, oracle manipulation, signature and approval risks, MEV, and a pre-launch process.
+- **Web3 Development Workflow**: RPC, client libraries, wallets, events and indexing, IPFS, ENS and sign-in with Ethereum.
+- **DAOs and Governance**: Governor lifecycle, voting power and delegation, timelocks, treasury roles and governance attacks.
+- **Zero-Knowledge Proofs**: completeness, soundness and zero-knowledge, SNARK vs STARK, trusted setup, circuits with Circom, and under-constrained circuit bugs.
+- **Non-EVM Chains**: Solana accounts and PDAs, Cosmos and IBC, Move resources, Cardano eUTXO, with a comparison table.
+- **Bitcoin Internals**: transaction anatomy, Script, address types, SegWit and Taproot, block headers, Bitcoin Core and Lightning.
+- **MEV and Transaction Ordering**: searchers, builders and relays, sandwich attacks, private order flow and protocol-level defences.
+- **Node Operation and Infrastructure**: execution and consensus clients, a Docker Compose example, ports and hardening, monitoring and validators.
+- **Contract Testing and Auditing**: unit, fuzz, invariant and fork tests in Foundry, static analysis and formal tools, audit preparation and a reviewer checklist.
+- **On-Chain Forensics and Reverse Engineering**: reading transactions and traces with cast, storage layout and proxy slots, bytecode and decompilers, incident response and following funds.
+- **Exploit Case Studies**: The DAO, Parity, Wormhole, Ronin, Nomad, Beanstalk, Mango, Euler and Bybit, grouped by root cause.
+- **DeFi Mechanics and Risks**: AMM maths and impermanent loss, lending and liquidation, perpetuals, ERC-4626 vaults, stablecoins and attacks by primitive.
+- **Oracles and Cross-Chain Messaging**: push, pull and TWAP oracles, safe price-feed reads, randomness, bridge verification models and a receiver checklist.
+- **Decentralised Storage**: content addressing, IPFS pinning, Arweave and Filecoin, NFT metadata and security considerations.
+- **EVM Bytecode and Low-Level Analysis**: stack, memory and storage, call opcodes, CREATE2 addresses, creation vs runtime code, dispatcher patterns and metadata trailers.
+- **Tracing and On-Chain Analytics Tooling**: RPC log queries, debug and trace APIs, callTracer and prestateTracer, SQL warehouses, scripts and forks.
+- **Fund Tracing and Attribution**: transaction graphs, Bitcoin clustering heuristics, obfuscation techniques, confidence levels and evidence handling.
+- **Wallet Drainers and Token Scam Analysis**: approval and permit drainers, address poisoning, safe site analysis, honeypot and rug-pull checks and recovery steps.
+- **Incident Response and Post-Mortems**: a prepare, detect, contain, investigate, recover playbook, communication and a post-mortem template.
+
 ## Business
 - **Business section** (new): study notes for running a small services or software business, filed by subject, each crediting its source books, with recall questions and a one-page frameworks cheat sheet.
 - **Foundations**: how a business works as a whole (the five parts, value, markets, marketing, sales, delivery, finance), what a formal business education teaches, and mental models for thinking, working with others and improving systems.
