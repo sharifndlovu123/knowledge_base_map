@@ -1,6 +1,6 @@
 nav:
   - "1. Web3 Start Here.md"
-  - "2. Blockchain Fundamentals.md"
+  - "Blockchain": "02. Blockchain"
   - "3. Keys, Wallets and Signatures.md"
   - "4. Cryptocurrencies and Tokens.md"
   - "5. Smart Contracts.md"
@@ -23,5 +23,3 @@ nav:
   - "22. Fund Tracing and Attribution.md"
   - "23. Wallet Drainers and Token Scam Analysis.md"
   - "24. Incident Response and Post-Mortems.md"
-  - "25. What Travels the Chain.md"
-  - "26. How the Chain Moves.md"
