@@ -6,6 +6,7 @@ NOTE- not all notes are shared publicly, thus some files will be visible on the 
 ---
 
 ## Web3
+- **Chaining in depth**: a PDU-style byte layout of Bitcoin and Ethereum transactions, block headers, receipts and P2P messages, plus how the chain moves (a runnable toy chain, transaction and block propagation, compact blocks, reorgs, light clients). Two new notes, 25 and 26.
 - **Web3 section** (new): blockchains, keys, tokens and smart contracts, with recall questions on each note.
 - **Blockchain Fundamentals**: hash chains, Proof of Work vs Proof of Stake, UTXO vs account models, finality and node types.
 - **Keys, Wallets and Signatures**: private key to address, signing, seed phrases and HD wallets, custody options and safe habits.
@@ -30,9 +31,6 @@ NOTE- not all notes are shared publicly, thus some files will be visible on the 
 - **Fund Tracing and Attribution**: transaction graphs, Bitcoin clustering heuristics, obfuscation techniques, confidence levels and evidence handling.
 - **Wallet Drainers and Token Scam Analysis**: approval and permit drainers, address poisoning, safe site analysis, honeypot and rug-pull checks and recovery steps.
 - **Incident Response and Post-Mortems**: a prepare, detect, contain, investigate, recover playbook, communication and a post-mortem template.
-
-## Programming
-- **Web3** (new): blockchain fundamentals (blocks, hash chaining, Merkle trees, forks, proof of work vs stake), a PDU-style field-by-field layout of what travels the chain (Bitcoin and Ethereum transactions, block headers, P2P messages, receipts), and how the chain moves (a runnable toy chain, transaction and block propagation, reorgs, light clients).
 
 ## Business
 - **Business section** (new): study notes for running a small services or software business, filed by subject, each crediting its source books, with recall questions and a one-page frameworks cheat sheet.
