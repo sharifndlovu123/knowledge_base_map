@@ -206,12 +206,96 @@ tmp=$(mktemp -d)           # a private temporary directory
 trap 'rm -rf "$tmp"' EXIT  # always clean up, even on failure
 ```
 
+### `set` options
+
+`set -X` turns an option on and `set +X` turns it off (the sign is backwards from what you'd expect). Long form: `set -o name` / `set +o name`. Run `set -o` to list every option and its state, and `echo $-` to see the short flags currently active.
+
+| Short | Long name | Effect |
+| ----- | --------- | ------ |
+| `-e` | `errexit` | Exit when a command fails. Not triggered inside `if`/`while` conditions, `&&`/`\|\|` lists, or `!` |
+| `-u` | `nounset` | Error on an unset variable (catches typos) |
+| | `pipefail` | A pipeline fails if **any** part fails, not just the last |
+| `-E` | `errtrace` | `ERR` traps are inherited by functions, command substitutions and subshells |
+| `-x` | `xtrace` | Print each command (after expansion) as it runs; prefix set by `PS4` |
+| `-v` | `verbose` | Print each input line as it is read, before expansion |
+| `-n` | `noexec` | Read commands but don't run them (syntax check only). Ignored by interactive shells |
+| `-C` | `noclobber` | `>` refuses to overwrite an existing file; use `>\|` to force |
+| `-f` | `noglob` | Disable filename globbing, so `*` stays literal |
+| `-a` | `allexport` | Export every variable assigned from now on |
+| `-b` | `notify` | Report background job status immediately |
+| `-T` | `functrace` | `DEBUG` and `RETURN` traps are inherited by functions, command substitutions and subshells |
+| `-H` | `histexpand` | Enable `!` history expansion (on in interactive shells) |
+| `-m` | `monitor` | Job control (on in interactive shells) |
+| `-h` | `hashall` | Remember command locations (on by default) |
+| `-B` | `braceexpand` | Enable `{a,b}` expansion (on by default) |
+| `-P` | `physical` | `cd` and `pwd` resolve symlinks to real paths |
+| `-p` | `privileged` | Privileged mode: ignores `$ENV`/`$BASH_ENV`, doesn't import functions |
+| `-t` | | Exit after reading and running one command |
+| `-k` | `keyword` | Put `name=value` assignments anywhere on a command line into its environment (obsolete) |
+| | `ignoreeof` | Don't exit on a single Ctrl-D (interactive) |
+| | `posix` | Follow POSIX behaviour where it differs from default Bash |
+| | `emacs` / `vi` | Line-editing mode (interactive) |
+| | `history` | Enable command history |
+| | `interactive-comments` | Allow `#` comments in interactive shells (on by default) |
+| | `onecmd` | Same as `-t` |
+| `--` | | Treat the remaining arguments as positional parameters: `set -- a b c` sets `$1 $2 $3` |
+
+**Common combinations**
+- `set -euo pipefail`: the safe-script baseline.
+- `set -euxo pipefail`: the same, plus a trace. Good for CI jobs.
+- `bash -n script.sh`: syntax check without running (same as `set -n`).
+- `bash -x script.sh`: trace one run without editing the file.
+- Scope a trace: `set -x; risky_command; set +x`.
+
+**Gotchas**
+- `set -e` is full of exceptions. `cmd || true` swallows a failure on purpose, and a failure inside a function called from an `if` is ignored. Don't treat it as complete error handling; add explicit checks for steps that matter.
+- `set -u` makes any unset variable an error, including optional ones such as `$1` when no argument was given. Use a default: `"${1:-}"`. The special parameters `@` and `*` are exempt.
+- Without `pipefail`, `false | true` has exit status 0. `grep` with no match returns 1, which `-e` + `pipefail` will treat as fatal, so guard it: `grep pat file || true`.
+- Command substitutions don't inherit `-e` unless you set `shopt -s inherit_errexit` (Bash 4.4+).
+
+### `shopt` options
+
+`shopt` controls Bash-specific behaviour that `set` doesn't cover. `shopt -s name` enables, `shopt -u name` disables, and plain `shopt` lists all with their state.
+
 | Option | Effect |
 | ------ | ------ |
-| `set -e` | Exit when a command fails |
-| `set -u` | Error on an unset variable (catches typos) |
-| `set -o pipefail` | A pipeline fails if **any** part fails, not just the last |
-| `set -x` | Print each command as it runs (debugging) |
+| `inherit_errexit` | Command substitutions `$(...)` inherit `set -e` (otherwise they run with it off). Also on in POSIX mode |
+| `globstar` | `**` matches files and directories recursively |
+| `nullglob` | A pattern with no match expands to nothing (default: stays literal) |
+| `failglob` | A pattern with no match is an error |
+| `dotglob` | `*` also matches hidden files (names starting with `.`) |
+| `nocaseglob` | Case-insensitive globbing |
+| `nocasematch` | Case-insensitive matching in `case` and `[[ == ]]` / `=~` |
+| `extglob` | Extended patterns: `?(a)`, `*(a)`, `+(a)`, `@(a\|b)`, `!(a)` |
+| `lastpipe` | Run the last command of a pipeline in the current shell, so `... \| read var` keeps `var` (needs job control off, as in scripts) |
+| `expand_aliases` | Expand aliases (on in interactive shells, off in scripts unless enabled) |
+| `sourcepath` | `source` searches `$PATH` for the file (on by default) |
+| `shift_verbose` | `shift` prints an error if the count is too large |
+| `execfail` | A non-interactive shell doesn't exit if `exec` fails |
+| `huponexit` | Send `SIGHUP` to jobs when an interactive login shell exits |
+| `checkjobs` | Warn about running jobs before an interactive shell exits |
+| `checkwinsize` | Update `LINES` and `COLUMNS` after each command (on by default) |
+| `autocd` | Typing a directory name `cd`s into it (interactive) |
+| `cdspell` / `dirspell` | Correct minor typos in `cd` arguments / directory completion (interactive) |
+| `histappend` | Append to the history file instead of overwriting it on exit |
+| `cmdhist` | Save multi-line commands as one history entry (on by default) |
+| `histverify` | Show a `!` history expansion for editing before running it |
+| `globskipdots` | Globs never match `.` and `..` (on by default) |
+| `patsub_replacement` | `&` in a `${var//pat/repl}` replacement stands for the matched text (on by default) |
+| `cdable_vars` | `cd name` uses the variable `$name` if `name` isn't a directory |
+| `localvar_inherit` | A `local` variable starts with the value of the same-named variable from an outer scope |
+| `varredir_close` | Close file descriptors opened with `{fd}` redirection when the command ends |
+| `compat31` ... `compat44` | Behave like an older Bash version, for old scripts |
+| `xpg_echo` | `echo` interprets backslash escapes by default |
+| `extdebug` | Debugger hooks, used by `bashdb` |
+
+**Typical script header**
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+shopt -s inherit_errexit nullglob   # nullglob: an empty *.log loop runs zero times, not once with a literal "*.log"
+```
 
 **Habits**
 - Quote every variable: `"$var"`, `"${array[@]}"`.
@@ -284,3 +368,8 @@ More tools: [[Basic Commands]], [[Toolset]], [[Grep]].
 - [[Powershell]]: the equivalent on Windows.
 - [[09. REGEX Cheat List|Regex Cheat List]], [[Grep]], [[22. Automation|Automation]].
 - Hardening your shell access: [[Server Hardening with SSH, UFW and Fail2ban]].
+
+## External references
+
+- [GNU Bash Reference Manual: The Set Builtin](https://www.gnu.org/software/bash/manual/html_node/The-Set-Builtin.html)
+- [GNU Bash Reference Manual: The Shopt Builtin](https://www.gnu.org/software/bash/manual/html_node/The-Shopt-Builtin.html)
