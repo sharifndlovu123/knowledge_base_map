@@ -6,7 +6,7 @@ NOTE- not all notes are shared publicly, thus some files will be visible on the 
 ---
 
 ## Web3
-- **Chaining in depth**: a PDU-style byte layout of Bitcoin and Ethereum transactions, block headers, receipts and P2P messages, plus how the chain moves (a runnable toy chain, transaction and block propagation, compact blocks, reorgs, light clients). Both sit in a new **Blockchain** sub-section with Blockchain Fundamentals.
+- **Chaining in depth**: a PDU-style byte layout of Bitcoin and Ethereum transactions, block headers, receipts and P2P messages, plus how the chain moves (a runnable toy chain, transaction and block propagation, compact blocks, reorgs, light clients). Both sit in a new **Blockchain** sub-section with Blockchain Fundamentals and Bitcoin Internals.
 - **Web3 section** (new): blockchains, keys, tokens and smart contracts, with recall questions on each note.
 - **Blockchain Fundamentals**: hash chains, Proof of Work vs Proof of Stake, UTXO vs account models, finality and node types.
 - **Keys, Wallets and Signatures**: private key to address, signing, seed phrases and HD wallets, custody options and safe habits.
