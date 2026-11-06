@@ -31,6 +31,9 @@ NOTE- not all notes are shared publicly, thus some files will be visible on the 
 - **Wallet Drainers and Token Scam Analysis**: approval and permit drainers, address poisoning, safe site analysis, honeypot and rug-pull checks and recovery steps.
 - **Incident Response and Post-Mortems**: a prepare, detect, contain, investigate, recover playbook, communication and a post-mortem template.
 
+## Programming
+- **Web3** (new): blockchain fundamentals (blocks, hash chaining, Merkle trees, forks, proof of work vs stake), a PDU-style field-by-field layout of what travels the chain (Bitcoin and Ethereum transactions, block headers, P2P messages, receipts), and how the chain moves (a runnable toy chain, transaction and block propagation, reorgs, light clients).
+
 ## Business
 - **Business section** (new): study notes for running a small services or software business, filed by subject, each crediting its source books, with recall questions and a one-page frameworks cheat sheet.
 - **Foundations**: how a business works as a whole (the five parts, value, markets, marketing, sales, delivery, finance), what a formal business education teaches, and mental models for thinking, working with others and improving systems.
