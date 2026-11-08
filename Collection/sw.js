@@ -10,7 +10,7 @@
    because the browser refuses to answer a page navigation with a redirected response.
 
    Bump VERSION to drop everything cached by older workers. */
-var VERSION = "kb-v2";
+var VERSION = "kb-v3";
 var CACHE = VERSION + "-pages";
 // Cloudflare serves offline.html at /offline; a plain static server serves it at /offline.html
 var OFFLINE = ["/offline", "/offline.html"];

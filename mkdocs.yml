@@ -160,7 +160,8 @@ extra_javascript:
 extra:
   # Used by overrides/main.html for search-engine metadata (Open Graph, JSON-LD). Edit here, not in the template.
   seo:
-    og_image: assets/icons/icon-512.png
+    og_image: assets/og-card.png        # 1200x630 share card (face + name)
+    person_image: assets/icons/icon-512.png
     locale: en_ZA
     person:
       name: Sharif Sule Ndlovu
