@@ -1,6 +1,8 @@
 # for configuration
 # themes, bootstrap386, material, simple-blog 
-site_name: My Knowledge Base
+site_name: "Sharif Ndlovu's Knowledge Hub"
+site_description: "Personal knowledge base of Sharif Ndlovu, Cloud Infrastructure & DevOps Engineer in Pretoria: notes on Linux, networking, cloud, DevOps, security, AI and Web3."
+site_author: Sharif Sule Ndlovu
 docs_dir: 'Collection' 
 
 # repo_url: https://github.com/sharifndlovu123/knowledge_base_map
@@ -156,6 +158,25 @@ extra_javascript:
 #   - "https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.0/mermaid.min.js"
 
 extra:
+  # Used by overrides/main.html for search-engine metadata (Open Graph, JSON-LD). Edit here, not in the template.
+  seo:
+    og_image: assets/og-card.png        # 1200x630 share card (face + name)
+    person_image: assets/icons/icon-512.png
+    locale: en_ZA
+    person:
+      name: Sharif Sule Ndlovu
+      alternate_names: [Sharif Ndlovu]
+      job_title: Cloud Infrastructure & DevOps Engineer
+      locality: Pretoria
+      country: ZA
+      works_for: DevBridge
+      url: https://portfolio.devbridge.co.za
+      same_as:
+        - https://portfolio.devbridge.co.za
+        - https://github.com/sharifndlovu123
+        - https://www.linkedin.com/in/sharif-ndlovu-3b54a2275/
+      alumni_of: [Varsity College, University of Pretoria]
+      knows_about: [AWS, Azure, DevOps, Kubernetes, Docker, Linux, Django, Python, Networking, Web3]
   analytics:
     provider: google
     property: !ENV GOOGLE_ANALYTICS_KEY

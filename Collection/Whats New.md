@@ -1,3 +1,8 @@
+---
+description: "What's new in Sharif Ndlovu's Knowledge Hub: the latest notes and sections added."
+---
+# What's New
+
 
 New additions are tracked using Git.
 NOTE- not all notes are shared publicly, thus some files will be visible on the git repo but not on the site.
