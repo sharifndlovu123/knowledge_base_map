@@ -1,6 +1,6 @@
 ---
-title: "Sharif Ndlovu | Cloud & DevOps Engineer, Pretoria"
-description: "Sharif Sule Ndlovu is a Cloud Infrastructure & DevOps Engineer in Pretoria, South Africa, and founder of DevBridge. Skills, projects and notes."
+title: "Sharif Sule Ndlovu | Cloud & DevOps Engineer, Pretoria"
+description: "Sharif Sule Ndlovu (Sharif Ndlovu) is a Cloud Infrastructure & DevOps Engineer in Pretoria, South Africa, and founder of DevBridge."
 ---
 <div class="about-hero" markdown>
 

@@ -1,5 +1,5 @@
 ---
-description: "What's new on Sharif Ndlovu's Knowledge Hub: the latest notes and sections added across Linux, cloud, DevOps, security, AI and Web3."
+description: "What's new in Sharif Ndlovu's Knowledge Hub: the latest notes and sections added."
 ---
 # What's New
 

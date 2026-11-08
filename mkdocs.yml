@@ -1,7 +1,7 @@
 # for configuration
 # themes, bootstrap386, material, simple-blog 
 site_name: "Sharif Ndlovu's Knowledge Hub"
-site_description: "Sharif Ndlovu's personal technical knowledge base: Linux, networking, cloud (AWS, Azure), DevOps, Kubernetes, security, AI and Web3 notes, built from hands-on work."
+site_description: "Personal knowledge base of Sharif Ndlovu, Cloud Infrastructure & DevOps Engineer in Pretoria: notes on Linux, networking, cloud, DevOps, security, AI and Web3."
 site_author: Sharif Sule Ndlovu
 docs_dir: 'Collection' 
 
@@ -174,6 +174,7 @@ extra:
         - https://portfolio.devbridge.co.za
         - https://github.com/sharifndlovu123
         - https://www.linkedin.com/in/sharif-ndlovu-3b54a2275/
+      alumni_of: [Varsity College, University of Pretoria]
       knows_about: [AWS, Azure, DevOps, Kubernetes, Docker, Linux, Django, Python, Networking, Web3]
   analytics:
     provider: google

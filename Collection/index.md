@@ -1,6 +1,6 @@
 ---
-title: "Sharif Ndlovu's Knowledge Hub: Linux, Cloud, DevOps & Web3 Notes"
-description: "Sharif Ndlovu's technical knowledge base: hands-on notes on Linux, networking, AWS and Azure cloud, DevOps, Kubernetes, security, AI and Web3."
+title: "Sharif Ndlovu | Cloud & DevOps Engineer | Knowledge Hub"
+description: "Personal knowledge base of Sharif Ndlovu, Cloud Infrastructure & DevOps Engineer in Pretoria: notes on Linux, networking, cloud, DevOps, security, AI and Web3."
 ---
 # Sharif Ndlovu's Knowledge Hub
 
