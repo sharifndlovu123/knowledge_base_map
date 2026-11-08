@@ -1,7 +1,136 @@
 {% extends "base.html" %}
 
+{#- ===== SEO helpers (config lives in mkdocs.yml: site_description, site_author, extra.seo) ===== -#}
+
+{#- Page title without the "NN. " numbering used in file names, e.g. "01. Web3 Start Here" -> "Web3 Start Here".
+    Zensical's template engine (MiniJinja) has no string methods, so only filters, tests and slicing are used here. -#}
+{% macro seo_page_title() -%}
+  {%- set t = page.title | default('') | striptags -%}
+  {%- if t | length > 4 and t[2:4] == '. ' and t[0:1] in '0123456789' and t[1:2] in '0123456789' -%}{%- set t = t[4:] -%}
+  {%- elif t | length > 3 and t[1:3] == '. ' and t[0:1] in '0123456789' -%}{%- set t = t[3:] -%}{%- endif -%}
+  {{- t -}}
+{%- endmacro %}
+
+{#- Description: front-matter `description`, else the start of the page body (after the H1), else the site description -#}
+{% macro seo_description() -%}
+  {%- if page.meta and page.meta.description -%}
+    {{- page.meta.description -}}
+  {%- else -%}
+    {#- first paragraphs only, so code blocks, diagrams and tables never leak into the snippet -#}
+    {%- set body = page.content | default('') | split('</h1>') | list | last -%}
+    {%- set ns = namespace(text='') -%}
+    {%- for chunk in (body | split('<p>') | list)[1:6] -%}
+      {%- if ns.text | length < 158 -%}
+        {%- set ns.text = ns.text ~ ' ' ~ (chunk | split('</p>') | list | first | striptags) -%}
+      {%- endif -%}
+    {%- endfor -%}
+    {%- set d = ns.text | replace('¶', ' ') | split | list | join(' ') -%}
+    {#- no usable paragraph (page starts with a list or table): use the text before the first code block -#}
+    {%- if d | length < 40 -%}
+      {%- set d = body | split('<pre') | list | first | striptags | replace('¶', ' ') | split | list | join(' ') -%}
+    {%- endif -%}
+    {%- if d | length > 158 -%}{{- (d[:158] | split | list)[:-1] | join(' ') -}}…{%- elif d | length > 40 -%}{{- d -}}{%- else -%}{{- config.site_description -}}{%- endif -%}
+  {%- endif -%}
+{%- endmacro %}
+
+{#- Canonical URL without ".html" (the site is served at extensionless URLs); the home page canonicalises to "/" -#}
+{% macro seo_is_home() -%}{{- 'yes' if page.url == 'index.html' or page.url == '' else '' -}}{%- endmacro %}
+{% macro seo_is_about() -%}{{- 'yes' if page.url == 'About.html' else '' -}}{%- endmacro %}
+
+{% macro seo_canonical() -%}
+  {%- set u = page.canonical_url | default('') -%}
+  {%- if u is endingwith('/index.html') -%}{{- u[:-10] -}}
+  {%- elif u is endingwith('.html') -%}{{- u[:-5] -}}
+  {%- else -%}{{- u -}}{%- endif -%}
+{%- endmacro %}
+
+{% block site_meta %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="{{ seo_description() | trim | e }}">
+  <meta name="author" content="{{ config.site_author | e }}">
+  {% if page.canonical_url %}<link rel="canonical" href="{{ seo_canonical() | trim }}">{% endif %}
+  {% if page.previous_page %}<link rel="prev" href="{{ page.previous_page.url | url }}">{% endif %}
+  {% if page.next_page %}<link rel="next" href="{{ page.next_page.url | url }}">{% endif %}
+  {% set href = config.theme.favicon | d("assets/images/favicon.png") %}
+  <link rel="icon" href="{{ href | url }}">
+  <meta name="generator" content="{{ generator }}">
+{% endblock %}
+
+{#- Title: "Page - Site name"; pages with a front-matter `title` (Home, About) use it as the complete title -#}
+{% block htmltitle %}
+  {% if page.meta and page.meta.title %}
+    <title>{{ page.meta.title | e }}</title>
+  {% elif page.title and not (seo_is_home() | trim) %}
+    <title>{{ seo_page_title() | trim | e }} - {{ config.site_name | e }}</title>
+  {% else %}
+    <title>{{ config.site_name | e }}</title>
+  {% endif %}
+{% endblock %}
+
 {% block extrahead %}
   {{ super() }}
+  {# ----- Search / social metadata ----- #}
+  {% set seo = config.extra.seo %}
+  {% set person = seo.person %}
+  {% set site_root = config.site_url | trim('/') %}
+  {% set is_about = (seo_is_about() | trim) != '' %}
+  {% set is_home = (seo_is_home() | trim) != '' %}
+  {% set page_url = seo_canonical() | trim %}
+  {% set page_title = (page.meta.title if page.meta and page.meta.title else (config.site_name if is_home else seo_page_title() | trim)) %}
+  {% set page_desc = seo_description() | trim %}
+  <meta property="og:site_name" content="{{ config.site_name | e }}">
+  <meta property="og:type" content="{{ 'profile' if is_about else ('website' if is_home else 'article') }}">
+  <meta property="og:title" content="{{ page_title | e }}">
+  <meta property="og:description" content="{{ page_desc | e }}">
+  <meta property="og:url" content="{{ page_url }}">
+  <meta property="og:image" content="{{ site_root }}/{{ seo.og_image }}">
+  <meta property="og:locale" content="{{ seo.locale }}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ page_title | e }}">
+  <meta name="twitter:description" content="{{ page_desc | e }}">
+  <meta name="twitter:image" content="{{ site_root }}/{{ seo.og_image }}">
+  {% set person_ld = {
+    "@type": "Person",
+    "@id": site_root ~ "/#person",
+    "name": person.name,
+    "alternateName": person.alternate_names,
+    "jobTitle": person.job_title,
+    "url": person.url,
+    "image": site_root ~ "/" ~ seo.og_image,
+    "address": {"@type": "PostalAddress", "addressLocality": person.locality, "addressCountry": person.country},
+    "worksFor": {"@type": "Organization", "name": person.works_for},
+    "sameAs": person.same_as,
+    "knowsAbout": person.knows_about
+  } %}
+  {% set site_ld = {
+    "@type": "WebSite",
+    "@id": site_root ~ "/#website",
+    "url": site_root ~ "/",
+    "name": config.site_name,
+    "description": config.site_description,
+    "inLanguage": "en",
+    "author": {"@id": site_root ~ "/#person"},
+    "publisher": {"@id": site_root ~ "/#person"}
+  } %}
+  {% if is_home %}
+    {% set graph = [site_ld, person_ld] %}
+  {% elif is_about %}
+    {% set graph = [site_ld, {"@type": "ProfilePage", "url": page_url, "name": page_title, "mainEntity": {"@id": site_root ~ "/#person"}}, person_ld] %}
+  {% else %}
+    {% set graph = [{
+      "@type": "TechArticle",
+      "headline": page_title,
+      "description": page_desc,
+      "url": page_url,
+      "mainEntityOfPage": page_url,
+      "inLanguage": "en",
+      "author": {"@id": site_root ~ "/#person"},
+      "isPartOf": {"@id": site_root ~ "/#website"}
+    }, {"@type": "WebSite", "@id": site_root ~ "/#website", "url": site_root ~ "/", "name": config.site_name},
+    {"@type": "Person", "@id": site_root ~ "/#person", "name": person.name, "url": person.url}] %}
+  {% endif %}
+  <script type="application/ld+json">{{ {"@context": "https://schema.org", "@graph": graph} | tojson }}</script>
   {# Installable web app: the manifest and service worker (Collection/sw.js) are served from the site root #}
   <link rel="manifest" href="/manifest.webmanifest">
   <link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">

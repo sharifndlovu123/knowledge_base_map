@@ -1,3 +1,8 @@
+---
+description: "What's new on Sharif Ndlovu's Knowledge Hub: the latest notes and sections added across Linux, cloud, DevOps, security, AI and Web3."
+---
+# What's New
+
 
 New additions are tracked using Git.
 NOTE- not all notes are shared publicly, thus some files will be visible on the git repo but not on the site.

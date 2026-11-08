@@ -18,6 +18,8 @@ zensical build --clean              # output to site/ (gitignored; deployed by C
 
 CI (`.github/workflows/checks.yml`) runs `zensical build --clean` and **fails on any `WARNING`/`ERROR`** (broken links, unresolved `[[wikilinks]]`, bad config). The only tolerated message is the `nav item '...' doesn't match` warning from the `"..."` catch-all in `.nav.yml` files. It also fails if an excluded private folder appears in `site/`, and runs gitleaks. Build locally and check for warnings before committing.
 
+After the build, `python tools/seo_postbuild.py` rewrites `site/sitemap.xml` to extensionless URLs (matching the canonicals) and `python tools/seo_postbuild.py --check` fails if any page lacks a title, meta description or canonical. CI runs both. The hosting build command should be `zensical build --clean && python tools/seo_postbuild.py` so production gets the normalised sitemap.
+
 `python tools/make_pwa_icons.py` regenerates PWA icons from `Collection/assets/face-logo.svg` (needs `cairosvg`; not part of the build).
 
 ## Architecture
@@ -26,6 +28,8 @@ CI (`.github/workflows/checks.yml`) runs `zensical build --clean` and **fails on
 - **Wikilinks** (`[[Page]]`, `[[Page|alias]]`, `[[Page#Heading]]`, `![[image.png]]`) come from the custom Python-Markdown extension `tools/obsidian_links.py` (configured under `markdown_extensions` in `mkdocs.yml`). Targets resolve **by file name anywhere under `Collection/`**, so link to real, unique filenames. Inside a markdown table, escape the alias pipe: `[[Page\|Alias]]`.
 - **Private content is excluded from the site** in two places that must stay in sync: the `exclude` plugin globs and the `obsidian_links` `exclude` list in `mkdocs.yml` (currently `DevBridge/`, `02. Networking/My Roadmap/`, `Frameworks/Django/`). CI asserts those paths never reach `site/`. Such files can still be visible in the git repo.
 - `use_directory_urls: false`, so pages are `page.html`. Mermaid diagrams work via the `pymdownx.superfences` fence. Theme overrides are in `overrides/`; custom CSS/JS (blueprint theme, reading mode, mermaid zoom, PWA) are in `Collection/assets/`.
+- **SEO metadata is generated in `overrides/main.html`** (title without the `NN. ` numbering, per-page meta description taken from the first paragraphs of the page, extensionless canonical, Open Graph/Twitter tags, JSON-LD: `WebSite` + `Person` on Home, `ProfilePage` on About, `TechArticle` elsewhere). Site-wide values (`site_name`, `site_description`, `site_author`, and `extra.seo` with the Person details and OG image) live in `mkdocs.yml`. Zensical renders templates with **MiniJinja, not Jinja2**: no string methods (`.split()`, `.replace()`), no `truncate` filter, `split` returns an iterator (add `| list` before `length`/indexing), no autoescape (add `| e` to every dynamic value in the head), and `page.is_homepage`/`page.file` are undefined (use `page.url`, which is `index.html` for Home).
+- Live-site notes: Cloudflare serves a managed `robots.txt` that replaces `Collection/robots.txt` (no `Sitemap:` line), challenges non-browser clients with a 403, and serves pages at extensionless URLs. Submit the sitemap in Search Console directly.
 - **PWA / service worker:** `Collection/sw.js` caches pages under `VERSION`. Bump `VERSION` to evict old client caches when changing cached assets. `manifest.webmanifest` and `offline.html` live in `Collection/` too.
 - Top-level sections are numbered folders in `Collection/` (`01. Linux`, `02. Networking`, ...), plus `index.md`, `About.md`, `Whats New.md`, `Work In IT.md`.
 
@@ -34,7 +38,7 @@ CI (`.github/workflows/checks.yml`) runs `zensical build --clean` and **fails on
 Some come from `docs/superpowers/specs/2026-11-02-business-collection-design.md`; the rest were settled while adding later sections.
 
 - **Scope:** this is a technical library for learning tech. Do not write tax, legal, regulatory or investment content (e.g. no SARS/tax notes), and keep DevBridge client or finance specifics out of public notes.
-- **Numbering:** files are `N. Title.md` and the first heading is `# NN. Title` (two digits, counted within its own folder, no gaps). No `title:` front matter. Folder names must not end in `.md`. `ls` the whole parent folder before picking a number. Follow neighbouring folders' wikilink style.
+- **Numbering:** files are `N. Title.md` and the first heading is `# NN. Title` (two digits, counted within its own folder, no gaps). No `title:` front matter, except `index.md` and `About.md`, which set `title` and `description` for search results. Folder names must not end in `.md`. `ls` the whole parent folder before picking a number. Follow neighbouring folders' wikilink style.
 - **Style:** terse bullets, tables for comparisons, code blocks only where relevant, filed by subject not by book. Typical note shape: one-line scope, credit callout, "At a glance" table, body, mistakes, `## Recall` with answers in `??? note "Answers"`, `## Links`.
 - **Mermaid pitfalls:** no `<br/>` in labels; quote labels containing parentheses; avoid `quadrantChart`, `mindmap`, and `.-x` arrows; use `(["Queue"])` for rounded nodes (`[[X]]` looks like a wikilink). Draw 2x2 matrices as a table or flowchart.
 - **Images** go in `Collection/assets/`.

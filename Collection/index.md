@@ -1,4 +1,8 @@
-# Welcome to the Knowledge Hub
+---
+title: "Sharif Ndlovu's Knowledge Hub: Linux, Cloud, DevOps & Web3 Notes"
+description: "Sharif Ndlovu's technical knowledge base: hands-on notes on Linux, networking, AWS and Azure cloud, DevOps, Kubernetes, security, AI and Web3."
+---
+# Sharif Ndlovu's Knowledge Hub
 
 Welcome to this dynamic site, filled with a **wealth of knowledge** across various nodes. This site is constantly updated with fresh, relevant content, and I'm happy to share it with you. This is merely a rough draft of original notes gathered to remind myself of brief concepts. These notes were processed through an LLM to format them, fix grammar errors, and improve visibility.
 

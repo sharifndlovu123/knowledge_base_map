@@ -1,3 +1,7 @@
+---
+title: "Sharif Ndlovu | Cloud & DevOps Engineer, Pretoria"
+description: "Sharif Sule Ndlovu is a Cloud Infrastructure & DevOps Engineer in Pretoria, South Africa, and founder of DevBridge. Skills, projects and notes."
+---
 <div class="about-hero" markdown>
 
 ![Sharif Ndlovu](assets/face-logo.svg){ .about-face }
@@ -16,7 +20,7 @@ Founder of **DevBridge**. This site is my running log of what I learn and build.
 
 ## About me
 
-I build scalable, maintainable systems for government and commercial clients: production Django platforms running on AWS. My day-to-day is cloud infrastructure, CI/CD and backend engineering, and I study Azure, networking and Linux alongside it.
+I'm Sharif Sule Ndlovu (Sharif Ndlovu), a Cloud Infrastructure & DevOps Engineer based in Pretoria, South Africa. I build scalable, maintainable systems for government and commercial clients: production Django platforms running on AWS. My day-to-day is cloud infrastructure, CI/CD and backend engineering, and I study Azure, networking and Linux alongside it.
 
 **Education:** BSc in Computer and Application Development (Varsity College), plus a short course in Programming Languages and Artificial Intelligence (University of Pretoria).
 
