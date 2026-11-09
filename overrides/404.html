@@ -1,0 +1,26 @@
+{% extends "main.html" %}
+
+{#- Custom 404 page. Cloudflare serves /404.html for any unknown URL (wrangler.jsonc: not_found_handling "404-page"),
+    so links here are root-absolute. The status is already 404, so search engines will not index it. -#}
+{% block extrahead %}
+  {{ super() }}
+  <meta name="robots" content="noindex">
+{% endblock %}
+
+{% block content %}
+  <article class="md-content__inner md-typeset kb-404">
+    <p class="kb-404__label">Sheet &middot; Error 404</p>
+    <h1>Page not found</h1>
+    <p>That note isn't here. It may have been renamed, moved or never existed, and the link you followed may be out of date.</p>
+    <ul>
+      <li><a href="/">Home</a>: browse every section</li>
+      <li><a href="/Whats%20New">What's New</a>: recently added and moved notes</li>
+      <li>Search: press <kbd>S</kbd> or use the search box above</li>
+    </ul>
+  </article>
+  <style>
+    .kb-404 { padding-top: 2rem; }
+    .kb-404__label { margin: 0; font: 700 .75rem/1 var(--md-code-font, monospace); letter-spacing: .14em; text-transform: uppercase; color: var(--md-accent-fg-color); }
+    .kb-404 h1 { margin-top: .5rem; }
+  </style>
+{% endblock %}
