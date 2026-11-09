@@ -34,6 +34,13 @@ jobs:
             exit 1
           fi
 
+      # Sitemap URLs must match the extensionless canonical URLs, and every page needs a title,
+      # a meta description and a canonical link (see overrides/main.html, tools/seo_postbuild.py)
+      - name: SEO checks
+        run: |
+          python tools/seo_postbuild.py
+          python tools/seo_postbuild.py --check
+
       # Folders listed under the exclude plugin must never reach the published site
       - name: Check private folders are not published
         run: |
